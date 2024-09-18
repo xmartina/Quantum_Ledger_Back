@@ -1,0 +1,13 @@
+#PROTECT SCRIPT GOLD CODERS HYIP MANAGER PRO NOVEMBER 2019
+
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} goldcoders\.com [NC]
+RewriteRule .* - [F]
+
+
+Order Allow,Deny
+Deny from 167.114.188.132
+Deny from 167.114.188.128
+Deny from 167.114.188.143
+Deny from 167.114.188.
+Allow from all
