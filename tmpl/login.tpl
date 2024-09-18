@@ -32,8 +32,8 @@
             <div class="col-lg-6 col-xxl-5">
                 <div class="account__wrapper bg--body">
                     <div class="account-logo">
-                        <a href="{$settings.home_url}">
-                            <img src="{$settings.logo_url}" alt="{$settings.site_name}">
+                        <a href="{$home_url}">
+                            <img src="{$site_logo}" alt="{$site_name}">
                         </a>
                     </div>
                     <form class="account-form" method=post name=mainform onsubmit="return checkform()">

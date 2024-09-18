@@ -1,6 +1,10 @@
 {$home_url = 'https://quantumledger.online/'}
 {$site_url = 'https://account.quantumledger.online/'}
-{$registration_url = '{$site_url}?=signup'}
+{$site_name = 'Quantum Ledger Financial System'}
+{$site_logo = 'https://quantumledger.online/assets/imgs/qfs.png'}
+
+{assign var="registration_url" value="{$site_url}?a=signup"}
+
 
 <html class="js flexbox flexboxlegacy csstransitions" lang="en" style="--base-clr: #f47c3c; --base-bg: linear-gradient(170.04deg, #f47c3c -8.91%, #4c1430 99.52%);">
 <head>
