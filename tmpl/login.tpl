@@ -31,8 +31,8 @@
                 <div class="section__title text--white text-center text-lg-start">
                     <span class="section__cate">Login to Get Started with {$settings.site_name}</span>
                     <h3 class="section__title">Your ease of mind is our priority</h3>
-                    <p>Login into your account with your password or email</p>
-                    <a href="{$settings.home_url}" class="cmn--btn btn-outline btn-sm mt-3"><i class="las la-angle-left"></i>Back to Home</a>
+                    <p>Login into your account with your username and password</p>
+                    <a href="{$site_url}" class="cmn--btn btn-outline btn-sm mt-3"><i class="las la-angle-left"></i>Back to Home</a>
                 </div>
             </div>
             <div class="col-lg-6 col-xxl-5">
@@ -55,7 +55,7 @@
                         {/if}
                         <div class="form--group">
                             <input type="text" name=username value='{$frm.username|escape:"html"}' class="form-control form--control" id="username">
-                            <label for="identity" class="form--label prevent-select">Username or Email</label>
+                            <label for="identity" class="form--label prevent-select">Username </label>
                         </div>
                         <div class="form--group">
                             <input type="password" name="password" value='' class="form-control form--control" id="password">
