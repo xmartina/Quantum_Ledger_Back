@@ -1,4 +1,22 @@
+{$page_name = 'Login'}
 {include file="auth_header.tpl"}
+{literal}
+    <script language=javascript>
+        function checkform() {
+            if (document.mainform.username.value=='') {
+                alert("Please type your username!");
+                document.mainform.username.focus();
+                return false;
+            }
+            if (document.mainform.password.value=='') {
+                alert("Please type your password!");
+                document.mainform.password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+{/literal}
 
 <section class="account-section bg--title" style="border-bottom: 1px solid #5f5f5f">
     <div class="container">
@@ -18,8 +36,10 @@
                             <img src="{$settings.logo_url}" alt="{$settings.site_name}">
                         </a>
                     </div>
-                    <form class="account-form" action="{$settings.login_action_url}" method="post">
-                        <input type="hidden" name="_token" value="{$settings.csrf_token}">
+                    <form class="account-form" method=post name=mainform onsubmit="return checkform()">
+                        <input type=hidden name=a value='do_login'>
+                        <input type=hidden name=follow value='{$frm.follow}'>
+                        <input type=hidden name=follow_id value='{$frm.follow_id}'>
                         {if $errors}
                             <ul style="color:red">
                                 {foreach from=$errors item=error}
@@ -28,27 +48,33 @@
                             </ul>
                         {/if}
                         <div class="form--group">
-                            <input type="text" name="identity" value="" class="form-control form--control" id="username">
+                            <input type="text" name=username value='{$frm.username|escape:"html"}' class="form-control form--control" id="username">
                             <label for="identity" class="form--label prevent-select">Username or Email</label>
                         </div>
                         <div class="form--group">
-                            <input type="password" name="password" class="form-control form--control" id="password">
+                            <input type="password" name="password" value='' class="form-control form--control" id="password">
                             <label for="password" class="form--label prevent-select">Password</label>
                         </div>
                         <div class="form--group checkgroup d-flex flex-row justify-content-between">
+                            {if $ti.check.login}
+                                <tr>
+                                    <td class=menutxt><img src="{"?a=show_validation_image&`$ti.session.name`=`$ti.session.id`&rand=`$ti.session.rand`"|encurl}"></td>
+                                    <td><input type=text name=validation_number class=inpts size=30></td>
+                                </tr>
+                            {/if}
                             <div class="form-check">
                                 <input class="form-check-input form--check-input" type="checkbox" id="check1">
                                 <label class="form-check-label" for="check1">Remember Me</label>
                             </div>
                             <div>
-                                <a href="{$settings.password_reset_url}" class="text--base">Forgot Your Password?</a>
+                                <a href="{"?a=forgot_password"|encurl}" class="text--base">Forgot Your Password?</a>
                             </div>
                         </div>
                         <div class="form--group mb-4">
-                            <button type="submit" class="cmn--btn w-100 justify-content-center text--white border-0">Sign In</button>
+                            <button type=submit value="Login" class="cmn--btn w-100 justify-content-center text--white border-0">Sign In</button>
                         </div>
                         <div class="form--group mb-0 text-center">
-                            Don't have an account? <a href="{$settings.registration_url}" class="text--base">Sign Up</a>
+                            Don't have an account? <a href="{$registration_url}" class="text--base">Sign Up</a>
                         </div>
                     </form>
                 </div>
