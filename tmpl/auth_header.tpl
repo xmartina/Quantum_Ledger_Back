@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{$settings.site_description}">
-    <link rel="shortcut icon" href={$favicon}" type="image/x-icon">
+    <link rel="shortcut icon" href="{$favicon}" type="image/x-icon">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/animate.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/all.min.css">
