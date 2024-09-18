@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/animate.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/all.min.css">
-    <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/assets/frontend/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/lightbox.min.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/odometer.css">
     <link rel="stylesheet" href="https://qfsholdings.io/assets/frontend/css/owl.min.css">
