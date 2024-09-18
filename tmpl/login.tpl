@@ -4,6 +4,7 @@
 {$site_name = 'Quantum Ledger Financial System'}
 {$site_logo = 'https://quantumledger.online/assets/imgs/qfs.png'}
 {assign var="registration_url" value="{$site_url}?a=signup"}
+{assign var="favicon" value="{$home_url}assets/imgs/qfsicon.png"}
 
 {include file="auth_header.tpl"}
 {literal}
