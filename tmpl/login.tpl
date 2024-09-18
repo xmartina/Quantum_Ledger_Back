@@ -29,7 +29,7 @@
         <div class="row justify-content-center flex-wrap-reverse gy-4 align-items-center">
             <div class="col-lg-6 col-xl-5 col-xxl-4">
                 <div class="section__title text--white text-center text-lg-start">
-                    <span class="section__cate">Login to Get Started with {$settings.site_name}</span>
+                    <span class="section__cate">Login to Get Started with {$site_name}</span>
                     <h3 class="section__title">Your ease of mind is our priority</h3>
                     <p>Login into your account with your username and password</p>
                     <a href="{$site_url}" class="cmn--btn btn-outline btn-sm mt-3"><i class="las la-angle-left"></i>Back to Home</a>
