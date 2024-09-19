@@ -11,7 +11,7 @@
 
 {include file="back_header.tpl"}
 <!-- Main Content -->
-<div id="firebase-app" class="main-content">
+<div id="firebase-app" class="main-content" style="min-height: 556px;">
     <section class="section wallet-section">
         <div class="section-header"><h1>Dashboard</h1></div>
     </section>
@@ -37,7 +37,7 @@
     <!-- Main Content -->
     <div class="row">
         <!-- Left Column -->
-        <div class="col-lg-8 mb-4 order-0">
+        <div class="col-lg-12 mb-12 order-0">
             <!-- Welcome Card -->
             <div class="card mb-4">
                 <div class="d-flex align-items-end row">
