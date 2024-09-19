@@ -162,9 +162,13 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="p-5"></div>
+            <div class="row gy-5 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="p-5"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
