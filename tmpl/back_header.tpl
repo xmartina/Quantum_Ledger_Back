@@ -98,7 +98,7 @@
                 <!-- User Profile Menu -->
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                        <img alt="{$userinfo.username}" src="{$user.profile_picture|default:'{$external_base_url}assets/upload/default-avatar.png'}" class="rounded-circle mr-1">
+                        <img alt="{$userinfo.username}" src="{$user.profile_picture|default:'{$base_url}user-avatar.png'}" class="rounded-circle mr-1">
                         <div class="d-sm-none d-lg-inline-block">{$userinfo.username}</div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow-sm">
