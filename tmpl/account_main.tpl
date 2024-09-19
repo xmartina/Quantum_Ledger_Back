@@ -158,7 +158,7 @@
 
                 <ul class="sidebar-menu">
                     <li class="menu-header">Dashboard</li>
-                    <li class="dropdown {if $current_page == 'dashboard'}active{/if}">
+                    <li class="dropdown {if $current_page == 'account'}active{/if}">
                         <a href="{$external_base_url}user/dashboard" class="nav-link">
                             <i class="fas fa-home text-primary"></i><span>Dashboard</span>
                         </a>
