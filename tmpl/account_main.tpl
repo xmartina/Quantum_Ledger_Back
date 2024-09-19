@@ -161,6 +161,12 @@
                     {/if}
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="p-5"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Right Column -->
