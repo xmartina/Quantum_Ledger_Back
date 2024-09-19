@@ -262,3 +262,7 @@
 
             </aside>
         </div>
+        <div id="firebase-app" class="main-content" style="min-height: 556px;">
+            <section class="section wallet-section">
+                <div class="section-header"><h1>{$page_name}</h1></div>
+            </section>
