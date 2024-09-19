@@ -155,7 +155,7 @@
                     </a>
                 </div>
 
-                <ul class="sidebar-menu">
+                <ul class="sidebar-menu py-3">
 {*                    <li class="menu-header">Navigation</li>*}
 
                     <!-- Home Menu Item -->
