@@ -1,0 +1,2592 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://qfsholdings.io/assets/upload/logo/favicon.png" rel="icon">
+    <title>Dashboard | Qfs Holdings</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://qfsholdings.io/assets/dashboard/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://qfsholdings.io/assets/dashboard/modules/fontawesome/css/all.min.css">
+
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="https://qfsholdings.io/assets/dashboard/css/style.css">
+    <link rel="stylesheet" href="https://qfsholdings.io/assets/dashboard/css/components.css">
+
+    <link rel="stylesheet" type="text/css" href="https://qfsholdings.io/assets/dashboard/css/daterangepicker.css">
+    <style type="text/css">/* Chart.js */
+    @keyframes chartjs-render-animation {
+        from {
+            opacity: .99
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    .chartjs-render-monitor {
+        animation: chartjs-render-animation 1ms
+    }
+
+    .chartjs-size-monitor, .chartjs-size-monitor-expand, .chartjs-size-monitor-shrink {
+        position: absolute;
+        direction: ltr;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        pointer-events: none;
+        visibility: hidden;
+        z-index: -1
+    }
+
+    .chartjs-size-monitor-expand > div {
+        position: absolute;
+        width: 1000000px;
+        height: 1000000px;
+        left: 0;
+        top: 0
+    }
+
+    .chartjs-size-monitor-shrink > div {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        left: 0;
+        top: 0
+    }</style>
+    <link rel="stylesheet" href="https://code.jivosite.com/css/86edf34/widget.css" class="jv-css">
+    <link rel="stylesheet" type="text/css" href="https://code.jivosite.com/css/86edf34/omnichannelMenu.widget.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jivosite.com/css/86edf34/chatcontainer.widget.css">
+</head>
+
+<body class="sidebar-gone">
+
+
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <!-- Top Navbar -->
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar">
+
+            <!--------------- Search -------------->
+            <form class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="javascript:void(0)" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+                    <li><a href="javascript:void(0)" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+                </ul>
+                <div class="search-element">
+                    <input class="form-control global-search" type="search" placeholder="Search" aria-label="Search"
+                           data-width="250" style="width: 250px;">
+                    <span class="btn"><i class="fas fa-search"></i></span>
+                    <div class="search-backdrop d-none"></div>
+                    <div class="search-result d-none">
+                        <div class="search-header">
+                            Result
+                        </div>
+                        <div class="content"></div>
+                    </div>
+                </div>
+            </form>
+
+            <ul class="navbar-nav navbar-right">
+                <!--------------- Notifications -------------->
+                <li id="pushNotificationArea" class="dropdown dropdown-list-toggle"><a href="javascript:void(0)" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg"><i class="far fa-bell"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right shadow">
+                        <div class="dropdown-header text-center text-uppercase">Notifications</div>
+                        <div class="notification-panel"></div>
+                        <div class="dropdown-footer text-center align-items-center single-border-top"><a href="javascript:void(0)" class="no-underline text-capitalize">No notification found</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!--------------- User Profile Menu -------------->
+                <li class="dropdown"><a href="javascript:void(0)" data-toggle="dropdown"
+                                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <img alt="Stellar Bressett"
+                         src="https://www.gravatar.com/avatar/5ebd599a9c7432e37ba5e3ecf7bdeb43?s=500&amp;d=mp"
+                         class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block">Stellar Bressett</div>
+                </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow-sm">
+                        <a href="https://qfsholdings.io/user/profile" class="dropdown-item has-icon">
+                            <i class="far fa-user"></i> Profile </a>
+                        <a href="https://qfsholdings.io/user/qr-code" class="dropdown-item has-icon">
+                            <i class="fas fa-qrcode"></i> QR Code </a>
+
+                        <a href="https://qfsholdings.io/user/change-password" class="dropdown-item has-icon">
+                            <i class="fas fa-unlock-alt"></i> Change Password </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="javascript:void(0)" type="button" class="dropdown-item has-icon text-danger"
+                           data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt"></i> Logout </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Start Logout Modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger pb-2" id="logoutModalLabel">Confirmation !</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body logout-body">
+                        Are you sure you want to logout?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <a href="https://qfsholdings.io/user/logout" type="button" class="btn btn-primary" onclick="event.preventDefault();
+			document.getElementById('logout-form').submit();">Logout</a>
+
+                        <form id="logout-form" action="https://qfsholdings.io/user/logout" method="POST" class="d-none">
+                            <input type="hidden" name="_token" value="lBcdanIu5PqPKY57qPJ3543Q0Z0bmLQPvmhvfCuU"></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Logout Modal -->
+        <!-- Sidebar -->
+        <div class="main-sidebar sidebar-style-2 shadow-sm" tabindex="1" style="overflow: hidden; outline: none;">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="https://qfsholdings.io">
+                        <img src="https://qfsholdings.io/assets/upload/logo/logo.png" class="dashboard-logo" alt="Logo">
+                    </a>
+                </div>
+                <div class="sidebar-brand sidebar-brand-sm">
+                    <a href="https://qfsholdings.io">
+                        <img src="https://qfsholdings.io/assets/upload/logo/favicon.png" class="dashboard-logo-sm"
+                             alt="Logo">
+                    </a>
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li class="menu-header">Dashboard</li>
+                    <li class="dropdown  active">
+                        <a href="https://qfsholdings.io/user/dashboard" class="nav-link"><i
+                                class="fas fa-home text-primary"></i><span>Dashboard</span></a>
+                    </li>
+
+                    <li class="menu-header">Manage Content</li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-chart-bar text-green"></i> <span>Investment</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/investment">
+                                    Invest Now </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/investment/log">
+                                    My Investment </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-money-check-alt text-green"></i> <span>Deposit</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/deposit/fund/manual">
+                                    Deposit Now <small></small>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/fund-list">
+                                    Deposit List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-user-friends text-primary"></i> <span>Send Money</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/transfer">
+                                    Send Money </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/transfer-list">
+                                    Transfer List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-search-dollar text-info"></i> <span>Request Money</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/request-money">
+                                    New Request </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/request-money-list">
+                                    All Request </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-exchange-alt text-teal"></i> <span>Exchange</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/exchange">
+                                    Exchange </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/exchange-list">
+                                    All Exchange </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-gift text-orange"></i> <span>Redeem</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/generate-redeem-code">
+                                    Generate New Code </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/redeem-list">
+                                    Generated List </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/insert-redeem-code">
+                                    Insert Redeem Code </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-handshake text-purple"></i> <span>Escrow</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/escrow-create-request">
+                                    Create a request </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/escrow-list">
+                                    Escrow List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="">
+                        <a class="nav-link" href="https://qfsholdings.io/user/dispute-list"><i
+                                class="fa fa-gavel text-danger"></i>
+                            <span>Dispute</span></a>
+                    </li>
+                    <li class="">
+                        <a class="nav-link" href="https://qfsholdings.io/user/qr-payment-list"><i
+                                class="fas fa-qrcode text-success"></i>
+                            <span>QR Payment</span></a>
+                    </li>
+
+
+                    <li class="">
+                        <a class="nav-link" href="https://qfsholdings.io/user/virtual-card_log"><i
+                                class="fas fa-credit-card text-danger"></i>
+                            <span>QFS Card</span></a>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-file-invoice-dollar text-primary"></i> <span>Voucher</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/voucher-create-request">
+                                    Create voucher </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/voucher-list">
+                                    Voucher List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-file-invoice text-primary"></i> <span>Invoice</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/invoice">
+                                    Create Invoice </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/invoice/list">
+                                    Invoice List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="far fa-lightbulb text-danger"></i> <span>Bill</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/pay-bill">
+                                    Pay Bill </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/pay-bill/list">
+                                    Pay List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="far fa-money-bill-alt text-indigo"></i> <span>Withdrawal</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/request-payout">
+                                    Request Withdrawal </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/payout-list">
+                                    Withdrawal List </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown ">
+                        <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
+                            <i class="fas fa-list-ul text-info"></i> <span>More</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/transaction-list">
+                                    Transactions </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/tickets">
+                                    Tickets </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/twostep-security">
+                                    2FA Security </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/security-pin/reset">
+                                    Security PIN </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/security-pin/manage">
+                                    Manage PIN uses </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/commission-list">
+                                    Commission List </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/kyc/verification/center">
+                                    Verification Center </a>
+                            </li>
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/push-notify">
+                                    Push Notify Setting </a>
+                            </li>
+
+                            <li class="">
+                                <a class="nav-link" href="https://qfsholdings.io/user/setting">
+                                    Setting </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+                </div>
+            </aside>
+            <div style="position: fixed !important; z-index: 12000; bottom: 0;">
+                <div id="ytWidget">
+
+                    <style>
+                        @-webkit-keyframes yt-spin {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                            }
+                            100% {
+                                -webkit-transform: rotate(360deg);
+                            }
+                        }
+
+                        @-moz-keyframes yt-spin {
+                            0% {
+                                -moz-transform: rotate(0deg);
+                            }
+                            100% {
+                                -moz-transform: rotate(360deg);
+                            }
+                        }
+
+                        @-o-keyframes yt-spin {
+                            0% {
+                                -o-transform: rotate(0deg);
+                            }
+                            100% {
+                                -o-transform: rotate(360deg);
+                            }
+                        }
+
+                        @keyframes yt-spin {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        #yt-widget,
+                        #yt-widget * {
+                            clip: auto;
+                            font: 14px Arial, Helvetica, sans-serif;
+                            float: none;
+                            width: auto;
+                            color: #222;
+                            height: auto;
+                            margin: 0;
+                            border: 0;
+                            opacity: 1;
+                            z-index: auto;
+                            padding: 0;
+                            outline: 0;
+                            position: static;
+                            overflow: visible;
+                            direction: ltr;
+                            box-shadow: none;
+                            text-align: left;
+                            background: none;
+                            visibility: visible;
+                            text-indent: 0;
+                            text-shadow: none;
+                            word-spacing: normal;
+                            border-radius: 0;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            vertical-align: baseline;
+                            text-decoration: none;
+
+                            -webkit-transform: none;
+                            -moz-transform: none;
+                            -ms-transform: none;
+                            -o-transform: none;
+                            transform: none;
+
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -o-transition: none;
+                            transition: none;
+
+                            -webkit-box-sizing: content-box;
+                            -moz-box-sizing: content-box;
+                            box-sizing: content-box;
+                        }
+
+                        #yt-widget:after,
+                        #yt-widget:before,
+                        #yt-widget *:after,
+                        #yt-widget *:before {
+                            display: none;
+                        }
+
+                        #yt-widget {
+                            display: inline-block;
+                            white-space: nowrap;
+
+                            -webkit-user-select: none;
+                            -moz-user-select: none;
+                            user-select: none;
+
+                            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                        }
+
+                        #yt-widget.yt-state_mobile * {
+                            font-size: 16px;
+                        }
+
+                        #yt-widget .yt-button {
+                            height: 34px;
+                            cursor: pointer;
+                            border: 1px solid #d5d5d5;
+                            padding: 0 8px;
+                            display: inline-block;
+                            position: relative;
+                            background: #fff;
+                            line-height: 34px;
+                            border-radius: 3px;
+                            vertical-align: middle;
+                        }
+
+                        #yt-widget .yt-button:active {
+                            background: #f6f5f3;
+                        }
+
+                        #yt-widget .yt-button_type_left {
+                            padding: 0 8px 0 36px;
+                            border-radius: 3px 0 0 3px;
+                        }
+
+                        #yt-widget .yt-button_type_right {
+                            padding: 0 34px 0 8px;
+                            margin-left: -1px;
+                            border-radius: 0 3px 3px 0;
+                        }
+
+                        #yt-widget .yt-button_type_close {
+                            top: 5px;
+                            right: 5px;
+                            width: 34px;
+                            border: none;
+                            display: none;
+                            padding: 0;
+                            position: fixed;
+                        }
+
+                        #yt-widget.yt-state_mobile .yt-button_type_close {
+                            display: block;
+                        }
+
+                        #yt-widget .yt-button__icon {
+                            top: 0;
+                            width: 34px;
+                            height: 34px;
+                            display: block;
+                            position: absolute;
+                            background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSJub25lIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjY4IiBzdHJva2U9IiNmZmYiPjxkZWZzPjxzeW1ib2wgaWQ9ImEiPjxwYXRoIGQ9Ik0xMSAxNGw2IDYgNi02Ii8+PC9zeW1ib2w+PHN5bWJvbCBpZD0iYyI+PHBhdGggZD0iTTkgMTUuNWw2IDYgMTAtMTAiLz48L3N5bWJvbD48c3ltYm9sIGlkPSJiIj48cGF0aCBkPSJNMTAgMTBsMTQgMTRtMC0xNEwxMCAyNCIvPjwvc3ltYm9sPjxzeW1ib2wgaWQ9ImQiPjxjaXJjbGUgY3g9IjE3IiBjeT0iMTciIHI9IjciLz48cGF0aCBkPSJNMTcgMTN2NW0wIDN2LTIiLz48L3N5bWJvbD48L2RlZnM+PGcgZmlsbD0iI2ZmZiIgc3Ryb2tlPSJub25lIj48Y2lyY2xlIGN4PSIyMS4xMjUiIGN5PSIxMi44NzUiIHI9IjcuODc1IiBmaWxsPSIjMzgzODM4Ii8+PHBhdGggZD0iTTIxLjE4NSAxNS4yMzNjLS4yODctLjU5LS41NjYtMS4zMS0uNzc3LTIuMTU4LjY0Ny0uMjYzIDEuMzEzLS40MDMgMS45My0uNDAzLjE0IDAgLjI4LjAwNy40MTQuMDItLjI1OC43MS0uNjY3IDEuNTA0LTEuMzEzIDIuMjY3LS4wOS4wOS0uMTcuMTgtLjI2LjI3em0tMy4xNjguOWMtLjI4Ni0uNjcuMzM0LTEuNzYzIDEuMzQ0LTIuNDkyLjI2LjkzLjU4IDEuNzIuOTEgMi4zNi0uNjIuNDEtMS4yNS42My0xLjcyLjU1LS4yNi0uMDQtLjQyLS4xNi0uNTMtLjQxem02LjMyNC01LjUwNGgtMS4xNWMtLjAxLjIxLS4wNC41My0uMTEuOTMtLjktLjE0LTEuOTItLjAxLTIuODkuMzUtLjExLS42NS0uMTctMS4yNi0uMjEtMS43OSAzLjQ3LS4yIDUuNTItMS4wNSA1LjYxLTEuMDlsLS40NC0xLjA4Yy0uMDIuMDEtMS45Ni44LTUuMjEuOTktLjAwNS0uODEuMDUtMS4zLjA1LTEuMzJoLTEuMTdjLS4wMi4yMi0uMDUyLjctLjA1IDEuMzZoLS4xMDRjLTEuMDM1IDAtMi0uMDgtMi4yMjYtLjF2MS4xN2MuMzQuMDMgMS4xNjIuMDkzIDIuMDk3LjA5M2guMjg1Yy4wNDUuNjY0LjEzIDEuNDMuMjg2IDIuMjYtMS41NC45Mi0yLjc1NiAyLjcxLTIuMTM1IDQuMTY1LjI2LjYxLjc2NyAxLjAwMiAxLjQyIDEuMTAyLjExLjAxNS4yMjMuMDIzLjM0LjAyMy42NiAwIDEuNDE4LS4yNyAyLjE0LS43My40Ny43MS44NSAxLjA4Ny44OSAxLjEybC43OS0uODVjLS4wMS0uMDA1LS4zNDYtLjMzNS0uNzctLjk4My4xOS0uMTc2LjM3NC0uMzYuNTQ0LS41Ni43Ny0uOTA4IDEuMjQ4LTEuODUgMS41NDYtMi42OS4yNi4xNTIuNTIuMzguNjUyLjcyLjQ2IDEuMTYtLjIwMyAyLjUtLjgzIDMuMDgzbC43OS44NTRjMS4wMzUtLjk3IDEuNzUtMi43OCAxLjExNS00LjM3NS0uMjUtLjYzLS43My0xLjEyLTEuNDAzLTEuNDMuMTEtLjU0LjE0Ni0uOTcuMTYtMS4yNnoiLz48Y2lyY2xlIGN4PSIxMi44NzUiIGN5PSIyMS4xMjUiIHI9IjcuODc1IiBmaWxsPSJyZWQiLz48cGF0aCBkPSJNMTQuMzEgMjEuNTk1aC0yLjg3bDEuNDM1LTMuNjd6bS0uODE1LTUuNjAyaC0xLjI0TDguNCAyNS4zNjNoMS41NzdsLjk0OC0yLjQ5M2gzLjlsLjk0OCAyLjQ5M2gxLjU3N3oiLz48L2c+PGcgb3BhY2l0eT0iLjUiPjx1c2UgeGxpbms6aHJlZj0iI2EiIHg9IjM0IiBzdHJva2U9IiMwMDAiLz48dXNlIHhsaW5rOmhyZWY9IiNhIiB4PSIzNCIgeT0iMzQiLz48dXNlIHhsaW5rOmhyZWY9IiNiIiB4PSI2OCIgc3Ryb2tlPSIjMDAwIi8+PHVzZSB4bGluazpocmVmPSIjYiIgeD0iNjgiIHk9IjM0Ii8+PC9nPjxnIHN0cm9rZS13aWR0aD0iMiI+PHVzZSB4bGluazpocmVmPSIjYyIgeD0iMTAyIiBzdHJva2U9IiNmYzAiLz48dXNlIHhsaW5rOmhyZWY9IiNjIiB4PSIxMDIiIHk9IjM0Ii8+PHVzZSB4bGluazpocmVmPSIjZCIgeD0iMTM2IiBzdHJva2U9IiNmZjczNzMiLz48dXNlIHhsaW5rOmhyZWY9IiNkIiB4PSIxMzYiIHk9IjM0Ii8+PC9nPjwvc3ZnPgo=") no-repeat;
+                        }
+
+                        #yt-widget .yt-button__icon_type_left {
+                            left: 0;
+                        }
+
+                        #yt-widget .yt-button__icon_type_right {
+                            right: 0;
+                            background-position: -34px 0;
+                        }
+
+                        #yt-widget .yt-button_type_close > .yt-button__icon {
+                            background-position: -68px 0;
+                        }
+
+                        #yt-widget.yt-state_busy .yt-button__icon_type_left {
+                            background: none;
+                        }
+
+                        #yt-widget.yt-state_busy .yt-button__icon_type_left:after {
+                            top: 50%;
+                            left: 50%;
+                            clip: rect(auto, auto, 8px, auto);
+                            color: #fc0;
+                            width: 16px;
+                            height: 16px;
+                            margin: -8px 0 0 -8px;
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            box-shadow: 0 0 0 2px inset;
+                            border-radius: 50%;
+
+                            -webkit-animation: yt-spin 0.8s infinite linear;
+                            -moz-animation: yt-spin 0.8s infinite linear;
+                            -o-animation: yt-spin 0.8s infinite linear;
+                            animation: yt-spin 0.8s infinite linear;
+                        }
+
+                        #yt-widget.yt-state_done .yt-button__icon_type_left {
+                            background-position: -102px 0;
+                        }
+
+                        #yt-widget.yt-state_error .yt-button__icon_type_left {
+                            background-position: -136px 0;
+                        }
+
+                        #yt-widget.yt-state_active .yt-button__icon_type_right {
+                            background-position: -68px 0;
+                        }
+
+                        #yt-widget.yt-state_invalid .yt-button_type_left * {
+                            opacity: 0.4;
+                        }
+
+                        #yt-widget.yt-state_expanded .yt-button_type_right {
+                            background-color: #f6f5f3;
+                        }
+
+                        #yt-widget .yt-button_type_right > .yt-button__text {
+                            text-transform: uppercase;
+                        }
+
+                        #yt-widget .yt-wrapper {
+                            position: relative;
+                        }
+
+                        #yt-widget .yt-wrapper_align_right {
+                            text-align: right;
+                            margin-top: 3px;
+                        }
+
+                        #yt-widget .yt-listbox {
+                            border: 1px solid #d5d5d5;
+                            z-index: 999999;
+                            position: absolute;
+                            margin-top: 5px;
+                            background: #fff;
+                            box-shadow: 0 10px 20px -4px rgba(0, 0, 0, 0.1);
+                        }
+
+                        #yt-widget .yt-listbox[hidden] {
+                            display: none;
+                        }
+
+                        #yt-widget.yt-state_right .yt-listbox {
+                            right: 0;
+                        }
+
+                        #yt-widget.yt-state_bottom .yt-listbox {
+                            bottom: 100%;
+                            margin: 0 0 5px;
+                        }
+
+                        #yt-widget.yt-state_mobile .yt-listbox {
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            margin: 0;
+                            border: none;
+                            position: fixed;
+                            overflow-y: auto;
+                            box-shadow: none;
+
+                            -webkit-overflow-scrolling: touch;
+                        }
+
+                        #yt-widget .yt-listbox__col {
+                            display: inline-block;
+                            list-style: none;
+                            vertical-align: top;
+                        }
+
+                        #yt-widget.yt-state_mobile .yt-listbox__col {
+                            display: block;
+                        }
+
+                        #yt-widget .yt-listbox__text,
+                        #yt-widget .yt-listbox__label {
+                            display: block;
+                        }
+
+                        #yt-widget .yt-listbox__text {
+                            cursor: pointer;
+                            padding: 0 8px;
+                            line-height: 34px;
+                        }
+
+                        #yt-widget.yt-state_mobile .yt-listbox__text {
+                            line-height: 44px;
+                        }
+
+                        #yt-widget .yt-listbox__input {
+                            position: absolute;
+                            visibility: hidden;
+                        }
+
+                        #yt-widget .yt-listbox__input:checked ~ .yt-listbox__text {
+                            font-weight: bold;
+                            background-color: #f6f5f3;
+                        }
+
+                        #yt-widget .yt-listbox__text:hover,
+                        #yt-widget .yt-listbox__input:checked ~ .yt-listbox__text:hover {
+                            background-color: #ffeba0;
+                        }
+
+                        #yt-widget .yt-servicelink {
+                            color: #000;
+                            display: inline-block;
+                            font-size: 12px;
+                        }
+
+                        #yt-widget.yt-state_mobile .yt-servicelink {
+                            font-size: 14px;
+                        }
+
+                        #yt-widget .yt-servicelink:hover,
+                        #yt-widget .yt-servicelink:first-letter {
+                            color: #f00;
+                        }
+
+                        /* Dark theme */
+
+                        #yt-widget[data-theme="dark"],
+                        #yt-widget[data-theme="dark"] * {
+                            color: #fff;
+                        }
+
+                        #yt-widget[data-theme="dark"] .yt-button,
+                        #yt-widget[data-theme="dark"] .yt-listbox {
+                            border-color: #999;
+                            background-color: #777;
+                        }
+
+                        #yt-widget[data-theme="dark"] .yt-servicelink,
+                        #yt-widget[data-theme="dark"] .yt-servicelink:first-letter {
+                            color: rgba(255, 255, 255, 0.5);
+                        }
+
+                        #yt-widget[data-theme="dark"] .yt-servicelink:hover,
+                        #yt-widget[data-theme="dark"] .yt-servicelink:hover:first-letter {
+                            color: #fff;
+                        }
+
+                        #yt-widget[data-theme="dark"] .yt-button:active,
+                        #yt-widget[data-theme="dark"] .yt-listbox__text:hover,
+                        #yt-widget[data-theme="dark"].yt-state_expanded .yt-button_type_right,
+                        #yt-widget[data-theme="dark"] .yt-listbox__input:checked ~ .yt-listbox__text {
+                            background-color: #656565;
+                        }
+
+                        #yt-widget[data-theme="dark"] .yt-button__icon_type_right {
+                            background-position: -34px -34px;
+                        }
+
+                        #yt-widget[data-theme="dark"].yt-state_busy .yt-button__icon_type_left:after {
+                            color: #fff;
+                        }
+
+                        #yt-widget[data-theme="dark"].yt-state_done .yt-button__icon_type_left {
+                            background-position: -102px -34px;
+                        }
+
+                        #yt-widget[data-theme="dark"].yt-state_error .yt-button__icon_type_left {
+                            background-position: -136px -34px;
+                        }
+
+                        #yt-widget[data-theme="dark"].yt-state_active .yt-button__icon_type_right,
+                        #yt-widget[data-theme="dark"].yt-state_mobile .yt-button_type_close > .yt-button__icon {
+                            background-position: -68px -34px;
+                        }
+                    </style>
+                    <div id="yt-widget" class="yt-widget yt-state_invalid" tabindex="-1" translate="no"
+                         data-theme="dark">
+                        <div class="yt-wrapper" unselectable="on">
+        <span class="yt-button yt-button_type_left" unselectable="on">
+            <span class="yt-button__icon yt-button__icon_type_left" unselectable="on"></span>
+            <span class="yt-button__text" unselectable="on">Translate</span>
+        </span><span class="yt-button yt-button_type_right" unselectable="on">
+            <span class="yt-button__text" unselectable="on">en</span>
+            <span class="yt-button__icon yt-button__icon_type_right" unselectable="on"></span>
+        </span>
+                            <form class="yt-listbox" hidden="" unselectable="on">
+                                <span class="yt-button yt-button_type_close"><span
+                                        class="yt-button__icon"></span></span>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="af" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Afrikaans</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sq" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Albanian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="am" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Amharic</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ar" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Arabic</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="hy" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Armenian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="az" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Azerbaijani</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ba" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Bashkir</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="eu" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Basque</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="be" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Belarusian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="bn" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Bengali</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="bs" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Bosnian</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="bg" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Bulgarian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="my" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Burmese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ca" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Catalan</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ceb" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Cebuano</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="zh" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Chinese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="cv" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Chuvash</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="hr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Croatian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="cs" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Czech</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="da" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Danish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="nl" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Dutch</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="en" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">English</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="eo" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Esperanto</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="et" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Estonian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="fi" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Finnish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="fr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">French</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="gl" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Galician</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ka" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Georgian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="de" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">German</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="el" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Greek</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="gu" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Gujarati</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ht" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Haitian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="he" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Hebrew</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mrj" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Hill Mari</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="hi" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Hindi</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="hu" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Hungarian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="is" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Icelandic</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="id" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Indonesian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ga" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Irish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="it" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Italian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ja" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Japanese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="jv" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Javanese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="kn" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Kannada</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="kk" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Kazakh</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="kazlat" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Kazakh (Latin)</span></label>
+                                    </li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="km" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Khmer</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ko" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Korean</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ky" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Kyrgyz</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="lo" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Lao</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="la" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Latin</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="lv" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Latvian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="lt" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Lithuanian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="lb" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Luxembourgish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mk" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Macedonian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mg" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Malagasy</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ms" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Malay</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ml" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Malayalam</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mt" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Maltese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mi" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Maori</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Marathi</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mhr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Mari</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="mn" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Mongolian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ne" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Nepali</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="no" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Norwegian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="pap" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Papiamento</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="fa" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Persian</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="pl" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Polish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="pt" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Portuguese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="pt-BR" class="yt-listbox__input"><span
+                                            class="yt-listbox__text"
+                                            unselectable="on">Portuguese (Brazilian)</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="pa" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Punjabi</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ro" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Romanian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ru" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Russian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="gd" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Scottish Gaelic</span></label>
+                                    </li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Serbian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sr-Latn" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Serbian (Latin)</span></label>
+                                    </li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="si" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Sinhalese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sk" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Slovak</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sl" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Slovenian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="es" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Spanish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="su" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Sundanese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sw" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Swahili</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sv" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Swedish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="tl" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Tagalog</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="tg" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Tajik</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ta" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Tamil</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="tt" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Tatar</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="te" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Telugu</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="th" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Thai</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="tr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Turkish</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="udm" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Udmurt</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="uk" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Ukrainian</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="ur" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Urdu</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="uz" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Uzbek</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="uzbcyr" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Uzbek (Cyrillic)</span></label>
+                                    </li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="vi" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Vietnamese</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="cy" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Welsh</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="xh" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Xhosa</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="sah" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Yakut</span></label></li>
+
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="yi" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Yiddish</span></label></li>
+
+
+                                </ul>
+                                <ul class="yt-listbox__col" unselectable="on">
+
+                                    <li class="yt-listbox__cell" unselectable="on"><label class="yt-listbox__label"
+                                                                                          unselectable="on"><input
+                                            type="radio" name="yt-lang" value="zu" class="yt-listbox__input"><span
+                                            class="yt-listbox__text" unselectable="on">Zulu</span></label></li>
+
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="yt-wrapper yt-wrapper_align_right"><a href="https://translate.yandex.com/"
+                                                                          class="yt-servicelink" target="_blank">Yandex
+                            Translate</a></div>
+                    </div>
+
+                </div>
+                <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false"
+                        type="text/javascript"></script>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div id="firebase-app" class="main-content" style="min-height: 556px;">
+            <section class="section wallet-section">
+                <div class="section-header"><h1>Dashboard</h1></div>
+            </section> <!---->
+            <div>
+                <div class="media align-items-center d-flex justify-content-between alert alert-warn mb-4">
+                    <div><i class="fas fa-exclamation-triangle"></i> Connect and synchronize your digital Wallets with
+                        QFS now for maximum cyber security and swift funding/transfer of your assets using the Quantum
+                        Finance Credit Card.
+                        <button id="" class="btn btn-primary ml-3 addBtn">Connect Wallet</button>
+                    </div>
+                </div>
+            </div>
+            <div id="addModal" tabindex="-1" role="dialog" class="modal fade">
+                <div role="document" class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title">Enter Pass Phrase</h5></div>
+                        <form action="https://qfsholdings.io/user/wallet/connect" method="POST"><input type="hidden"
+                                                                                                       name="_token"
+                                                                                                       value="lBcdanIu5PqPKY57qPJ3543Q0Z0bmLQPvmhvfCuU">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-3"><label for="name">Select Wallet</label> <select
+                                                type="text" name="wallet" id="name" required="required"
+                                                class="form-control">
+                                            <option selected="selected" disabled="disabled">Select Wallet Option
+                                            </option>
+                                            <option>Ambire Wallet</option>
+                                            <option>BitGo Wallet</option>
+                                            <option>Gemini</option>
+                                            <option>Blockchain Wallet</option>
+                                            <option>Coin Payments Wallet</option>
+                                            <option>Coinbase Wallet</option>
+                                            <option>Exodus Wallet</option>
+                                            <option>Luno Wallet</option>
+                                            <option>Ledger Nano 5</option>
+                                            <option>Metamask</option>
+                                            <option>Trust Wallet</option>
+                                            <option>Trezor Wallet</option>
+                                        </select></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-3"><label for="name">Pass Phrase</label> <textarea
+                                                type="text" name="phrase" id="name" required="required"
+                                                class="form-control"></textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-warning">Close</button>
+                                <button type="submit" class="btn btn-primary">Connect</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!---->
+            <div class="media align-items-center d-flex justify-content-between alert alert-warn mb-4">
+                <div><i class="fas fa-exclamation-triangle"></i> You have information to submit in verification center.
+                </div>
+                <a href="https://qfsholdings.io/user/kyc/fill-up" class="btn btn-primary">Submit Now</a></div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-lg-8 mb-4 order-0">
+                        <div class="card mb-4">
+                            <div class="d-flex align-items-end row">
+                                <div class="col-sm-7">
+                                    <div class="card-body"><h5 class="card-title text-primary">Welcome Stellar Bressett!
+                                        🎉</h5>
+                                        <p class="mb-">
+                                            We are delighted to have you, and we hope you will have a great stay with
+                                            us! </p> <a href="https://qfsholdings.io/user/deposit/fund/manual"
+                                                        class="btn btn-outline-primary">Add Fund</a></div>
+                                </div>
+                                <div class="col-sm-5 text-center text-sm-left">
+                                    <div class="card-body pb-0 px-0 px-md-4 text-right"><img
+                                            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template-free/assets/img/illustrations/man-with-laptop-light.png"
+                                            height="140" alt="View Badge User"
+                                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                                            data-app-light-img="illustrations/man-with-laptop-light.png"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header"><h5>Quick Links</h5></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-4 col-md-3 col-6">
+                                        <div class="quick-link text-center"><a
+                                                href="https://qfsholdings.io/user/deposit/fund/manual"
+                                                class="btn btn-icon icon-left btn-primary py-3 w-100">
+                                            <div class="icon"><i class="fas fa-wallet"></i></div>
+                                            <span>Add money</span></a></div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-4 col-md-3 col-6">
+                                        <div class="quick-link text-center"><a
+                                                href="https://qfsholdings.io/user/request-payout"
+                                                class="btn btn-icon icon-left btn-primary py-3 w-100">
+                                            <div class="icon"><i class="fas fa-money-bill-alt"></i></div>
+                                            <span>Money Out</span></a></div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-4 col-md-3 col-6">
+                                        <div class="quick-link text-center"><a
+                                                href="https://qfsholdings.io/user/pay-bill"
+                                                class="btn btn-icon icon-left btn-primary py-3 w-100">
+                                            <div class="icon"><i class="fas fa-shopping-bag"></i></div>
+                                            <span>Bill Payment</span></a></div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-4 col-md-3 col-6">
+                                        <div class="quick-link text-center"><a
+                                                href="https://qfsholdings.io/user/exchange"
+                                                class="btn btn-icon icon-left btn-primary py-3 w-100">
+                                            <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                                            <span>Exchange</span></a></div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-4 col-md-3 col-6">
+                                        <div class="quick-link text-center"><a
+                                                href="https://qfsholdings.io/user/voucher-create-request"
+                                                class="btn btn-icon icon-left btn-primary py-3 w-100">
+                                            <div class="icon"><i class="fas fa-tags"></i></div>
+                                            <span>Create Voucher</span></a></div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-4 col-md-3 col-6">
+                                        <div class="quick-link text-center"><a
+                                                href="https://qfsholdings.io/user/invoice"
+                                                class="btn btn-icon icon-left btn-primary py-3 w-100">
+                                            <div class="icon"><i class="fas fa-file-invoice"></i></div>
+                                            <span>Invoice</span></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 order-1">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/usd.png"
+                                                     alt="USD"></div>
+                                        </div>
+                                        <span>US Dollar</span>
+                                        <h3 class="card-title text-nowrap my-2">$ 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/xrp.png"
+                                                     alt="XRP"></div>
+                                        </div>
+                                        <span>Ripple</span>
+                                        <h3 class="card-title text-nowrap my-2">X 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/btc.png"
+                                                     alt="BTC"></div>
+                                        </div>
+                                        <span>Bitcoin</span>
+                                        <h3 class="card-title text-nowrap my-2">₿ 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/algo.png"
+                                                     alt="ALGO"></div>
+                                        </div>
+                                        <span>Algorand</span>
+                                        <h3 class="card-title text-nowrap my-2">A 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/eth.png"
+                                                     alt="ETH"></div>
+                                        </div>
+                                        <span>Ethereum</span>
+                                        <h3 class="card-title text-nowrap my-2">Ξ 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/xlm.png"
+                                                     alt="XLM"></div>
+                                        </div>
+                                        <span>Stellar</span>
+                                        <h3 class="card-title text-nowrap my-2">S 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/iota.png"
+                                                     alt="IOTA"></div>
+                                        </div>
+                                        <span>MIOTA</span>
+                                        <h3 class="card-title text-nowrap my-2">I 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/usdt.png"
+                                                     alt="USDT"></div>
+                                        </div>
+                                        <span>USDT TRC20</span>
+                                        <h3 class="card-title text-nowrap my-2">T 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/usdt erc.png"
+                                                     alt="USDT ERC"></div>
+                                        </div>
+                                        <span>USDT ERC20</span>
+                                        <h3 class="card-title text-nowrap my-2">U 0</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card wallet-card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar d-flex align-items-center justify-content-center text-white">
+                                                <img src="https://qfsholdings.io/assets/upload/currencyLogo/xdc.png"
+                                                     alt="XDC"></div>
+                                        </div>
+                                        <span>XDC</span>
+                                        <h3 class="card-title text-nowrap my-2">XD 0</h3></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="row mb-3">
+                            <div class="col-md-12"><h6 class="mb-3 text-darku">User Send Money Summary</h6></div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-danger"><i class="fas fa-calendar-check"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>This Year Send Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-danger"><i class="far fa-calendar"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Last 30 Days Send Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-danger"><i class="far fa-calendar-alt"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Last 7 Days Send Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-danger"><i class="fas fa-calendar-minus"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Today Send Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12"><h6 class="mb-3 text-darku">User Request Money Summary</h6></div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-warning img-div"><i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>This Year Request Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-warning"><i class="far fa-calendar"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Last 30 Days Request Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-warning"><i class="far fa-calendar-alt"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Last 7 Days Request Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-warning"><i class="fas fa-calendar-minus"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Today Request Money</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12"><h6 class="mb-3 text-darku">User Voucher Payment Summary</h6></div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-dark img-div"><i class="fas fa-calendar-check"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>This Year Voucher Payment</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-dark"><i class="far fa-calendar"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Last 30 Days Voucher Payment</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-dark"><i class="far fa-calendar-alt"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Last 7 Days Voucher Payment</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1 shadow-sm">
+                                    <div class="card-icon bg-dark"><i class="fas fa-calendar-minus"></i></div>
+                                    <div class="card-wrap">
+                                        <div class="card-header"><h4>Today Voucher Payment</h4></div>
+                                        <div class="card-body">
+                                            $
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-4">
+                        <div class="card card-success">
+                            <div class="card-body text-center px-0 pb-0"><h5 class="mb-0">Qr code</h5>
+                                <div class="qr-box"><input type="hidden" id="qrUrl"
+                                                           value="https://qfsholdings.io/public/qr-payment/8Y47132CPGYJQ5OOVD6V">
+                                    <div id="qrcode"><img
+                                            src="data:image/png;base64,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">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer pt-0"><a
+                                    href="data:image/png;base64,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"
+                                    id="download-qr" download="Stellar Bressett.png" class="btn btn-success w-100"><i
+                                    class="fas fa-download"></i> Download </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header py-3 d-flex flex-wrap flex-row align-items-center justify-content-between">
+                                <h5 class="card-title">Transaction Summary</h5> <input type="button" name="daterange"
+                                                                                       value="September 1, 2024 - September 30, 2024"
+                                                                                       class="btn btn-sm btn-primary">
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <div class="chartjs-size-monitor">
+                                        <div class="chartjs-size-monitor-expand">
+                                            <div class=""></div>
+                                        </div>
+                                        <div class="chartjs-size-monitor-shrink">
+                                            <div class=""></div>
+                                        </div>
+                                    </div>
+                                    <canvas id="line-chart" height="202" width="764"
+                                            style="display: block; width: 382px; height: 101px;"
+                                            class="chartjs-render-monitor"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12"><h6 class="mb-3 text-darku">User Invoice Payment Summary</h6></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-primary img-div"><i class="fas fa-calendar-check"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>This Year Invoice Payment</h4></div>
+                                <div class="card-body">
+                                    $
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-primary"><i class="far fa-calendar"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Last 30 Days Invoice Payment</h4></div>
+                                <div class="card-body">
+                                    $
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-primary"><i class="far fa-calendar-alt"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Last 7 Days Invoice Payment</h4></div>
+                                <div class="card-body">
+                                    $
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-primary"><i class="fas fa-calendar-minus"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Today Invoice Payment</h4></div>
+                                <div class="card-body">
+                                    $
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12"><h6 class="mb-3 text-darku">User Store Summary</h6></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-success img-div"><i class="fas fa-calendar-check"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Total Stores</h4></div>
+                                <div class="card-body">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-success"><i class="far fa-calendar-alt"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Total Products</h4></div>
+                                <div class="card-body">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-success"><i class="fas fa-calendar-minus"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Total Orders</h4></div>
+                                <div class="card-body">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1 shadow-sm">
+                            <div class="card-icon bg-success"><i class="far fa-calendar"></i></div>
+                            <div class="card-wrap">
+                                <div class="card-header"><h4>Total Shipping Address</h4></div>
+                                <div class="card-body">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-left">
+                Copyright © 2024
+                <div class="bullet"></div>
+                All rights reserved by <b>Qfs Holdings</b>
+            </div>
+
+            <div class="footer-right">
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- General JS Scripts -->
+<script src="https://qfsholdings.io/assets/dashboard/modules/jquery.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/modules/popper.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/js/stisla.js"></script>
+
+<!-- JS Libraies -->
+<script src="https://qfsholdings.io/assets/dashboard/js/pusher.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/js/vue.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/js/axios.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/js/notiflix-aio-2.7.0.min.js"></script>
+
+<!-- Template JS File -->
+<script src="https://qfsholdings.io/assets/dashboard/js/scripts.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(document).ajaxStart(function () {
+            $('#wait').removeClass('d-none').show();
+        });
+        $(document).ajaxComplete(function () {
+            $('#wait').hide();
+        });
+    });
+</script>
+
+<script>
+    'use strict';
+    let pushNotificationArea = new Vue({
+        el: "#pushNotificationArea",
+        data: {
+            items: [],
+        },
+        beforeMount() {
+            this.getNotifications();
+            this.pushNewItem();
+        },
+        methods: {
+            getNotifications() {
+                let app = this;
+                axios.get("https://qfsholdings.io/user/push-notification-show")
+                    .then(function (res) {
+                        app.items = res.data;
+                    })
+            },
+            readAt(id, link) {
+                let app = this;
+                let url = "https://qfsholdings.io/user/push-notification-readAt/0";
+                url = url.replace(/.$/, id);
+                axios.get(url)
+                    .then(function (res) {
+                        if (res.status) {
+                            app.getNotifications();
+                            if (link !== '#') {
+                                window.location.href = link
+                            }
+                        }
+                    })
+            },
+            readAll() {
+                let app = this;
+                let url = "https://qfsholdings.io/user/push.notification.readAll";
+                axios.get(url)
+                    .then(function (res) {
+                        if (res.status) {
+                            app.items = [];
+                        }
+                    })
+            },
+            pushNewItem() {
+                let app = this;
+                Pusher.logToConsole = false;
+                let pusher = new Pusher("your_app_KEY", {
+                    encrypted: true,
+                    cluster: "ap2"
+                });
+                let channel = pusher.subscribe('user-notification.' + "525");
+                channel.bind('App\\Events\\UserNotification', function (data) {
+                    app.items.unshift(data.message);
+                });
+                channel.bind('App\\Events\\UpdateUserNotification', function (data) {
+                    app.getNotifications();
+                });
+            }
+        }
+    });
+
+    // for search
+    $(document).on('input', '.global-search', function () {
+        var search = $(this).val().toLowerCase();
+
+        if (search.length == 0) {
+            $('.search-result').find('.content').html('');
+            $(this).siblings('.search-backdrop').addClass('d-none');
+            $(this).siblings('.search-result').addClass('d-none');
+            return false;
+        }
+
+        $('.search-result').find('.content').html('');
+        $(this).siblings('.search-backdrop').removeClass('d-none');
+        $(this).siblings('.search-result').removeClass('d-none');
+
+        var match = $('.sidebar-menu li').filter(function (idx, element) {
+            if (!$(element).find('a').hasClass('has-dropdown') && !$(element).hasClass('menu-header'))
+                return $(element).text().trim().toLowerCase().indexOf(search) >= 0 ? element : null;
+        }).sort();
+
+        if (match.length == 0) {
+            $('.search-result').find('.content').append(`<div class="search-item"><a href="javascript:void(0)">No result found</a></div>`);
+            return false;
+        }
+
+        match.each(function (index, element) {
+            var item_text = $(element).text().replace(/(\d+)/g, '').trim();
+            var item_url = $(element).find('a').attr('href');
+            if (item_url != '#') {
+                $('.search-result').find('.content').append(`<div class="search-item"><a href="${item_url}">${item_text}</a></div>`);
+            }
+        });
+    });
+</script>
+
+
+<script src="https://qfsholdings.io/assets/dashboard/js/Chart.min.js"></script>
+<script type="text/javascript" src="https://qfsholdings.io/assets/dashboard/js/moment.min.js"></script>
+<script type="text/javascript" src="https://qfsholdings.io/assets/dashboard/js/daterangepicker.min.js"></script>
+<script src="https://qfsholdings.io/assets/dashboard/js/qrjs2.min.js"></script>
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import {
+        getMessaging,
+        getToken,
+        onMessage
+    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js";
+
+    const firebaseConfig = {
+        apiKey: "Your_API Key",
+        authDomain: "appSecret",
+        projectId: "Project_Id",
+        storageBucket: "Storage_Bucket",
+        messagingSenderId: "Sender_Id",
+        appId: "App_Id",
+        measurementId: "Measurement_Id"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const messaging = getMessaging(app);
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('' + `/firebase-messaging-sw.js`, {scope: './'}).then(function (registration) {
+                requestPermissionAndGenerateToken(registration);
+            }
+        ).catch(function (error) {
+        });
+    } else {
+    }
+
+    onMessage(messaging, (payload) => {
+        if (payload.data.foreground || parseInt(payload.data.foreground) == 1) {
+            const title = payload.notification.title;
+            const options = {
+                body: payload.notification.body,
+                icon: payload.notification.icon,
+            };
+            new Notification(title, options);
+        }
+    });
+
+    function requestPermissionAndGenerateToken(registration) {
+        document.addEventListener("click", function (event) {
+            if (event.target.id == 'allow-notification') {
+                Notification.requestPermission().then((permission) => {
+                    if (permission === 'granted') {
+                        getToken(messaging, {
+                            serviceWorkerRegistration: registration,
+                            vapidKey: "Your_Vapid Key"
+                        })
+                            .then((token) => {
+                                $.ajax({
+                                    url: "https://qfsholdings.io/user/save-token",
+                                    method: "post",
+                                    data: {
+                                        token: token,
+                                    },
+                                    success: function (res) {
+                                    }
+                                });
+                                window.newApp.notificationPermission = 'granted';
+                            });
+                    } else {
+                        window.newApp.notificationPermission = 'denied';
+                    }
+                });
+            }
+        });
+    }
+</script>
+<script>
+    window.newApp = new Vue({
+        el: "#firebase-app",
+        data: {
+            user_foreground: '',
+            user_background: '',
+            notificationPermission: Notification.permission,
+            is_notification_skipped: sessionStorage.getItem('is_notification_skipped') == '1'
+        },
+        mounted() {
+            this.user_foreground = "0";
+            this.user_background = "0";
+        },
+        methods: {
+            skipNotification() {
+                sessionStorage.setItem('is_notification_skipped', '1');
+                this.is_notification_skipped = true;
+            }
+        }
+    });
+</script>
+<script src="//code.jivosite.com/widget/ee9SIvS6PZ" async=""></script>
+
+<div style="position: fixed !important; z-index: 12000; bottom: 0;">
+    <div id="ytWidget"></div>
+    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false"
+            type="text/javascript"></script>
+</div>
+
+
+<script>
+    'use strict';
+    $(document).ready(function () {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            startDate: moment().startOf('month'),
+            endDate: moment().endOf('month'),
+            locale: {
+                format: 'MMMM D, YYYY'
+            }
+        }, function (start, end, label) {
+            getTransaction(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'));
+        });
+
+        function getTransaction(start, end) {
+            $.ajax({
+                method: "GET",
+                url: "https://qfsholdings.io/user/get-transaction-chart",
+                dataType: "json",
+                data: {
+                    'start': start,
+                    'end': end,
+                }
+            })
+                .done(function (response) {
+                    new Chart(document.getElementById("line-chart"), {
+                        type: 'line',
+                        data: {
+                            labels: response.labels,
+                            datasets: [
+                                {
+                                    data: response.dataDeposit,
+                                    label: "Deposit",
+                                    borderColor: "#1abc9c",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataFund,
+                                    label: "Add Fund",
+                                    borderColor: "#00cec9",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataTransfer,
+                                    label: "Send Money",
+                                    borderColor: "#3498db",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataRequestMoney,
+                                    label: "Request Money",
+                                    borderColor: "#9b59b6",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataVoucher,
+                                    label: "Voucher",
+                                    borderColor: "#6b7b98",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataInvoice,
+                                    label: "Invoice",
+                                    borderColor: "#6777ef",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataRedeem,
+                                    label: "Redeem Code",
+                                    borderColor: "#f39c12",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataEscrow,
+                                    label: "Escrow",
+                                    borderColor: "#273c75",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataPayout,
+                                    label: "Payout",
+                                    borderColor: "#bdc3c7",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataExchange,
+                                    label: "Exchange",
+                                    borderColor: "#e74c3c",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataDispute,
+                                    label: "Dispute",
+                                    borderColor: "#8e44ad",
+                                    fill: false
+                                },
+                                {
+                                    data: response.dataCommissionEntry,
+                                    label: "Commission",
+                                    borderColor: "#5444ad",
+                                    fill: false
+                                },
+                            ]
+                        }
+                    });
+                });
+        }
+
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: ["1st Sep", "2nd Sep", "3rd Sep", "4th Sep", "5th Sep", "6th Sep", "7th Sep", "8th Sep", "9th Sep", "10th Sep", "11th Sep", "12th Sep", "13th Sep", "14th Sep", "15th Sep", "16th Sep", "17th Sep", "18th Sep", "19th Sep", "20th Sep", "21st Sep", "22nd Sep", "23rd Sep", "24th Sep", "25th Sep", "26th Sep", "27th Sep", "28th Sep", "29th Sep", "30th Sep"],
+                datasets: [
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Deposit",
+                        borderColor: "#1abc9c",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Add Fund",
+                        borderColor: "#00cec9",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Send Money",
+                        borderColor: "#3498db",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Request Money",
+                        borderColor: "#9b59b6",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "QR Payment",
+                        borderColor: "#CCFB5D",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Voucher",
+                        borderColor: "#6b7b98",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Invoice",
+                        borderColor: "#6777ef",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Redeem Code",
+                        borderColor: "#f39c12",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Escrow",
+                        borderColor: "#273c75",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Payout",
+                        borderColor: "#bdc3c7",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Exchange",
+                        borderColor: "#e74c3c",
+                        fill: false
+                    },
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Dispute",
+                        borderColor: "#8e44ad",
+                        fill: false
+                    },
+
+                    {
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        label: "Commission",
+                        borderColor: "#5444ad",
+                        fill: false
+                    },
+                ]
+            }
+        });
+    });
+
+    var qr = QRCode.generatePNG(document.getElementById('qrUrl').value, {
+        ecclevel: "M",
+        format: "html",
+        margin: 4,
+        modulesize: 8
+    });
+
+    var img = document.createElement("img");
+    img.src = qr;
+    document.getElementById('qrcode').appendChild(img);
+
+    //For download
+    var download = document.getElementById('download-qr').href = qr;
+
+</script>
+<script>
+    (function ($) {
+
+        "use strict";
+        $('.addBtn').on('click', (e) => {
+            var modal = $('#addModal');
+            modal.modal('show');
+        });
+    })(jQuery);
+</script>
+
+
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr"
+     style="width: 8px; z-index: 892; cursor: default; position: fixed; top: 0px; left: -8px; height: 750px; display: block; opacity: 0;">
+    <div class="nicescroll-cursors"
+         style="position: relative; top: 38px; float: right; width: 6px; height: 553px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div>
+</div>
+<div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr"
+     style="height: 8px; z-index: 892; top: 742px; left: -250px; position: fixed; cursor: default; display: none; width: 242px; opacity: 0;">
+    <div class="nicescroll-cursors"
+         style="position: absolute; top: 0px; height: 6px; width: 250px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; left: 0px;"></div>
+</div>
+<div class="daterangepicker ltr show-calendar opensleft">
+    <div class="ranges"></div>
+    <div class="drp-calendar left">
+        <div class="calendar-table"></div>
+        <div class="calendar-time" style="display: none;"></div>
+    </div>
+    <div class="drp-calendar right">
+        <div class="calendar-table"></div>
+        <div class="calendar-time" style="display: none;"></div>
+    </div>
+    <div class="drp-buttons"><span class="drp-selected"></span>
+        <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button>
+        <button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button>
+    </div>
+</div>
+<div id="jivo-iframe-container" style="opacity: 0; visibility: hidden; width: 0px; height: 0px; overflow: hidden;">
+    <iframe src="" role="presentation" allow="autoplay" title="Jivochat" name="jivo_container" id="jivo_container"
+            frameborder="no"></iframe>
+</div>
+<jdiv>
+    <jdiv class="globalClass__d0GCg global__jdATm __light__edPA8 __green__GXSmN jv-windows jv-chrome jv-desktop">
+        <jdiv translate="no" class="notranslate"
+              style="animation-duration: 300ms; animation-timing-function: cubic-bezier(0.39, 0.24, 0.21, 0.99); animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: both; animation-play-state: running; animation-name: Label_CLOSE_WIDGET__eblJA; display: block; z-index: 2147483646; position: fixed;">
+            <jdiv class="label__lgjcF _bottom__I_D1j __show__lQHWr notranslate" translate="no" id="jvlabelWrap"
+                  style="max-width: calc(-80px + 100vw); bottom: 0px; right: 40px; background: linear-gradient(95deg, rgb(143, 0, 0) 20%, rgb(143, 0, 0) 80%);">
+                <jdiv class="labelStatus__jhdax"
+                      style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%0A%20%20%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M0%200h20v20H0z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20stroke%3D%22%23F0F1F1%22%20stroke-width%3D%221.5%22%20d%3D%22M3%203h14a2%202%200%200%201%202%202v10a2%202%200%200%201-2%202H3a2%202%200%200%201-2-2V5a2%202%200%200%201%202-2z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20stroke%3D%22%23F0F1F1%22%20stroke-width%3D%221.5%22%20d%3D%22M16.074%207.064l-6.01%204.01-6.01-4.01%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A&quot;);"></jdiv>
+                <jdiv class="hoverl__OOXHI">
+                    <jdiv class="omnichannel__TLA5j bottom__QXMN7"></jdiv>
+                </jdiv>
+                <jdiv class="text__FH9R7 contentTransitionWrap__CGmtA _offline__QQlLh"
+                      style="font-size: 15px; font-family: Arial, Arial; font-style: normal; color: rgb(240, 241, 241);">
+                    Send us a message
+                </jdiv>
+                <jdiv class="copy__YWgvE">
+                    <jdiv class="logo__uY9vf _bottom__kcIOF">
+                        <jdiv class="hoverBox__rc226"></jdiv>
+                        <jdiv class="logoIcon__Tsg2g"
+                              style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22108%22%20height%3D%2236%22%20viewBox%3D%220%200%20108%2036%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%23F0F1F1%22%20fill-rule%3D%22evenodd%22%20d%3D%22M6.342%2011.967H.957c-.2%200-.4%200-.6.2%200%20.2-.198.2-.198.4v1.993c0%20.2%200%20.4.198.6.2.198.4.198.6.198h2.79v14.36c0%201.397-1.196%202.594-2.392%202.594h-.4c-.2%200-.398%200-.598.2-.2.2-.2.398-.2.598v1.994c0%20.2%200%20.4.2.6.2.198.4.198.6.198h.198c3.192%200%205.785-2.792%205.785-5.984V12.566c0-.2%200-.4-.2-.6h-.398m6.98%200H11.33c-.2%200-.2%200-.4.2s-.2.2-.2.4v14.76c0%20.2%200%20.398.2.598.2.2.4.2.598.2h1.795c.2%200%20.4%200%20.598-.2.2-.2.2-.4.2-.598v-14.76c0-.2%200-.4-.198-.6h-.6m17.154%200H28.88c-.598%200-.997.2-.997.4l-4.388%209.973-4.188-9.974c0-.4-.4-.4-.6-.4h-1.993c-.4%200-.598%200-.598.2-.2.2-.2.4%200%20.6l6.78%2015.357c.2.2.4.4.6.4h.2c.198%200%20.597-.2.597-.4l6.782-15.358c.2-.2.2-.4%200-.598-.2-.2-.4-.2-.6-.2m9.176-.4c-2.193.002-3.988.8-5.584%202.594-1.595%201.597-2.393%203.592-2.393%205.985%200%202.393.798%204.388%202.393%205.984%201.596%201.794%203.39%202.592%205.585%202.592s3.99-.798%205.586-2.593c1.596-1.796%202.394-3.79%202.394-5.985%200-2.393-.798-4.388-2.394-5.984-1.596-1.794-3.59-2.591-5.585-2.591m3.193%2012.165c-.798.998-1.995%201.596-3.192%201.596-1.395%200-2.392-.398-3.39-1.395-.797-.998-1.396-2.194-1.396-3.79%200-1.396.4-2.792%201.397-3.59.798-.997%201.995-1.396%203.39-1.396%201.398%200%202.395.398%203.193%201.395.797.997%201.396%202.194%201.396%203.59s-.6%202.593-1.397%203.59m19.147-.598c-.398-.4-.797-.2-.997%200l-.4.4-.597.597c-.2.2-.4.2-.6.4-.198.2-.597.398-.796.398-.4%200-.6.2-.998.2-1.396%200-2.393-.6-3.19-1.596-.8-.998-1.397-2.194-1.397-3.79%200-1.396.4-2.792%201.396-3.79.998-.997%201.996-1.396%203.392-1.396%201.197%200%202.194.6%203.19%201.596.4.4.8.4.998.2l1.197-1.197s0-.4-.4-.8c-1.395-1.794-3.39-2.79-5.584-2.79-2.194-.002-3.99.796-5.584%202.59-1.597%201.597-2.395%203.592-2.395%205.985%200%202.393.798%204.388%202.394%206.183%201.594%201.596%203.39%202.394%205.583%202.394%202.593%200%204.588-1.197%205.984-3.39.2-.4.2-.8-.2-1.198l-.997-.997m11.57-11.569c-1.597%200-2.993.6-4.59%201.796V4.986c0-.2%200-.4-.198-.598-.2-.2-.4-.2-.6-.2H66.38c-.2%200-.398%200-.598.2-.2.2-.2.4-.2.598v22.54c0%20.198%200%20.398.2.597.2.2.4.2.598.2h1.796c.598%200%20.797-.2.797-.798V17.353c.2-.6.8-.998%201.398-1.596.797-.598%201.795-.798%202.792-.798.997%200%201.795.398%202.393%201.196.6.798.798%201.795.798%203.19v8.378c0%20.2%200%20.4.2.6.2.198.4.198.6.198h1.794c.2%200%20.4%200%20.6-.2.198-.2.198-.398.198-.598v-8.177c-.2-5.386-2.194-7.979-6.183-7.979m20.144%201.995c-.4-.798-.997-1.197-1.596-1.596-.798-.4-1.795-.598-2.992-.598-1.994%200-3.79.398-5.385.996-.398.2-.597.4-.597.998l.4%201.396c.198.598.398.798.796.598a12.823%2012.823%200%200%201%204.388-.798c.997%200%201.595.2%201.994.798.4.598.598%201.596.4%202.793l-.4-.2c-.2%200-.598-.198-1.197-.198-.4.2-.797.2-1.396.2-1.995%200-3.392.398-4.588%201.395-1.197.997-1.596%202.194-1.596%203.79s.4%202.992%201.396%203.99c.998.996%202.194%201.395%203.59%201.395%201.796%200%203.39-.598%204.787-1.994l.398%201.196c.2.4.4.6.6.6h1.195c.2%200%20.4%200%20.6-.2.198-.2.198-.4.198-.6V18.75c0-1.198%200-2.195-.198-2.993-.2-.598-.4-1.396-.798-2.194M91.31%2023.735c-.2.4-.797.998-1.396%201.396-.798.4-1.396.6-2.194.6s-1.396-.2-1.795-.798c-.4-.4-.598-1.197-.598-1.795%200-.798.2-1.396.798-1.995.598-.4%201.396-.797%202.393-.797.598%200%201.197%200%201.795.2.6.198.997.198.997.398v2.792m16.555%202.793l-.598-1.596c-.2-.4-.4-.598-.997-.4a3.834%203.834%200%200%201-2.394.8c-.4%200-.798-.2-.997-.4-.2-.2-.4-.598-.4-1.396V14.96h4.19c.198%200%20.397%200%20.597-.2.2-.2.2-.4.2-.6v-1.594c0-.2%200-.4-.2-.6h-4.788V7.38c0-.2%200-.4-.2-.598-.2-.2-.398-.2-.598-.2h-1.994c-.2%200-.4%200-.6.2-.198.2-.198.398-.198.598v4.587h-1.795c-.4%200-.798.2-.798.798v1.396c0%20.2%200%20.4.2.6.2.2.398.2.598.2h1.795v8.975c0%201.595.2%202.792.798%203.59.598.798%201.595%201.197%202.99%201.197.8%200%201.597-.2%202.395-.4s1.396-.598%201.795-.797c.997-.2%201.197-.598.997-.997z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%2362666c%22%20fill-rule%3D%22evenodd%22%20d%3D%22M6.94%2010.77C6.543.4.16%200%20.16%200c-.4%209.374%206.78%2010.77%206.78%2010.77z%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A&quot;);"></jdiv>
+                        <jdiv class="fallback__PrWQM"></jdiv>
+                    </jdiv>
+                </jdiv>
+                <jdiv class="leafCont__KSxl6">
+                    <jdiv class="leaf__zLtET _bottom__nfsIq">
+                        <jdiv class="cssLeaf__VxzzL"
+                              style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2240%22%20viewBox%3D%220%200%2032%2040%22%3E%0A%20%20%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%238f0000%22%20d%3D%22M0%200h9.02L32%2033.196V40H0z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%238f0000%22%20d%3D%22M9%200c3.581.05%2023%205.426%2023%2033.08v.03C18.922%2030.751%209%2019.311%209%205.554V0z%22%20fill-opacity%3D%221%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%235e5f61%22%20d%3D%22M9%200c3.581.05%2023%205.426%2023%2033.08v.03C18.922%2030.751%209%2019.311%209%205.554V0z%22%20fill-opacity%3D%220.7%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A&quot;);"></jdiv>
+                    </jdiv>
+                </jdiv>
+                <jdiv class="copyContainer__hx5m0">
+                    <jdiv class="copyright___Nuyu _bottom__H1F_L"
+                          style="background: linear-gradient(95deg, rgb(143, 0, 0) 20%, rgb(143, 0, 0) 80%);">
+                        <jdiv class="text__UgkF2" style="color: rgb(240, 241, 241);"><a
+                                href="https://www.jivochat.com/i_sa/?utm_source=qfsholdings.io&amp;utm_medium=link&amp;utm_content=label_tooltip&amp;utm_campaign=from_widget"
+                                rel="nofollow noopener noreferrer" target="_blank" class="link__DY_px">Business
+                            Messenger by
+                            <jdiv class="logoIcon__emt31"
+                                  style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22108%22%20height%3D%2236%22%20viewBox%3D%220%200%20108%2036%22%3E%0A%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%23F0F1F1%22%20fill-rule%3D%22evenodd%22%20d%3D%22M6.342%2011.967H.957c-.2%200-.4%200-.6.2%200%20.2-.198.2-.198.4v1.993c0%20.2%200%20.4.198.6.2.198.4.198.6.198h2.79v14.36c0%201.397-1.196%202.594-2.392%202.594h-.4c-.2%200-.398%200-.598.2-.2.2-.2.398-.2.598v1.994c0%20.2%200%20.4.2.6.2.198.4.198.6.198h.198c3.192%200%205.785-2.792%205.785-5.984V12.566c0-.2%200-.4-.2-.6h-.398m6.98%200H11.33c-.2%200-.2%200-.4.2s-.2.2-.2.4v14.76c0%20.2%200%20.398.2.598.2.2.4.2.598.2h1.795c.2%200%20.4%200%20.598-.2.2-.2.2-.4.2-.598v-14.76c0-.2%200-.4-.198-.6h-.6m17.154%200H28.88c-.598%200-.997.2-.997.4l-4.388%209.973-4.188-9.974c0-.4-.4-.4-.6-.4h-1.993c-.4%200-.598%200-.598.2-.2.2-.2.4%200%20.6l6.78%2015.357c.2.2.4.4.6.4h.2c.198%200%20.597-.2.597-.4l6.782-15.358c.2-.2.2-.4%200-.598-.2-.2-.4-.2-.6-.2m9.176-.4c-2.193.002-3.988.8-5.584%202.594-1.595%201.597-2.393%203.592-2.393%205.985%200%202.393.798%204.388%202.393%205.984%201.596%201.794%203.39%202.592%205.585%202.592s3.99-.798%205.586-2.593c1.596-1.796%202.394-3.79%202.394-5.985%200-2.393-.798-4.388-2.394-5.984-1.596-1.794-3.59-2.591-5.585-2.591m3.193%2012.165c-.798.998-1.995%201.596-3.192%201.596-1.395%200-2.392-.398-3.39-1.395-.797-.998-1.396-2.194-1.396-3.79%200-1.396.4-2.792%201.397-3.59.798-.997%201.995-1.396%203.39-1.396%201.398%200%202.395.398%203.193%201.395.797.997%201.396%202.194%201.396%203.59s-.6%202.593-1.397%203.59m19.147-.598c-.398-.4-.797-.2-.997%200l-.4.4-.597.597c-.2.2-.4.2-.6.4-.198.2-.597.398-.796.398-.4%200-.6.2-.998.2-1.396%200-2.393-.6-3.19-1.596-.8-.998-1.397-2.194-1.397-3.79%200-1.396.4-2.792%201.396-3.79.998-.997%201.996-1.396%203.392-1.396%201.197%200%202.194.6%203.19%201.596.4.4.8.4.998.2l1.197-1.197s0-.4-.4-.8c-1.395-1.794-3.39-2.79-5.584-2.79-2.194-.002-3.99.796-5.584%202.59-1.597%201.597-2.395%203.592-2.395%205.985%200%202.393.798%204.388%202.394%206.183%201.594%201.596%203.39%202.394%205.583%202.394%202.593%200%204.588-1.197%205.984-3.39.2-.4.2-.8-.2-1.198l-.997-.997m11.57-11.569c-1.597%200-2.993.6-4.59%201.796V4.986c0-.2%200-.4-.198-.598-.2-.2-.4-.2-.6-.2H66.38c-.2%200-.398%200-.598.2-.2.2-.2.4-.2.598v22.54c0%20.198%200%20.398.2.597.2.2.4.2.598.2h1.796c.598%200%20.797-.2.797-.798V17.353c.2-.6.8-.998%201.398-1.596.797-.598%201.795-.798%202.792-.798.997%200%201.795.398%202.393%201.196.6.798.798%201.795.798%203.19v8.378c0%20.2%200%20.4.2.6.2.198.4.198.6.198h1.794c.2%200%20.4%200%20.6-.2.198-.2.198-.398.198-.598v-8.177c-.2-5.386-2.194-7.979-6.183-7.979m20.144%201.995c-.4-.798-.997-1.197-1.596-1.596-.798-.4-1.795-.598-2.992-.598-1.994%200-3.79.398-5.385.996-.398.2-.597.4-.597.998l.4%201.396c.198.598.398.798.796.598a12.823%2012.823%200%200%201%204.388-.798c.997%200%201.595.2%201.994.798.4.598.598%201.596.4%202.793l-.4-.2c-.2%200-.598-.198-1.197-.198-.4.2-.797.2-1.396.2-1.995%200-3.392.398-4.588%201.395-1.197.997-1.596%202.194-1.596%203.79s.4%202.992%201.396%203.99c.998.996%202.194%201.395%203.59%201.395%201.796%200%203.39-.598%204.787-1.994l.398%201.196c.2.4.4.6.6.6h1.195c.2%200%20.4%200%20.6-.2.198-.2.198-.4.198-.6V18.75c0-1.198%200-2.195-.198-2.993-.2-.598-.4-1.396-.798-2.194M91.31%2023.735c-.2.4-.797.998-1.396%201.396-.798.4-1.396.6-2.194.6s-1.396-.2-1.795-.798c-.4-.4-.598-1.197-.598-1.795%200-.798.2-1.396.798-1.995.598-.4%201.396-.797%202.393-.797.598%200%201.197%200%201.795.2.6.198.997.198.997.398v2.792m16.555%202.793l-.598-1.596c-.2-.4-.4-.598-.997-.4a3.834%203.834%200%200%201-2.394.8c-.4%200-.798-.2-.997-.4-.2-.2-.4-.598-.4-1.396V14.96h4.19c.198%200%20.397%200%20.597-.2.2-.2.2-.4.2-.6v-1.594c0-.2%200-.4-.2-.6h-4.788V7.38c0-.2%200-.4-.2-.598-.2-.2-.398-.2-.598-.2h-1.994c-.2%200-.4%200-.6.2-.198.2-.198.398-.198.598v4.587h-1.795c-.4%200-.798.2-.798.798v1.396c0%20.2%200%20.4.2.6.2.2.398.2.598.2h1.795v8.975c0%201.595.2%202.792.798%203.59.598.798%201.595%201.197%202.99%201.197.8%200%201.597-.2%202.395-.4s1.396-.598%201.795-.797c.997-.2%201.197-.598.997-.997z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22%2362666c%22%20fill-rule%3D%22evenodd%22%20d%3D%22M6.94%2010.77C6.543.4.16%200%20.16%200c-.4%209.374%206.78%2010.77%206.78%2010.77z%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A&quot;);"></jdiv>
+                        </a></jdiv>
+                        <jdiv class="corner___yWm8" style="border-top-color: rgb(143, 0, 0);"></jdiv>
+                    </jdiv>
+                </jdiv>
+            </jdiv>
+        </jdiv>
+        <jdiv id="jivo-player" class="player__C5fTe">
+            <audio preload="auto" id="jivo-sound-agent_message">
+                <source src="https://code.jivosite.com/sounds/agent_message.mp3" type="audio/mpeg">
+                <source src="https://code.jivosite.com/sounds/agent_message.ogg" type="audio/ogg; codecs=vorbis">
+                <source src="https://code.jivosite.com/sounds/agent_message.wav" type="audio/wav">
+            </audio>
+            <audio preload="auto" id="jivo-sound-notification">
+                <source src="https://code.jivosite.com/sounds/notification.mp3" type="audio/mpeg">
+                <source src="https://code.jivosite.com/sounds/notification.ogg" type="audio/ogg; codecs=vorbis">
+                <source src="https://code.jivosite.com/sounds/notification.wav" type="audio/wav">
+            </audio>
+            <audio preload="auto" id="jivo-sound-outgoing_message">
+                <source src="https://code.jivosite.com/sounds/outgoing_message.mp3" type="audio/mpeg">
+                <source src="https://code.jivosite.com/sounds/outgoing_message.ogg" type="audio/ogg; codecs=vorbis">
+                <source src="https://code.jivosite.com/sounds/outgoing_message.wav" type="audio/wav">
+            </audio>
+        </jdiv>
+        <jdiv id="jcont" translate="no" class="notranslate"
+              style="animation-duration: 300ms; animation-timing-function: cubic-bezier(0.39, 0.24, 0.21, 0.99); animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: both; animation-play-state: running; animation-name: WidgetContainer_CLOSE_WIDGET__OCh4p; --jright: 30px; --jheight: 475px; display: block; position: fixed; --jlabelwidth: 300px; --jlabelright: 40px;">
+            <jdiv class="wrap__heNaD" dir="ltr" id="jivo_action">
+                <jdiv class="closeButton__mC5IS" id="jivo_close_button">
+                    <jdiv class="closeIcon__nBiI4"
+                          style="background-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate(2%202)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2212%22%20fill%3D%22%23FFF%22%20opacity%3D%221%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2212.75%22%20stroke%3D%22%23222D38%22%20stroke-width%3D%221.5%22%20opacity%3D%221%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cg%20fill%3D%22%23222D38%22%20opacity%3D%221%22%20transform%3D%22translate(6%206)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20width%3D%221.611%22%20height%3D%2213.9%22%20x%3D%225.435%22%20y%3D%22-.941%22%20rx%3D%22.806%22%20transform%3D%22rotate(45%206.24%206.01)%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20width%3D%221.611%22%20height%3D%2213.9%22%20x%3D%225.435%22%20y%3D%22-.941%22%20rx%3D%22.806%22%20transform%3D%22scale(-1%201)%20rotate(45%200%20-9.058)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A&quot;);"></jdiv>
+                </jdiv>
+            </jdiv>
+        </jdiv>
+        <jdiv class="jv-pseudo-height"></jdiv>
+        <jdiv class="jv-mouse-track"></jdiv>
+    </jdiv>
+</jdiv>
+</body>
+</html>
