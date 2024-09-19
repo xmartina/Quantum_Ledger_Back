@@ -38,6 +38,7 @@
     <div class="row">
         <!-- Left Column -->
         <div class="col-lg-12 mb-4 order-0">
+
             <!-- Welcome Card -->
             <div class="card mb-4">
                 <div class="d-flex align-items-end row">
@@ -55,6 +56,27 @@
                             <img src="{$base_url}assets/img/illustrations/man-with-laptop-light.png" height="140" alt="Welcome Image">
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- User Info -->
+            <div class="card">
+                <div class="card-header"><h5>Your Account Information</h5></div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <td>User:</td>
+                            <td>{$userinfo.username}</td>
+                        </tr>
+                        <tr>
+                            <td>Registration Date:</td>
+                            <td>{$userinfo.create_account_date}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Access:</td>
+                            <td>{$last_access|default:"n/a"}&nbsp;</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
