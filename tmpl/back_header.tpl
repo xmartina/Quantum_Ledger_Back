@@ -16,6 +16,9 @@
 
     <link rel="stylesheet" type="text/css" href="{$external_base_url}assets/dashboard/css/daterangepicker.css">
 
+    <!-- site_icon -->
+    <link rel="shortcut icon" href="{$favicon_url}" type="image/x-icon">
+
     <!-- Additional Styles -->
     <style type="text/css">
         /* Your custom styles here */
@@ -145,7 +148,7 @@
         <div class="main-sidebar sidebar-style-2 shadow-sm">
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
-                    <a href="{$external_base_url}">
+                    <a href="{$base_url}">
                         <img src="{$site_logo}" class="dashboard-logo" alt="{$site_name}">
                     </a>
                 </div>
