@@ -157,12 +157,12 @@
                 </div>
 
                 <ul class="sidebar-menu">
-                    <li class="menu-header">Dashboard</li>
+                    <li class="menu-header">Navigation</li>
 
-                    <!-- Dashboard Menu Item -->
-                    <li class="nav-item" data-page="dashboard">
-                        <a href="{$external_base_url}?a=dashboard" class="nav-link">
-                            <i class="fas fa-home text-primary"></i><span>Dashboard</span>
+                    <!-- Home Menu Item -->
+                    <li class="nav-item" data-page="home">
+                        <a href="{$external_base_url}?a=home" class="nav-link">
+                            <i class="fas fa-home text-primary"></i><span>Home</span>
                         </a>
                     </li>
 
@@ -173,24 +173,87 @@
                         </a>
                     </li>
 
-                    <!-- Transactions Menu Item -->
-                    <li class="nav-item" data-page="transactions">
-                        <a href="{$external_base_url}?a=transactions" class="nav-link">
-                            <i class="fas fa-list-ul text-info"></i><span>Transactions</span>
-                        </a>
-                    </li>
-
-                    <!-- Deposit Menu Item -->
+                    <!-- Make Deposit Menu Item -->
                     <li class="nav-item" data-page="deposit">
                         <a href="{$external_base_url}?a=deposit" class="nav-link">
-                            <i class="fas fa-money-bill-alt text-success"></i><span>Deposit</span>
+                            <i class="fas fa-money-bill-alt text-success"></i><span>Make Deposit</span>
                         </a>
                     </li>
 
-                    <!-- Withdrawal Menu Item -->
-                    <li class="nav-item" data-page="withdrawal">
-                        <a href="{$external_base_url}?a=withdrawal" class="nav-link">
-                            <i class="fas fa-wallet text-danger"></i><span>Withdrawal</span>
+                    <!-- Your Deposits Menu Item -->
+                    <li class="nav-item" data-page="deposit_list">
+                        <a href="{$external_base_url}?a=deposit_list" class="nav-link">
+                            <i class="fas fa-piggy-bank text-success"></i><span>Your Deposits</span>
+                        </a>
+                    </li>
+
+                    <!-- Deposits History Menu Item -->
+                    <li class="nav-item" data-page="deposit_history">
+                        <a href="{$external_base_url}?a=deposit_history" class="nav-link">
+                            <i class="fas fa-history text-success"></i><span>Deposits History</span>
+                        </a>
+                    </li>
+
+                    <!-- Earnings History Menu Item -->
+                    <li class="nav-item" data-page="earnings">
+                        <a href="{$external_base_url}?a=earnings" class="nav-link">
+                            <i class="fas fa-chart-line text-info"></i><span>Earnings History</span>
+                        </a>
+                    </li>
+
+                    <!-- Referrals History Menu Item -->
+                    <li class="nav-item" data-page="earnings_commissions">
+                        <a href="{$external_base_url}?a=earnings&type=commissions" class="nav-link">
+                            <i class="fas fa-users text-info"></i><span>Referrals History</span>
+                        </a>
+                    </li>
+
+                    <!-- Withdraw Menu Item -->
+                    <li class="nav-item" data-page="withdraw">
+                        <a href="{$external_base_url}?a=withdraw" class="nav-link">
+                            <i class="fas fa-wallet text-danger"></i><span>Withdraw</span>
+                        </a>
+                    </li>
+
+                    <!-- Withdrawals History Menu Item -->
+                    <li class="nav-item" data-page="withdraw_history">
+                        <a href="{$external_base_url}?a=withdraw_history" class="nav-link">
+                            <i class="fas fa-history text-danger"></i><span>Withdrawals History</span>
+                        </a>
+                    </li>
+
+                    <!-- Your Referrals Menu Item -->
+                    <li class="nav-item" data-page="referals">
+                        <a href="{$external_base_url}?a=referals" class="nav-link">
+                            <i class="fas fa-user-friends text-info"></i><span>Your Referrals</span>
+                        </a>
+                    </li>
+
+                    <!-- Referral Links Menu Item -->
+                    <li class="nav-item" data-page="referallinks">
+                        <a href="{$external_base_url}?a=referallinks" class="nav-link">
+                            <i class="fas fa-link text-info"></i><span>Referral Links</span>
+                        </a>
+                    </li>
+
+                    <!-- Edit Account Menu Item -->
+                    <li class="nav-item" data-page="edit_account">
+                        <a href="{$external_base_url}?a=edit_account" class="nav-link">
+                            <i class="fas fa-edit text-warning"></i><span>Edit Account</span>
+                        </a>
+                    </li>
+
+                    <!-- Security Menu Item -->
+                    <li class="nav-item" data-page="security">
+                        <a href="{$external_base_url}?a=security" class="nav-link">
+                            <i class="fas fa-shield-alt text-warning"></i><span>Security</span>
+                        </a>
+                    </li>
+
+                    <!-- Logout Menu Item -->
+                    <li class="nav-item" data-page="logout">
+                        <a href="{$external_base_url}?a=logout" class="nav-link">
+                            <i class="fas fa-sign-out-alt text-danger"></i><span>Logout</span>
                         </a>
                     </li>
                 </ul>
@@ -232,6 +295,33 @@
 <!-- Template JS File -->
 <script src="{$external_base_url}assets/dashboard/js/scripts.js"></script>
 {literal}
+    <!-- JavaScript to set the active class on the current menu item -->
+    <script>
+        (function() {
+            // Get the 'a' parameter from the URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var currentPage = urlParams.get('a') || 'home'; // default to 'home' if 'a' is not set
+            var typeParam = urlParams.get('type');
+
+            // Handle special cases where 'type' parameter is used
+            if (currentPage === 'earnings' && typeParam === 'commissions') {
+                currentPage = 'earnings_commissions';
+            }
+
+            // Get all menu items
+            var menuItems = document.querySelectorAll('.sidebar-menu .nav-item');
+
+            // Iterate over menu items
+            menuItems.forEach(function(menuItem) {
+                var page = menuItem.getAttribute('data-page');
+                if (page === currentPage) {
+                    menuItem.classList.add('active');
+                } else {
+                    menuItem.classList.remove('active');
+                }
+            });
+        })();
+    </script>
 <script>
         // JavaScript to set the active class on the current menu item
         (function() {
