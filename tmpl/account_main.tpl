@@ -158,14 +158,41 @@
 
                 <ul class="sidebar-menu">
                     <li class="menu-header">Dashboard</li>
-                    <li class="dropdown {if $current_page == 'account'}active{/if}">
-                        <a href="{$external_base_url}user/dashboard" class="nav-link">
+
+                    <!-- Dashboard Menu Item -->
+                    <li class="nav-item" data-page="dashboard">
+                        <a href="{$external_base_url}?a=dashboard" class="nav-link">
                             <i class="fas fa-home text-primary"></i><span>Dashboard</span>
                         </a>
                     </li>
 
-                    <!-- More menu items -->
-                    <!-- Use similar structure for other menu items, replacing static content with variables -->
+                    <!-- Account Menu Item -->
+                    <li class="nav-item" data-page="account">
+                        <a href="{$external_base_url}?a=account" class="nav-link">
+                            <i class="fas fa-user text-info"></i><span>Account</span>
+                        </a>
+                    </li>
+
+                    <!-- Transactions Menu Item -->
+                    <li class="nav-item" data-page="transactions">
+                        <a href="{$external_base_url}?a=transactions" class="nav-link">
+                            <i class="fas fa-list-ul text-info"></i><span>Transactions</span>
+                        </a>
+                    </li>
+
+                    <!-- Deposit Menu Item -->
+                    <li class="nav-item" data-page="deposit">
+                        <a href="{$external_base_url}?a=deposit" class="nav-link">
+                            <i class="fas fa-money-bill-alt text-success"></i><span>Deposit</span>
+                        </a>
+                    </li>
+
+                    <!-- Withdrawal Menu Item -->
+                    <li class="nav-item" data-page="withdrawal">
+                        <a href="{$external_base_url}?a=withdrawal" class="nav-link">
+                            <i class="fas fa-wallet text-danger"></i><span>Withdrawal</span>
+                        </a>
+                    </li>
                 </ul>
             </aside>
         </div>
@@ -206,6 +233,26 @@
 <script src="{$external_base_url}assets/dashboard/js/scripts.js"></script>
 {literal}
 <script>
+        // JavaScript to set the active class on the current menu item
+        (function() {
+        // Get the 'a' parameter from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var currentPage = urlParams.get('a') || 'dashboard'; // default to 'dashboard' if 'a' is not set
+
+        // Get all menu items
+        var menuItems = document.querySelectorAll('.sidebar-menu .nav-item');
+
+        // Iterate over menu items
+        menuItems.forEach(function(menuItem) {
+        var page = menuItem.getAttribute('data-page');
+        if (page === currentPage) {
+        menuItem.classList.add('active');
+    } else {
+        menuItem.classList.remove('active');
+    }
+    });
+    })();
+
     $(document).ready(function () {
         $(document).ajaxStart(function () {
             $('#wait').removeClass('d-none').show();
