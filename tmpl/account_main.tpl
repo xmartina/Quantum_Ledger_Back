@@ -165,8 +165,16 @@
             <div class="row gy-5 gx-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="card">
+                        <div class="card-header"><h5>Account Balance</h5></div>
                         <div class="card-body">
-                            <div class="p-5"></div>
+                            <div class="p-3">
+                                {$currency_sign}<b>{$ab_formated.total}</b><br>
+                                <small>
+                                    {section name=p loop=$ps}
+                                        {if $ps[p].balance > 0}{$currency_sign}{$ps[p].balance} of {$ps[p].name}<br>{/if}
+                                    {/section}
+                                </small>
+                            </div>
                         </div>
                     </div>
                 </div>
