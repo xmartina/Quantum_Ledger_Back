@@ -20,6 +20,35 @@
     <!-- Additional Styles -->
     <style type="text/css">
         /* Your custom styles here */
+        {literal}
+        @-webkit-keyframes yt-spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes yt-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #yt-widget, #yt-widget * {
+            font: 14px Arial, Helvetica, sans-serif;
+            background: none;
+            border: none;
+        }
+
+        #yt-widget .yt-button {
+            height: 34px;
+            border: 1px solid #d5d5d5;
+            padding: 0 8px;
+            border-radius: 3px;
+        }
+
+        #yt-widget .yt-button__icon {
+            width: 34px;
+            height: 34px;
+            /*background: url("your_image_url_here") no-repeat;*/
+        }
+        {/literal}
     </style>
 </head>
 
@@ -284,6 +313,11 @@
 <script type="text/javascript" src="{$external_base_url}assets/dashboard/js/daterangepicker.min.js"></script>
 <script src="{$external_base_url}assets/dashboard/js/qrjs2.min.js"></script>
 
+
+<div style="position: fixed !important; z-index: 12000; bottom: 0;">
+    <div id="ytWidget"></div>
+    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false" type="text/javascript"></script>
+</div>
 <!-- Firebase and other scripts -->
 <!-- Include your Firebase and other necessary scripts here, ensuring to replace any URLs with variables -->
 
