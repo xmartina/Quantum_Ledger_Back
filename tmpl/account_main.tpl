@@ -168,7 +168,7 @@
 
 <!-- Template JS File -->
 <script src="{$external_base_url}assets/dashboard/js/scripts.js"></script>
-
+{literal}
 <script>
     $(document).ready(function () {
         $(document).ajaxStart(function () {
@@ -274,6 +274,7 @@
         });
     });
 </script>
+{/literal}
 
 <!-- Additional JS Libraries -->
 <script src="{$external_base_url}assets/dashboard/js/Chart.min.js"></script>
