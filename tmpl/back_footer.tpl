@@ -3,7 +3,7 @@
     <div class="footer-left">
         &copy; {$current_year|default:2024}
         <div class="bullet"></div>
-        All rights reserved by <b>Qfs Holdings</b>
+        All rights reserved by <b>{$site_name}</b>
     </div>
     <div class="footer-right">
         <!-- Footer right content -->
@@ -193,10 +193,6 @@
     <div id="ytWidget"></div>
     <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false" type="text/javascript"></script>
 </div>
-<!-- Firebase and other scripts -->
-<!-- Include your Firebase and other necessary scripts here, ensuring to replace any URLs with variables -->
-
-<!-- Optional: Include any additional scripts provided, making sure to adjust paths and variables -->
 
 </body>
 </html>
