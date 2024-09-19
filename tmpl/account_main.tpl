@@ -49,6 +49,11 @@
             /*background: url("your_image_url_here") no-repeat;*/
         }
         {/literal}
+        .main-sidebar .sidebar-menu li.active a {
+            color: #f47c3c;
+            font-weight: 600;
+            background-color: #fcfcfd;
+        }
     </style>
 </head>
 
