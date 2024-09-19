@@ -560,4 +560,3 @@
     </div>
 </div>
 
-{include file="back_footer.tpl"}
