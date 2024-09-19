@@ -11,7 +11,6 @@
 
 {include file="back_header.tpl"}
 <!-- Main Content -->
-<!-- Main Content -->
 <div id="firebase-app" class="main-content" style="min-height: 556px;">
     <section class="section wallet-section">
         <div class="section-header"><h1>Dashboard</h1></div>
@@ -35,7 +34,7 @@
         </div>
     {/if}
 
-    <!-- Main Content Replacement -->
+    <!-- Main Content -->
     <div class="row">
         <!-- Left Column -->
         <div class="col-lg-8 mb-4 order-0">
@@ -58,12 +57,12 @@
                     </div>
                 </div>
             </div>
+
             <!-- Quick Links -->
             <div class="card">
                 <div class="card-header"><h5>Quick Links</h5></div>
                 <div class="card-body">
                     <div class="row">
-                        <!-- Quick Link Items -->
                         {foreach from=$quick_links item=link}
                             <div class="col-xl-2 col-lg-4 col-md-3 col-6">
                                 <div class="quick-link text-center">
@@ -77,7 +76,93 @@
                     </div>
                 </div>
             </div>
+
+            <!-- User Account Information Card -->
+            <div class="card">
+                <div class="card-header"><h5>Your Account Information</h5></div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <td>User:</td>
+                            <td>{$userinfo.username}</td>
+                        </tr>
+                        <tr>
+                            <td>Registration Date:</td>
+                            <td>{$userinfo.create_account_date}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Access:</td>
+                            <td>{$last_access|default:"n/a"}&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Account Balance:</td>
+                            <td>{$currency_sign}<b>{$ab_formated.total}</b><br>
+                                <small>
+                                    {section name=p loop=$ps}
+                                        {if $ps[p].balance > 0}{$currency_sign}{$ps[p].balance} of {$ps[p].name}<br>{/if}
+                                    {/section}
+                                </small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Earned Total:</td>
+                            <td>{$currency_sign}<b>{$ab_formated.earning}</b></td>
+                        </tr>
+                        <tr>
+                            <td>Pending Withdrawal:</td>
+                            <td>{$currency_sign}<b>{$ab_formated.withdraw_pending}</b></td>
+                        </tr>
+                        <tr>
+                            <td>Withdrew Total:</td>
+                            <td>{$currency_sign}<b>{$ab_formated.withdrawal}</b></td>
+                        </tr>
+                        <tr>
+                            <td>Active Deposit:</td>
+                            <td>{$currency_sign}<b>{$ab_formated.active_deposit}</b></td>
+                        </tr>
+                        {if $last_deposit}
+                            <tr>
+                                <td>Last Deposit:</td>
+                                <td>{$currency_sign}<b>{$last_deposit|default:"n/a"}</b> &nbsp; <small>{$last_deposit_date|default:"n/a"}</small></td>
+                            </tr>
+                        {/if}
+                        {if $ab_formated.deposit != 0}
+                            <tr>
+                                <td>Total Deposit:</td>
+                                <td>{$currency_sign}<b>{$ab_formated.deposit}</b></td>
+                            </tr>
+                        {/if}
+                        {if $last_withdrawal}
+                            <tr>
+                                <td>Last Withdrawal:</td>
+                                <td>{$currency_sign}<b>{$last_withdrawal|default:"n/a"}</b> &nbsp; <small>{$last_withdrawal_date|default:"n/a"}</small></td>
+                            </tr>
+                        {/if}
+                        {if $ab_formated.withdrawal > 0}
+                            <tr>
+                                <td>Withdrew Total:</td>
+                                <td>{$currency_sign}<b>{$ab_formated.withdrawal}</b></td>
+                            </tr>
+                        {/if}
+                    </table>
+
+                    <!-- Pending Deposits -->
+                    {section name=p loop=$ps}
+                        {if $ps[p].pending_col > 0}
+                            <p>
+                                {$ps[p].pending_col} {$ps[p].name} deposit{if $ps[p].pending_col > 1}s{/if} of {$currency_sign}{$ps[p].pending_amount} total pending
+                            </p>
+                        {/if}
+                    {/section}
+
+                    <!-- Wire Transfers Pending -->
+                    {if $wires}
+                        <p>{$wires} Wire Transfer(s) pending.</p>
+                    {/if}
+                </div>
+            </div>
         </div>
+
         <!-- Right Column -->
         <div class="col-lg-4 col-md-12 order-1">
             <div class="row">
@@ -100,10 +185,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Additional Content -->
-    <!-- Include any other content or sections you need here -->
 </div>
-
 
 {include file="back_footer.tpl"}
