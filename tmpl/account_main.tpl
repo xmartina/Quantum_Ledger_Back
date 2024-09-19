@@ -37,7 +37,7 @@
     <!-- Main Content -->
     <div class="row">
         <!-- Left Column -->
-        <div class="col-lg-12 mb-12 order-0">
+        <div class="col-lg-8 mb-4 order-0">
             <!-- Welcome Card -->
             <div class="card mb-4">
                 <div class="d-flex align-items-end row">
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-sm-5 text-center text-sm-left">
                         <div class="card-body pb-0 px-0 px-md-4 text-right">
-{*                            <img src="{$base_url}assets/img/illustrations/man-with-laptop-light.png" height="140" alt="Welcome Image">*}
+                            <img src="{$base_url}assets/img/illustrations/man-with-laptop-light.png" height="140" alt="Welcome Image">
                         </div>
                     </div>
                 </div>
@@ -77,92 +77,9 @@
                 </div>
             </div>
 
-            <!-- User Account Information Card -->
-            <div class="card">
-                <div class="card-header"><h5>Your Account Information</h5></div>
-                <div class="card-body">
-                    <table class="table">
-                        <tr>
-                            <td>User:</td>
-                            <td>{$userinfo.username}</td>
-                        </tr>
-                        <tr>
-                            <td>Registration Date:</td>
-                            <td>{$userinfo.create_account_date}</td>
-                        </tr>
-                        <tr>
-                            <td>Last Access:</td>
-                            <td>{$last_access|default:"n/a"}&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>Account Balance:</td>
-                            <td>{$currency_sign}<b>{$ab_formated.total}</b><br>
-                                <small>
-                                    {section name=p loop=$ps}
-                                        {if $ps[p].balance > 0}{$currency_sign}{$ps[p].balance} of {$ps[p].name}<br>{/if}
-                                    {/section}
-                                </small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Earned Total:</td>
-                            <td>{$currency_sign}<b>{$ab_formated.earning}</b></td>
-                        </tr>
-                        <tr>
-                            <td>Pending Withdrawal:</td>
-                            <td>{$currency_sign}<b>{$ab_formated.withdraw_pending}</b></td>
-                        </tr>
-                        <tr>
-                            <td>Withdrew Total:</td>
-                            <td>{$currency_sign}<b>{$ab_formated.withdrawal}</b></td>
-                        </tr>
-                        <tr>
-                            <td>Active Deposit:</td>
-                            <td>{$currency_sign}<b>{$ab_formated.active_deposit}</b></td>
-                        </tr>
-                        {if $last_deposit}
-                            <tr>
-                                <td>Last Deposit:</td>
-                                <td>{$currency_sign}<b>{$last_deposit|default:"n/a"}</b> &nbsp; <small>{$last_deposit_date|default:"n/a"}</small></td>
-                            </tr>
-                        {/if}
-                        {if $ab_formated.deposit != 0}
-                            <tr>
-                                <td>Total Deposit:</td>
-                                <td>{$currency_sign}<b>{$ab_formated.deposit}</b></td>
-                            </tr>
-                        {/if}
-                        {if $last_withdrawal}
-                            <tr>
-                                <td>Last Withdrawal:</td>
-                                <td>{$currency_sign}<b>{$last_withdrawal|default:"n/a"}</b> &nbsp; <small>{$last_withdrawal_date|default:"n/a"}</small></td>
-                            </tr>
-                        {/if}
-                        {if $ab_formated.withdrawal > 0}
-                            <tr>
-                                <td>Withdrew Total:</td>
-                                <td>{$currency_sign}<b>{$ab_formated.withdrawal}</b></td>
-                            </tr>
-                        {/if}
-                    </table>
-
-                    <!-- Pending Deposits -->
-                    {section name=p loop=$ps}
-                        {if $ps[p].pending_col > 0}
-                            <p>
-                                {$ps[p].pending_col} {$ps[p].name} deposit{if $ps[p].pending_col > 1}s{/if} of {$currency_sign}{$ps[p].pending_amount} total pending
-                            </p>
-                        {/if}
-                    {/section}
-
-                    <!-- Wire Transfers Pending -->
-                    {if $wires}
-                        <p>{$wires} Wire Transfer(s) pending.</p>
-                    {/if}
-                </div>
-            </div>
-
-            <div class="row gy-5 gx-5">
+            <!-- Balance Related Information Cards -->
+            <div class="row gy-5 gx-5 mt-4">
+                <!-- Account Balance Card -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card">
                         <div class="card-header"><h5>Account Balance</h5></div>
@@ -178,6 +95,96 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Earned Total Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h5>Earned Total</h5></div>
+                        <div class="card-body">
+                            <div class="p-3">
+                                {$currency_sign}<b>{$ab_formated.earning}</b><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Withdrawal Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h5>Pending Withdrawal</h5></div>
+                        <div class="card-body">
+                            <div class="p-3">
+                                {$currency_sign}<b>{$ab_formated.withdraw_pending}</b><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Withdrew Total Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h5>Withdrew Total</h5></div>
+                        <div class="card-body">
+                            <div class="p-3">
+                                {$currency_sign}<b>{$ab_formated.withdrawal}</b><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Deposit Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h5>Active Deposit</h5></div>
+                        <div class="card-body">
+                            <div class="p-3">
+                                {$currency_sign}<b>{$ab_formated.active_deposit}</b><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Deposit Card -->
+                {if $ab_formated.deposit != 0}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-header"><h5>Total Deposit</h5></div>
+                            <div class="card-body">
+                                <div class="p-3">
+                                    {$currency_sign}<b>{$ab_formated.deposit}</b><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+
+                <!-- Last Deposit Card -->
+                {if $last_deposit}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-header"><h5>Last Deposit</h5></div>
+                            <div class="card-body">
+                                <div class="p-3">
+                                    {$currency_sign}<b>{$last_deposit|default:"n/a"}</b> &nbsp; <small>{$last_deposit_date|default:"n/a"}</small><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+
+                <!-- Last Withdrawal Card -->
+                {if $last_withdrawal}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-header"><h5>Last Withdrawal</h5></div>
+                            <div class="card-body">
+                                <div class="p-3">
+                                    {$currency_sign}<b>{$last_withdrawal|default:"n/a"}</b> &nbsp; <small>{$last_withdrawal_date|default:"n/a"}</small><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
             </div>
         </div>
 
@@ -204,5 +211,6 @@
         </div>
     </div>
 </div>
+
 
 {include file="back_footer.tpl"}
