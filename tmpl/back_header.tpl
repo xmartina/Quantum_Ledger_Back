@@ -156,7 +156,7 @@
                 </div>
 
                 <ul class="sidebar-menu">
-                    <li class="menu-header">Navigation</li>
+{*                    <li class="menu-header">Navigation</li>*}
 
                     <!-- Home Menu Item -->
                     <li class="nav-item" data-page="home">
