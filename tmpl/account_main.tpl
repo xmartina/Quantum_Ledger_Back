@@ -11,7 +11,7 @@
 
 {include file="back_header.tpl"}
 <!-- Main Content -->
-<div id="firebase-app" class="main-content" style="min-height: 556px;">
+<div id="firebase-app" class="main-content">
     <section class="section wallet-section">
         <div class="section-header"><h1>Dashboard</h1></div>
     </section>
