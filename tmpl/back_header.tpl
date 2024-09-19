@@ -95,17 +95,17 @@
                 <!-- User Profile Menu -->
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                        <img alt="{$user.name}" src="{$user.profile_picture|default:'{$external_base_url}assets/upload/default-avatar.png'}" class="rounded-circle mr-1">
-                        <div class="d-sm-none d-lg-inline-block">{$user.name}</div>
+                        <img alt="{$userinfo.username}" src="{$user.profile_picture|default:'{$external_base_url}assets/upload/default-avatar.png'}" class="rounded-circle mr-1">
+                        <div class="d-sm-none d-lg-inline-block">{$userinfo.username}</div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow-sm">
-                        <a href="{$external_base_url}user/profile" class="dropdown-item has-icon">
+                        <a href="{$base_url}?a=profile" class="dropdown-item has-icon">
                             <i class="far fa-user"></i> Profile
                         </a>
-                        <a href="{$external_base_url}user/qr-code" class="dropdown-item has-icon">
+                        <a href="{$base_url}?a=qr-code" class="dropdown-item has-icon">
                             <i class="fas fa-qrcode"></i> QR Code
                         </a>
-                        <a href="{$external_base_url}user/change-password" class="dropdown-item has-icon">
+                        <a href="{$base_url}?a=change-password" class="dropdown-item has-icon">
                             <i class="fas fa-unlock-alt"></i> Change Password
                         </a>
                         <div class="dropdown-divider"></div>
@@ -146,12 +146,12 @@
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
                     <a href="{$external_base_url}">
-                        <img src="{$external_base_url}assets/upload/logo/logo.png" class="dashboard-logo" alt="Logo">
+                        <img src="{$site_logo}" class="dashboard-logo" alt="{$site_name}">
                     </a>
                 </div>
                 <div class="sidebar-brand sidebar-brand-sm">
-                    <a href="{$external_base_url}">
-                        <img src="{$external_base_url}assets/upload/logo/favicon.png" class="dashboard-logo-sm" alt="Logo">
+                    <a href="{$base_url}">
+                        <img src="{$site_logo}" class="dashboard-logo-sm" alt="{$site_name}">
                     </a>
                 </div>
 
