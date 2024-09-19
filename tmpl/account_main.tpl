@@ -37,7 +37,7 @@
     <!-- Main Content -->
     <div class="row">
         <!-- Left Column -->
-        <div class="col-lg-8 mb-4 order-0">
+        <div class="col-lg-12 mb-4 order-0">
             <!-- Welcome Card -->
             <div class="card mb-4">
                 <div class="d-flex align-items-end row">
