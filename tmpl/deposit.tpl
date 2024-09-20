@@ -98,9 +98,8 @@
         {/if}
     {/if}
 
-    <form action="https://qfsholdings.io/user/investment" method="post">
-        <input type="hidden" name="_token" value="uEFi8lEpiFmmalD0MVoIJtqdamIeaKjGTKUcXIQd">
-
+    <form method=post name="spendform">
+        <input type=hidden name=a value=deposit>
         <section>
             <div class="bs-stepper horizontal-wizard-example">
                 <div class="bs-stepper-content">
