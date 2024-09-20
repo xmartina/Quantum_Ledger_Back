@@ -11,295 +11,303 @@
 
 {include file="back_header.tpl"}
 
-<div class="container my-5">
-    {if $fatal}
+
+{if $fatal}
     {if $fatal == 'one_per_month'}
-        <div class="alert alert-warning d-flex align-items-center mb-4" role="alert">
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            <div>You can deposit once a month only.</div>
+        <div class="media align-items-center d-flex justify-content-between alert alert-warn mb-4">
+            <div><i class="fas fa-exclamation-triangle"></i> You can deposit once a month only.
+            </div>
         </div>
     {/if}
-    {else}
-    {literal}
-        <script type="text/javascript">
-            // Function to open the calculator popup
-            function openCalculator(id) {
-                var w = 225, h = 400;
-                var t = (screen.height - h - 30) / 2;
-                var l = (screen.width - w - 30) / 2;
-                window.open('?a=calendar&type=' + id, 'calculator' + id, "top=" + t + ",left=" + l + ",width=" + w + ",height=" + h + ",resizable=1,scrollbars=0");
-            }
 
-            // Function to update form fields based on selected plan
-            function updateFields(selectedPlan) {
-                if (!selectedPlan) return;
+{else}
 
-                document.getElementById("tenure").value = selectedPlan.getAttribute("data-tenure");
-                document.getElementById("interest").value = selectedPlan.getAttribute("data-interest");
-                document.getElementById("min").value = selectedPlan.getAttribute("data-min_amount");
-                document.getElementById("max").value = selectedPlan.getAttribute("data-max_amount");
-                document.getElementById("method_code").value = selectedPlan.getAttribute("data-id");
-                updateCompound();
-            }
+{literal}
+    <script language="javascript"><!--
+        function openCalculator(id) {
 
-            // Function to update compounding options
-            function updateCompound() {
-                var selectedPlan = document.querySelector('input[name="plan"]:checked');
-                var id = selectedPlan ? selectedPlan.value : 0;
+            w = 225;
+            h = 400;
+            t = (screen.height - h - 30) / 2;
+            l = (screen.width - w - 30) / 2;
+            window.open('?a=calendar&type=' + id, 'calculator' + id, "top=" + t + ",left=" + l + ",width=" + w + ",height=" + h + ",resizable=1,scrollbars=0");
 
-                var cpObj = document.getElementById('compound_percents');
-                if (cpObj) {
-                    cpObj.innerHTML = '';
+            {/literal}
+            {if $qplans > 1}
+            {literal}
+            for (i = 0; i < document.spendform.h_id.length; i++) {
+                if (document.spendform.h_id[i].value == id) {
+                    document.spendform.h_id[i].checked = true;
                 }
+            }
+            {/literal}
+            {/if}
+            {literal}
 
-                if (cps[id] && cps[id].length > 0) {
-                    document.getElementById('compound_block').style.display = 'block';
-                    cps[id].forEach(function(percent) {
-                        var option = document.createElement("option");
-                        option.text = percent;
-                        option.value = percent;
-                        cpObj.add(option);
-                    });
-                } else {
-                    document.getElementById('compound_block').style.display = 'none';
+        }
+
+        function updateCompound() {
+            var id = 0;
+            var tt = document.spendform.h_id.type;
+            if (tt && tt.toLowerCase() == 'hidden') {
+                id = document.spendform.h_id.value;
+            } else {
+                for (i = 0; i < document.spendform.h_id.length; i++) {
+                    if (document.spendform.h_id[i].checked) {
+                        id = document.spendform.h_id[i].value;
+                    }
                 }
             }
 
-            // Initialize the form with selected plan data if available
-            window.onload = function() {
-                var selectedPlan = document.querySelector('input[name="plan"]:checked');
-                if (selectedPlan) {
-                    updateFields(selectedPlan);
+            var cpObj = document.getElementById('compound_percents');
+            if (cpObj) {
+                while (cpObj.options.length != 0) {
+                    cpObj.options[0] = null;
                 }
             }
-        </script>
-    {/literal}
+
+            if (cps[id] && cps[id].length > 0) {
+                document.getElementById('coumpond_block').style.display = '';
+
+                for (i in cps[id]) {
+                    cpObj.options[cpObj.options.length] = new Option(cps[id][i]);
+                }
+            } else {
+                document.getElementById('coumpond_block').style.display = 'none';
+            }
+        }
+
+        var cps = {};
+        --></script>
+{/literal}
 
     {if $frm.say eq 'deposit_success'}
-        <div class="alert alert-success d-flex align-items-center mb-4" role="alert">
-            <i class="fas fa-check-circle me-2"></i>
-            <div>The deposit has been successfully saved.</div>
+        <div class="media align-items-center d-flex justify-content-between alert alert-warn mb-4">
+            <div><i class="fas fa-exclamation-triangle h3"></i>The deposit has been successfully saved.
+            </div>
         </div>
     {/if}
 
     {if $frm.say eq 'deposit_saved'}
-        <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
-            <i class="fas fa-info-circle me-2"></i>
-            <div>The deposit has been saved. It will become active when the administrator checks statistics.</div>
+        <div class="media align-items-center d-flex justify-content-between alert alert-warn mb-4">
+            <div><i class="fas fa-exclamation-triangle h3"></i>The deposit has been saved. It will become active when
+                the administrator checks statistics.
+            </div>
         </div>
     {/if}
 
     {if $errors}
-    {if $errors.less_min}
-        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            <div>Sorry, you can deposit not less than {$currency_sign}{$errors.less_min} with selected processing.</div>
-        </div>
-    {/if}
-    {if $errors.greater_max}
-        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            <div>Sorry, you can deposit not greater than {$currency_sign}{$errors.greater_max} with selected processing.</div>
-        </div>
-    {/if}
-    {if $errors.ec_forbidden}
-        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            <div>Sorry, deposit with selected processing is temporarily forbidden.</div>
-        </div>
-    {/if}
-    {/if}
-
-        <form method=post name="spendform">
-            <input type=hidden name=a value=deposit>
-
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Investment Plan</h5>
-                    <small>Please select a plan</small>
+        {if $errors.less_min}
+            <div class="media align-items-center d-flex justify-content-between alert alert-danger mb-4">
+                <div><i class="fas fa-exclamation-triangle h3"></i>Sorry, you can deposit not less
+                    than {$currency_sign}{$errors.less_min} with selected processing
                 </div>
-                <div class="card-body">
-                    <!-- Plan Selection -->
-                    <div class="mb-4">
-                        <label class="form-label"><strong>Select a Plan:</strong></label>
-                        <div class="row">
-                            {section name=plans loop=$plans}
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="plan"
-                                                id="plan{$plans[plans].id}"
-                                                value="{$plans[plans].id}"
-                                                data-tenure="{$plans[plans].tenure}"
-                                                data-interest="{$plans[plans].interest_amount}% Daily"
-                                                data-min_amount="{$plans[plans].min_amount}{$currency_sign}"
-                                                data-max_amount="{$plans[plans].max_amount}{$currency_sign}"
-                                                onclick="updateFields(this);"
-                                                {if $frm.plan == $plans[plans].id || ($smarty.section.plans.first && !$frm.plan)} checked {/if}
-                                        >
-                                        <label class="form-check-label" for="plan{$plans[plans].id}">
-                                            <strong>{$plans[plans].name}</strong> (Currency: {$currency_sign})
-                                        </label>
+            </div>
+        {/if}
+        {if $errors.greater_max}
+            <div class="media align-items-center d-flex justify-content-between alert alert-danger mb-4">
+                <div><i class="fas fa-exclamation-triangle h3"></i>Sorry, you can deposit not greater
+                    than {$currency_sign}{$errors.greater_max} with selected processing
+                </div>
+            </div>
+        {/if}
+        {if $errors.ec_forbidden}
+            <div class="media align-items-center d-flex justify-content-between alert alert-danger mb-4">
+                <div><i class="fas fa-exclamation-triangle h3"></i>Sorry, deposit with selected processing is temporary
+                    forbidden.
+                </div>
+            </div>
+            <br>
+            <br>
+        {/if}
+    {/if}
+    <form method=post name="spendform">
+        <input type=hidden name=a value=deposit>
+        {if $qplans > 1} Select a plan:
+            <br>
+        {/if}
+
+        {section name=plans loop=$plans}
+            <table cellspacing=1 cellpadding=2 border=0 width=100%>
+                <tr>
+                    <td colspan=3>
+                        {if $qplans > 1}
+                            <input type=radio name=h_id
+                                   value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}
+                                   onclick="updateCompound()">
+                            <!--	<input type=radio name=h_id value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if} {if $compounding_available > 0}onclick="document.spendform.compound.disabled={if $plans[plans].use_compound == 1}false{else}true{/if};"{/if}> -->
+                        {else}
+                            <input type=hidden name=h_id value='{$plans[plans].id}'>
+                        {/if}
+
+                        <b>{$plans[plans].name}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=inheader>Plan</td>
+                    <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
+                    <td class=inheader width=100 nowrap>
+                        <nobr>{$plans[plans].period} Profit (%)</nobr>
+                    </td>
+                </tr>
+
+                <div class="row mb-3">
+                    <div class="container-fluid" id="container-wrapper">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-12">
+                                <div class="card mb-4 card-primary shadow">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <h6 class="m-0 font-weight-bold text-primary">
+                                                            {if $qplans > 1}
+                                                                <input type=radio name=h_id
+                                                                       value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}
+                                                                       onclick="updateCompound()">
+                                                                <!--	<input type=radio name=h_id value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if} {if $compounding_available > 0}onclick="document.spendform.compound.disabled={if $plans[plans].use_compound == 1}false{else}true{/if};"{/if}> -->
+                                                            {else}
+                                                                <input type=hidden name=h_id value='{$plans[plans].id}'>
+                                                            {/if}
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <h6 class="m-0 font-weight-bold text-primary">
+                                                            {$plans[plans].name}
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="row">
+                                                                <div class="col-lg-5">
+                                                                    <div class="title h4">Plan</div>
+                                                                </div>
+                                                                <div class="col-lg-7">
+                                                                    {section name=options loop=$plans[plans].plans}
+                                                                        <div class="title">{$plans[plans].plans[options].name|escape:html}
+                                                                        </div>
+                                                                    {/section}
+                                                                </div>
+                                                            </div>
+                                                            <td class=inheader width=200>Spent Amount ({$currency_sign}
+                                                                )
+                                                            </td>
+                                                            <td class=inheader width=100 nowrap>
+                                                                <nobr>{$plans[plans].period} Profit (%)</nobr>
+                                                            </td>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" id="submit" class="btn btn-primary btn-sm btn-block"
+                                                disabled="">Submit redeem code
+                                        </button>
                                     </div>
                                 </div>
-                            {/section}
-                        </div>
-                    </div>
-
-                    <!-- Plan Details -->
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="tenure" class="form-label"><strong>Tenure</strong></label>
-                            <input type="text" name="tenure" id="tenure" class="form-control" readonly placeholder="0 Days" value="{$frm.tenure}">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="interest" class="form-label"><strong>Interest</strong></label>
-                            <input type="text" name="interest" id="interest" class="form-control" readonly placeholder="0" value="{$frm.interest}">
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="min" class="form-label"><strong>Min Amount</strong></label>
-                            <input type="text" name="min" id="min" class="form-control" readonly placeholder="0.00" value="{$frm.min}">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="max" class="form-label"><strong>Max Amount</strong></label>
-                            <input type="text" name="max" id="max" class="form-control" readonly placeholder="0.00" value="{$frm.max}">
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="amount" class="form-label"><strong>Amount to Invest ({$currency_sign})</strong></label>
-                        <input type="text" name="amount" id="amount" class="form-control" placeholder="0.00" value="{$frm.amount}">
-                    </div>
-
-                    <!-- Compounding Options -->
-                    <div class="row mb-3" id="compound_block" style="display:none;">
-                        <div class="col-md-12">
-                            <label for="compound" class="form-label"><strong>Compounding (%)</strong></label>
-                            <select name="compound" id="compound_percents" class="form-select">
-                                <!-- Options will be populated by JavaScript -->
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Funding Source -->
-                    <div class="mb-3">
-                        <label class="form-label"><strong>Spend Funds From:</strong></label>
-                        <div class="row">
-                            <div class="col-md-6">
-                                {section name=p loop=$ps}
-                                    {if $ps[p].balance > 0 && $ps[p].status == 1}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="type" id="type_account_{$ps[p].id}" value="account_{$ps[p].id}">
-                                            <label class="form-check-label" for="type_account_{$ps[p].id}">
-                                                Account Balance {$ps[p].name} ({$currency_sign}{$ps[p].balance}{if $hold[p].amount > 0} / {$currency_sign}{$hold[p].amount} on hold{/if})
-                                            </label>
-                                        </div>
-                                    {/if}
-                                {/section}
-                            </div>
-                            <div class="col-md-6">
-                                {section name=p loop=$ps}
-                                    {if $ps[p].status}
-                                        <div class="form-check">
-                                            <input
-                                                    class="form-check-input"
-                                                    type="radio"
-                                                    name="type"
-                                                    id="type_process_{$ps[p].id}"
-                                                    value="process_{$ps[p].id}"
-                                                    {if $smarty.section.p.index == 0}checked{/if}
-                                            >
-                                            <label class="form-check-label" for="type_process_{$ps[p].id}">
-                                                Spend funds from {$ps[p].name}
-                                            </label>
-                                        </div>
-                                    {/if}
-                                {/section}
                             </div>
                         </div>
                     </div>
-
-                    <!-- Submit Button -->
-                    <div class="d-grid">
-                        <input type="submit" value="Spend" class="btn btn-primary">
-                    </div>
                 </div>
-            </div>
+                {section name=options loop=$plans[plans].plans}
+                    <tr>
+                        <td class=item>{$plans[plans].plans[options].name|escape:html}</td>
+                        <td class=item align=right>{$plans[plans].plans[options].deposit}</td>
+                        <td class=item align=right>{$plans[plans].plans[options].percent}</td>
+                    </tr>
+                {/section}
+                {if $settings.enable_calculator}
+                    <tr>
+                        <td colspan=3 align=right><a href="javascript:openCalculator('{$plans[plans].id}')">Calculate
+                                your profit &gt;&gt;</a></td>
+                    </tr>
+                {/if}
+            </table>
+            <br>
+            <br>
+            <script>
+                cps[{$plans[plans].id}] = {$plans[plans].compound_percents_json};
+            </script>
+        {/section}
+        <table cellspacing=0 cellpadding=2 border=0>
+            <tr>
+                <td>Your account balance ({$currency_sign}):</td>
+                <td align=right>{$currency_sign}{$ab_formated.total}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td align=right>
+                    <small>
+                        {section name=p loop=$ps}
+                            {if $ps[p].balance > 0}{$currency_sign}{$ps[p].balance} of {$ps[p].name}{if $hold[p].amount > 0} / {$currency_sign}{$hold[p].amount} on hold{/if}
+                                <br>
+                            {/if}
+                        {/section}
+                    </small>
+                </td>
+            </tr>
+            <tr>
+                <td>Amount to Spend ({$currency_sign}):</td>
+                <td align=right><input type=text name=amount value='{$min_deposit}' class=inpts size=15
+                                       style="text-align:right;"></td>
+            </tr>
+            <tr id="coumpond_block" style="display:none">
+                <td>Compounding(%):</td>
+                <td align=right>
+                    <select name="compound" class=inpts id="compound_percents"></select>
+                </td>
+            </tr>
 
-            <!-- Account Balance Display -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Your Account Balance ({$currency_sign}):</h5>
-                    <p class="card-text">{$currency_sign}{$ab_formated.total}</p>
-                    {if $ps|@count > 0}
-                        <h6>Detailed Balances:</h6>
-                        <ul class="list-group list-group-flush">
-                            {section name=p loop=$ps}
-                                {if $ps[p].balance > 0}
-                                    <li class="list-group-item">
-                                        {$currency_sign}{$ps[p].balance} of {$ps[p].name}{if $hold[p].amount > 0} / {$currency_sign}{$hold[p].amount} on hold{/if}
-                                    </li>
-                                {/if}
-                            {/section}
-                        </ul>
-                    {/if}
-                </div>
-            </div>
-        </form>
+            <tr>
+                <td colspan=2>
+                    <table cellspacing=0 cellpadding=2 border=0>
+                        {section name=p loop=$ps}
+                            {if $ps[p].balance > 0 and $ps[p].status == 1}
+                                <tr>
+                                    <td><input type=radio name=type value="account_{$ps[p].id}"></td>
+                                    <td>Spend funds from the Account Balance {$ps[p].name}</td>
+                                </tr>
+                            {/if}
+                        {/section}
+                        {section name=p loop=$ps}
+                            {if $ps[p].status}
+                                <tr>
+                                    <td><input type=radio name=type value="process_{$ps[p].id}"
+                                               {if $smarty.section.p.index == 0}checked{/if}></td>
+                                    <td>Spend funds from {$ps[p].name}</td>
+                                </tr>
+                            {/if}
+                        {/section}
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2><input type=submit value="Spend" class=sbmt></td>
+            </tr>
+        </table>
+    </form>
+{literal}
+    <script language=javascript>
+        for (i = 0; i < document.spendform.type.length; i++) {
+            if ((document.spendform.type[i].value.match(/^process_/))) {
+                document.spendform.type[i].checked = true;
+                break;
+            }
+        }
+        updateCompound();
+    </script>
+{/literal}
 
-    {literal}
-        <script type="text/javascript">
-            // Compound percents data
-            var cps = {};
-            {/literal}
-            {section name=plans loop=$plans}
-            {literal}
-            cps[{/literal}{$plans[plans].id}{literal}] = {/literal}{$plans[plans].compound_percents_json|json_encode nofilter}{literal};
-            {/literal}{/section}
-                {literal}
-
-                // Update Compound options based on selected plan
-                function updateCompound() {
-                    var selectedPlan = document.querySelector('input[name="plan"]:checked');
-                    var id = selectedPlan ? selectedPlan.value : 0;
-
-                    var cpObj = document.getElementById('compound_percents');
-                    if (cpObj) {
-                        cpObj.innerHTML = '';
-                    }
-
-                    if (cps[id] && cps[id].length > 0) {
-                        document.getElementById('compound_block').style.display = 'block';
-                        cps[id].forEach(function(percent) {
-                            var option = document.createElement("option");
-                            option.text = percent;
-                            option.value = percent;
-                            cpObj.add(option);
-                        });
-                    } else {
-                        document.getElementById('compound_block').style.display = 'none';
-                    }
-                }
-
-                // Automatically select the first process type if available
-                document.addEventListener('DOMContentLoaded', function() {
-                    var processTypes = document.querySelectorAll('input[name="type"]');
-                    processTypes.forEach(function(type) {
-                        if (type.value.startsWith('process_')) {
-                            type.checked = true;
-                            return false;
-                        }
-                    });
-                    updateCompound();
-                });
-        </script>
-    {/literal}
-    {/if}
+{/if}
 </div>
-
 {include file="back_footer.tpl"}
