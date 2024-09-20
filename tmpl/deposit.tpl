@@ -261,7 +261,7 @@
             {section name=plans loop=$plans}
             {literal}
             cps[{/literal}{$plans[plans].id}{literal}] = {/literal}{$plans[plans].compound_percents_json|json_encode nofilter}{literal};
-            {/section}
+            {/literal}{/section}
                 {literal}
 
                 // Update Compound options based on selected plan
