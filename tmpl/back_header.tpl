@@ -102,7 +102,7 @@
                         <div class="d-sm-none d-lg-inline-block">{$userinfo.username}</div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow-sm">
-                        <a href="{$base_url}?a=profile" class="dropdown-item has-icon">
+                        <a href="{$base_url}?a=edit_account" class="dropdown-item has-icon">
                             <i class="far fa-user"></i> Profile
                         </a>
                         <a href="{$base_url}?a=qr-code" class="dropdown-item has-icon">
