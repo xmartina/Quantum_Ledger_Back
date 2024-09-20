@@ -183,7 +183,9 @@
                                                             </div>
                                                             <div class="col-lg-7">
                                                                 {section name=options loop=$plans[plans].plans}
-                                                                <div class="title">{$plans[plans].plans[options].name|escape:html}</div>
+                                                                <div class="title">{$plans[plans].plans[options].name|escape:html}
+                                                                </div>
+                                                                {/section}
                                                             </div>
                                                         </div>
                                                             <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
