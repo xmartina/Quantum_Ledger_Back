@@ -110,9 +110,8 @@
     {/if}
     {/if}
 
-        <form action="https://qfsholdings.io/user/investment" method="post" name="spendform">
-            <input type="hidden" name="_token" value="uEFi8lEpiFmmalD0MVoIJtqdamIeaKjGTKUcXIQd">
-            <input type="hidden" name="a" value="deposit">
+        <form method=post name="spendform">
+            <input type=hidden name=a value=deposit>
 
             <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-primary text-white">
