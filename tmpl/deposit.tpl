@@ -14,7 +14,7 @@
 <div class="container my-5">
     {if $fatal}
     {if $fatal == 'one_per_month'}
-        <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <div class="alert alert-warning d-flex align-items-center mb-4" role="alert">
             <i class="fas fa-exclamation-triangle me-2"></i>
             <div>You can deposit once a month only.</div>
         </div>
@@ -76,14 +76,14 @@
     {/literal}
 
     {if $frm.say eq 'deposit_success'}
-        <div class="alert alert-success d-flex align-items-center" role="alert">
+        <div class="alert alert-success d-flex align-items-center mb-4" role="alert">
             <i class="fas fa-check-circle me-2"></i>
             <div>The deposit has been successfully saved.</div>
         </div>
     {/if}
 
     {if $frm.say eq 'deposit_saved'}
-        <div class="alert alert-info d-flex align-items-center" role="alert">
+        <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
             <i class="fas fa-info-circle me-2"></i>
             <div>The deposit has been saved. It will become active when the administrator checks statistics.</div>
         </div>
@@ -91,19 +91,19 @@
 
     {if $errors}
     {if $errors.less_min}
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
             <i class="fas fa-exclamation-triangle me-2"></i>
             <div>Sorry, you can deposit not less than {$currency_sign}{$errors.less_min} with selected processing.</div>
         </div>
     {/if}
     {if $errors.greater_max}
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
             <i class="fas fa-exclamation-triangle me-2"></i>
             <div>Sorry, you can deposit not greater than {$currency_sign}{$errors.greater_max} with selected processing.</div>
         </div>
     {/if}
     {if $errors.ec_forbidden}
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
             <i class="fas fa-exclamation-triangle me-2"></i>
             <div>Sorry, deposit with selected processing is temporarily forbidden.</div>
         </div>
@@ -195,7 +195,7 @@
                                 {section name=p loop=$ps}
                                     {if $ps[p].balance > 0 && $ps[p].status == 1}
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="type" value="account_{$ps[p].id}">
+                                            <input class="form-check-input" type="radio" name="type" id="type_account_{$ps[p].id}" value="account_{$ps[p].id}">
                                             <label class="form-check-label" for="type_account_{$ps[p].id}">
                                                 Account Balance {$ps[p].name} ({$currency_sign}{$ps[p].balance}{if $hold[p].amount > 0} / {$currency_sign}{$hold[p].amount} on hold{/if})
                                             </label>
@@ -260,45 +260,44 @@
             {/literal}
             {section name=plans loop=$plans}
             {literal}
-            cps[{/literal}{$plans[plans].id}{literal}] = {/literal}{$plans[plans].compound_percents_json}{literal};
-            {/literal}
+            cps[{/literal}{$plans[plans].id}{literal}] = {/literal}{$plans[plans].compound_percents_json|json_encode nofilter}{literal};
             {/section}
-            {literal}
+                {literal}
 
-            // Update Compound options based on selected plan
-            function updateCompound() {
-                var selectedPlan = document.querySelector('input[name="plan"]:checked');
-                var id = selectedPlan ? selectedPlan.value : 0;
+                // Update Compound options based on selected plan
+                function updateCompound() {
+                    var selectedPlan = document.querySelector('input[name="plan"]:checked');
+                    var id = selectedPlan ? selectedPlan.value : 0;
 
-                var cpObj = document.getElementById('compound_percents');
-                if (cpObj) {
-                    cpObj.innerHTML = '';
-                }
-
-                if (cps[id] && cps[id].length > 0) {
-                    document.getElementById('compound_block').style.display = 'block';
-                    cps[id].forEach(function(percent) {
-                        var option = document.createElement("option");
-                        option.text = percent;
-                        option.value = percent;
-                        cpObj.add(option);
-                    });
-                } else {
-                    document.getElementById('compound_block').style.display = 'none';
-                }
-            }
-
-            // Automatically select the first process type if available
-            document.addEventListener('DOMContentLoaded', function() {
-                var processTypes = document.querySelectorAll('input[name="type"]');
-                processTypes.forEach(function(type) {
-                    if (type.value.startsWith('process_')) {
-                        type.checked = true;
-                        return false;
+                    var cpObj = document.getElementById('compound_percents');
+                    if (cpObj) {
+                        cpObj.innerHTML = '';
                     }
+
+                    if (cps[id] && cps[id].length > 0) {
+                        document.getElementById('compound_block').style.display = 'block';
+                        cps[id].forEach(function(percent) {
+                            var option = document.createElement("option");
+                            option.text = percent;
+                            option.value = percent;
+                            cpObj.add(option);
+                        });
+                    } else {
+                        document.getElementById('compound_block').style.display = 'none';
+                    }
+                }
+
+                // Automatically select the first process type if available
+                document.addEventListener('DOMContentLoaded', function() {
+                    var processTypes = document.querySelectorAll('input[name="type"]');
+                    processTypes.forEach(function(type) {
+                        if (type.value.startsWith('process_')) {
+                            type.checked = true;
+                            return false;
+                        }
+                    });
+                    updateCompound();
                 });
-                updateCompound();
-            });
         </script>
     {/literal}
     {/if}
