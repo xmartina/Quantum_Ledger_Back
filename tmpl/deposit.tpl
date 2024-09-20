@@ -158,7 +158,7 @@
                             <div class="card mb-4 card-primary shadow">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class="row">
-                                        <div class="col-lg-4 col-md-4">
+                                        <div class="col-md-10">
                                             <h6 class="m-0 font-weight-bold text-primary">{if $qplans > 1}
                                                     <input type=radio name=h_id
                                                            value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}
