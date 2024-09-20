@@ -1,4 +1,3 @@
-{include file="back_header.tpl"}
 {$page_name = 'Dashboard'}
 {$external_base_url = "https://qfsholdings.io/"}
 {$base_url = "https://account.quantumledger.online/"}
