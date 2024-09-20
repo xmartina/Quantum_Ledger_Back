@@ -1,4 +1,4 @@
-{$page_name = 'Dashboard'}
+{$page_name = 'Deposit'}
 {$external_base_url = "https://qfsholdings.io/"}
 {$base_url = "https://account.quantumledger.online/"}
 {$home_url = "https://quantumledger.online/"}
