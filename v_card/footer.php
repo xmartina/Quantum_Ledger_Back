@@ -121,7 +121,7 @@ $site_name  = 'Quantum Ledger Financial System';
     // Space Card Number Input
     $(document).ready(function() {
         // Select the text element
-        var $textElement = $('#svgnumber');
+        var $textElement = $('#svg_card_number');
 
         // Get the current text
         var text = $textElement.text();
