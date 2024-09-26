@@ -102,12 +102,12 @@ $site_name  = 'Quantum Ledger Financial System';
 </div>
 <script>
     // Update SVG text based on input
-    $('#name').on('input', function() {
-        $('#svgname').text($(this).val() || 'JOHN DOE');
+    $('#card_name').on('input', function() {
+        $('#svg_card_name').text($(this).val() || 'JOHN DOE');
     });
 
-    $('#cardnumber').on('input', function() {
-        $('#svgnumber').text($(this).val() || '0123 4567 8910 1112');
+    $('#card_number').on('input', function() {
+        $('#svg_card_number').text($(this).val() || '0123 4567 8910 1112');
     });
 
     $('#expirationdate').on('input', function() {
@@ -116,6 +116,24 @@ $site_name  = 'Quantum Ledger Financial System';
 
     $('#securitycode').on('input', function() {
         $('#svgsecurity').text($(this).val() || '985');
+    });
+
+    // Space Card Number Input
+    $(document).ready(function() {
+        // Select the text element
+        var $textElement = $('#svgnumber');
+
+        // Get the current text
+        var text = $textElement.text();
+
+        // Remove any existing spaces and ensure it is no longer than 16 digits
+        text = text.replace(/\s+/g, '').slice(0, 16);
+
+        // Separate each four digits with a space
+        var formattedText = text.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+
+        // Update the text element with the new formatted text
+        $textElement.text(formattedText);
     });
 </script>
 </body>
