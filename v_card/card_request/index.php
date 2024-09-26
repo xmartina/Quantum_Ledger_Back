@@ -23,7 +23,7 @@ include_once (__DIR__ . '/../header.php');
             </div>
             <div class="field-container">
                 <label for="expirationdate">Expiration (mm/yy)</label>
-                <input type="text"  inputmode="numeric" value="<?php echo $expirationDate; ?>">
+                <input type="text" value="<?php echo $expirationDate; ?>">
             </div>
             <div class="field-container">
                 <label for="securitycode">Security Code</label>
