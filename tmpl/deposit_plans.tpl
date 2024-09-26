@@ -49,21 +49,45 @@
                     {/section}
                 </div>
             </div>
+            <div class="col-lg-4">
+                <div class="invest_plans rounded shadow-sm">
+                    <div class="head">
+                        Spent Amount ({$currency_sign})
+                    </div>
+                    {section name=options loop=$plans[plans].plans}
+                        <div class="pl_body">
+                            {$plans[plans].plans[options].deposit}
+                        </div>
+                    {/section}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="invest_plans rounded shadow-sm">
+                    <div class="head">
+                        {$plans[plans].period} Profit (%)
+                    </div>
+                    {section name=options loop=$plans[plans].plans}
+                        <div class="pl_body">
+                            {$plans[plans].plans[options].percent}
+                        </div>
+                    {/section}
+                </div>
+            </div>
         </div>
-        <tr>
-            <td class=inheader>Plan</td>
-            <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
-            <td class=inheader width=100 nowrap>
-                <nobr>{$plans[plans].period} Profit (%)</nobr>
-            </td>
-        </tr>
-        {section name=options loop=$plans[plans].plans}
-            <tr>
-                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>
-                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>
-                <td class=item align=right>{$plans[plans].plans[options].percent}</td>
-            </tr>
-        {/section}
+{*        <tr>*}
+{*            <td class=inheader>Plan</td>*}
+{*            <td class=inheader width=200>Spent Amount ({$currency_sign})</td>*}
+{*            <td class=inheader width=100 nowrap>*}
+{*                <nobr>{$plans[plans].period} Profit (%)</nobr>*}
+{*            </td>*}
+{*        </tr>*}
+{*        {section name=options loop=$plans[plans].plans}*}
+{*            <tr>*}
+{*                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>*}
+{*                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>*}
+{*                <td class=item align=right>{$plans[plans].plans[options].percent}</td>*}
+{*            </tr>*}
+{*        {/section}*}
         {if $settings.enable_calculator}
             <tr>
                 <td colspan=3 align=right><a href="javascript:openCalculator('{$plans[plans].id}')">Calculate
