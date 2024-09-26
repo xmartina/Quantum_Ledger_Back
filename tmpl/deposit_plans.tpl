@@ -62,9 +62,11 @@
             }
             .deposit_info{
                 font-size: var(--font_size_big);
+                color: var(--primary_color);
             }
             .balance_info{
-
+                font-size: var(--font_size_small);
+                color: var(--font_color);
             }
         </style>
         <div class="row">
