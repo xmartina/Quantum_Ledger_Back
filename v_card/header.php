@@ -72,6 +72,21 @@
 
 // Generate the random card number on page load
         $cardNumber = generateRandomCardNumber();
+
+        // Function to generate expiration date in MM/YY format
+        function generateExpirationDate() {
+            // Get the current date
+            $currentDate = new DateTime();
+
+            // Add 4 years to the current date
+            $currentDate->modify('+4 years');
+
+            // Format the date as MM/YY
+            return $currentDate->format('m/y');
+        }
+
+// Generate the expiration date on page load
+        $expirationDate = generateExpirationDate();
         ?>
     <?php } ?>
 
