@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="invest_plans rounded shadow-sm">
+                <div class="invest_plans p-3 rounded shadow-sm">
                     <div class="head mb-2">
                         Spent Amount ({$currency_sign})
                     </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="invest_plans rounded shadow-sm">
+                <div class="invest_plans p-3 rounded shadow-sm">
                     <div class="head mb-2">
                         {$plans[plans].period} Profit (%)
                     </div>
