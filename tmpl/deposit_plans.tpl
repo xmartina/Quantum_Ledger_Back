@@ -44,20 +44,16 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </div>
         <tr>
             <td class="item"></td>
         </tr>
-        {section name=options loop=$plans[plans].plans}
-            <tr>
-                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>
-                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>
-                <td class=item align=right>{$plans[plans].plans[options].percent}</td>
-            </tr>
-        {/section}
+{*        {section name=options loop=$plans[plans].plans}*}
+{*            <tr>*}
+{*                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>*}
+{*                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>*}
+{*                <td class=item align=right>{$plans[plans].plans[options].percent}</td>*}
+{*            </tr>*}
+{*        {/section}*}
         {if $settings.enable_calculator}
             <tr>
                 <td colspan=3 align=right><a href="javascript:openCalculator('{$plans[plans].id}')">Calculate
