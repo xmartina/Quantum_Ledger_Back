@@ -1,9 +1,13 @@
 <!-- Footer -->
+<?php
+$external_base_url = 'https://qfsholdings.io/';
+$site_name  = 'Quantum Ledger Financial System';
+?>
 <footer class="main-footer">
     <div class="footer-left">
-        &copy; <?= current_year?>
+        &copy; <?= date('Y') ?>
         <div class="bullet"></div>
-        All rights reserved by <b><?= $site_name ?></b>
+        All rights reserved by <b><?php echo $site_name; ?></b>
     </div>
     <div class="footer-right">
         <!-- Footer right content -->
