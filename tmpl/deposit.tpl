@@ -170,7 +170,7 @@
                         {/section}
                         {section name=p loop=$ps}
                             {if $ps[p].status}
-                                <tr>
+                                <tr class="py-3">
                                     <td><input type=radio name=type value="process_{$ps[p].id}"
                                                {if $smarty.section.p.index == 0}checked{/if}></td>
                                     <td>Spend funds from {$ps[p].name}</td>
