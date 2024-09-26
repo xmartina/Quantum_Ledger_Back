@@ -71,6 +71,13 @@
             .balance_input{
                 border:1px solid var(--font-color);
             }
+            .spend_from td{
+                color: var(--primary_color);
+                font-size: var(--font_size_small);
+            }
+            .spend_from input[type='submit']{
+
+            }
         </style>
         <div class="row">
             <div class="col-lg-4">
