@@ -87,19 +87,20 @@ To: <select name=month_to class=inpts>
  <td>
 	&nbsp; <input type=submit value="Go" class=sbmt>
  </td>
-</tr></table>
+</tr>
+</table>
 </form>
 <br><br>
 
 {if $settings.use_history_balance_mode}
-<table cellspacing=1 cellpadding=2 border=0 width=100%>
+ <table class="table table-dark">
 <tr>
- <td class=inheader>Date</td>
- <td class=inheader>Type</td>
- <td class=inheader>Credit</td>
- <td class=inheader>Debit</td>
- <td class=inheader>Balance</td>
- <td class=inheader>P.S.</td>
+ <th scope="col">Date</th>
+ <th scope="col">Type</th>
+ <th scope="col">Credit</th>
+ <th scope="col">Debit</th>
+ <th scope="col">Balance</th>
+ <th scope="col">P.S.</th>
 </tr>
 {if $qtrans > 0}
 {section name=trans loop=$trans}
