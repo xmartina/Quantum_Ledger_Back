@@ -157,13 +157,12 @@
                     <select name="compound" class=inpts id="compound_percents"></select>
                 </td>
             </tr>
-            <div class="py-3"></div>
             <tr class="pt-4 my-4">
                 <td colspan=2>
                     <table cellspacing=0 cellpadding=2 border=0 class="spend_from">
                         {section name=p loop=$ps}
                             {if $ps[p].balance > 0 and $ps[p].status == 1}
-                                <tr>
+                                <tr class="py-4">
                                     <td><input type=radio name=type value="account_{$ps[p].id}"></td>
                                     <td>Spend funds from the Account Balance {$ps[p].name}</td>
                                 </tr>
