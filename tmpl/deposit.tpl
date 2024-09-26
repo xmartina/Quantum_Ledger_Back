@@ -131,7 +131,7 @@
 
         <table cellspacing=0 cellpadding=2 border=0 class="w-100">
             <tr class="d-flex justify-content-start align-items-center">
-                <td class="deposit_info pl-5">Your account balance ({$currency_sign}):</td>
+                <td class="deposit_info pr-5">Your account balance ({$currency_sign}):</td>
                 <td align=right class="balance_info">{$currency_sign}{$ab_formated.total}</td>
             </tr>
             <tr>
