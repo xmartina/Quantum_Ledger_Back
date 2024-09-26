@@ -19,7 +19,7 @@
             <th class=item>
                 <table class="table table-dark">
                     <tr>
-                        <td colspan=3 align=center><b>{$p.name}</b></td>
+                        <td colspan=3 align=center style="font-size: 21px;"><b>{$p.name}</b></td>
                     </tr>
                     <tr>
                         <th scope="col">Plan</th>
