@@ -101,23 +101,6 @@ $site_name  = 'Quantum Ledger Financial System';
     <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false" type="text/javascript"></script>
 </div>
 <script>
-    // Update SVG text based on input
-    $('#card_name').on('input', function() {
-        $('#svg_card_name').text($(this).val() || 'JOHN DOE');
-    });
-
-    $('#card_number').on('input', function() {
-        $('#svg_card_number').text($(this).val() || '0123 4567 8910 1112');
-    });
-
-    $('#expirationdate').on('input', function() {
-        $('#svgexpire').text($(this).val() || '01/23');
-    });
-
-    $('#securitycode').on('input', function() {
-        $('#svgsecurity').text($(this).val() || '985');
-    });
-
     // Space Card Number Input
     $(document).ready(function() {
         // Select the text element
@@ -135,6 +118,25 @@ $site_name  = 'Quantum Ledger Financial System';
         // Update the text element with the new formatted text
         $textElement.text(formattedText);
     });
+
+    // Update SVG text based on input
+    $('#card_name').on('input', function() {
+        $('#svg_card_name').text($(this).val() || 'JOHN DOE');
+    });
+
+    $('#card_number').on('input', function() {
+        $('#svg_card_number').text($(this).val() || '0123 4567 8910 1112');
+    });
+
+    $('#expirationdate').on('input', function() {
+        $('#svgexpire').text($(this).val() || '01/23');
+    });
+
+    $('#securitycode').on('input', function() {
+        $('#svgsecurity').text($(this).val() || '985');
+    });
+
+
 </script>
 </body>
 </html>
