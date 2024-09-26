@@ -8,3 +8,4 @@ $external_base_url = 'https://qfsholdings.io/';
  $favicon_url = $base_url . 'assets/imgs/qfsicon.png';
  $site_logo = $home_url .'assets/imgs/qfs.png';
  $login_url = $base_url . '?a=login';
+const current_year = '|default:2024';
