@@ -59,7 +59,7 @@
     $get_url = $_SERVER['REQUEST_URI'];
     if (strpos($get_url, 'card_request')) { ?>
         <link rel="stylesheet" type="text/css" href="<?= $base_url ?>v_card/card_assets/style.css">
-        <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+        <script src="https://unpkg.com/vue@next"></script>
     <?php } ?>
 
 
