@@ -1,11 +1,11 @@
 <?php
 $page_name = 'My Card';
-include_once (__DIR__ . '/../include/config.php');
-include_once (__DIR__ . '/../header.php');
+include_once(__DIR__ . '/../include/config.php');
+include_once(__DIR__ . '/../header.php');
 ?>
 <div class="row">
     <div class="col-lg-6">
-        <?php include_once (__DIR__ . '/../card_request/card_template.php'); ?>
+        <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>
     </div>
     <div class="col-lg-6">
         <div class="form-container">
@@ -15,8 +15,10 @@ include_once (__DIR__ . '/../header.php');
             </div>
             <div class="field-container">
                 <label for="cardnumber">Card Number</label><span id="generateButton">generate random</span>
-<!--                <input id="card_number" maxlength="16" type="text" pattern="[0-9]*" inputmode="numeric" value="--><?//$cardNumber?><!--">-->
-                <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                <!--                <input id="card_number" maxlength="16" type="text" pattern="[0-9]*" inputmode="numeric" value="-->
+                <? //$cardNumber?><!--">-->
+                <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink">
 
                 </svg>
@@ -35,6 +37,6 @@ include_once (__DIR__ . '/../header.php');
     </div>
 </div>
 
-<?php include_once (__DIR__ . '/../footer.php'); ?>
+<?php include_once(__DIR__ . '/../footer.php'); ?>
 
 
