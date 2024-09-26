@@ -127,7 +127,7 @@
             <br>
         {/if}
 
-{*        {include file="deposit_plans.tpl"}*}
+        {include file="deposit_plans.tpl"}
 
         <table cellspacing=0 cellpadding=2 border=0>
             <tr>
