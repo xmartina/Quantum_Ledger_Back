@@ -101,42 +101,41 @@ $site_name  = 'Quantum Ledger Financial System';
     <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false" type="text/javascript"></script>
 </div>
 <script>
-    // Space Card Number Input
     $(document).ready(function() {
-        // Select the text element
+        // Function to format the card number
+        function formatCardNumber(cardNumber) {
+            // Remove any existing spaces and ensure it is no longer than 16 digits
+            cardNumber = cardNumber.replace(/\s+/g, '').slice(0, 16);
+            // Separate each four digits with a space
+            return cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+        }
+
+        // Initial formatting for existing SVG card number
         var $textElement = $('#svg_card_number');
+        var initialText = $textElement.text();
+        $textElement.text(formatCardNumber(initialText));
 
-        // Get the current text
-        var text = $textElement.text();
+        // Update SVG text based on input for card name
+        $('#card_name').on('input', function() {
+            $('#svg_card_name').text($(this).val() || 'JOHN DOE');
+        });
 
-        // Remove any existing spaces and ensure it is no longer than 16 digits
-        text = text.replace(/\s+/g, '').slice(0, 16);
+        // Update SVG text based on input for card number
+        $('#card_number').on('input', function() {
+            var cardNumber = $(this).val();
+            $('#svg_card_number').text(formatCardNumber(cardNumber) || '0123 4567 8910 1112');
+        });
 
-        // Separate each four digits with a space
-        var formattedText = text.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+        // Update SVG text based on input for expiration date
+        $('#expirationdate').on('input', function() {
+            $('#svgexpire').text($(this).val() || '01/23');
+        });
 
-        // Update the text element with the new formatted text
-        $textElement.text(formattedText);
+        // Update SVG text based on input for security code
+        $('#securitycode').on('input', function() {
+            $('#svgsecurity').text($(this).val() || '985');
+        });
     });
-
-    // Update SVG text based on input
-    $('#card_name').on('input', function() {
-        $('#svg_card_name').text($(this).val() || 'JOHN DOE');
-    });
-
-    $('#card_number').on('input', function() {
-        $('#svg_card_number').text($(this).val() || '0123 4567 8910 1112');
-    });
-
-    $('#expirationdate').on('input', function() {
-        $('#svgexpire').text($(this).val() || '01/23');
-    });
-
-    $('#securitycode').on('input', function() {
-        $('#svgsecurity').text($(this).val() || '985');
-    });
-
-
 </script>
 </body>
 </html>
