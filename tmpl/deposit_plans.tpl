@@ -36,12 +36,32 @@
 {*                <b>{$plans[plans].name}</b>*}
 {*            </td>*}
 {*        </tr>*}
+        <style>
+            .invest_plans{
+                background-color: #fff;
+                max-height: 250px;
+            }
+            .invest_plans .head{
+                font-weight: 500;
+                font-size: 21px;
+                color: #f47c3c ;
+            }
+            hr.pl_line{
+                background-color: #f47c3c ;
+                border: 1px solid #f47c3c ;
+            }
+            .invest_plans .pl_body{
+                color: #5f5f5f;
+                font-size: 17px;
+            }
+        </style>
         <div class="row">
             <div class="col-lg-4">
-                <div class="invest_plans rounded shadow-sm">
-                    <div class="head">
+                <div class="invest_plans p-3 rounded shadow-sm">
+                    <div class="head mb-2">
                         Plan
                     </div>
+                    <hr class="pl_line">
                     {section name=options loop=$plans[plans].plans}
                     <div class="pl_body">
                         {$plans[plans].plans[options].name|escape:html}
@@ -74,20 +94,6 @@
                 </div>
             </div>
         </div>
-{*        <tr>*}
-{*            <td class=inheader>Plan</td>*}
-{*            <td class=inheader width=200>Spent Amount ({$currency_sign})</td>*}
-{*            <td class=inheader width=100 nowrap>*}
-{*                <nobr>{$plans[plans].period} Profit (%)</nobr>*}
-{*            </td>*}
-{*        </tr>*}
-{*        {section name=options loop=$plans[plans].plans}*}
-{*            <tr>*}
-{*                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>*}
-{*                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>*}
-{*                <td class=item align=right>{$plans[plans].plans[options].percent}</td>*}
-{*            </tr>*}
-{*        {/section}*}
         {if $settings.enable_calculator}
             <tr>
                 <td colspan=3 align=right><a href="javascript:openCalculator('{$plans[plans].id}')">Calculate
