@@ -71,9 +71,10 @@
             </div>
             <div class="col-lg-4">
                 <div class="invest_plans rounded shadow-sm">
-                    <div class="head">
+                    <div class="head mb-2">
                         Spent Amount ({$currency_sign})
                     </div>
+                    <hr class="pl_line">
                     {section name=options loop=$plans[plans].plans}
                         <div class="pl_body">
                             {$plans[plans].plans[options].deposit}
@@ -83,9 +84,10 @@
             </div>
             <div class="col-lg-4">
                 <div class="invest_plans rounded shadow-sm">
-                    <div class="head">
+                    <div class="head mb-2">
                         {$plans[plans].period} Profit (%)
                     </div>
+                    <hr class="pl_line">
                     {section name=options loop=$plans[plans].plans}
                         <div class="pl_body">
                             {$plans[plans].plans[options].percent}
