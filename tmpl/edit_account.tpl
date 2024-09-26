@@ -318,5 +318,5 @@ document.getElementById('tfa_time').value = (new Date()).getTime();
 </tr></table>
 </form>
 
-{include file="footer.tpl"}
+{include file="back_footer.tpl"}
 
