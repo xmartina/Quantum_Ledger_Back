@@ -158,9 +158,9 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr class="pt-4">
                 <td colspan=2>
-                    <table cellspacing=0 cellpadding=2 border=0 class="py-4 spend_from">
+                    <table cellspacing=0 cellpadding=2 border=0 class="spend_from">
                         {section name=p loop=$ps}
                             {if $ps[p].balance > 0 and $ps[p].status == 1}
                                 <tr>
@@ -182,7 +182,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan=2><input type=submit value="Spend" class='form-input btn p-2 bg-warning text-white rounded shadow-sm w-50'></td>
+                <td colspan=2 class="py-3"><input type=submit value="Spend" class='form-input btn p-2 bg-warning text-white rounded shadow-sm w-50'></td>
             </tr>
         </table>
     </form>
