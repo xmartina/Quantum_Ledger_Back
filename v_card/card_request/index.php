@@ -25,6 +25,9 @@ include_once (__DIR__ . '/../header.php');
                         </g>
                         <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgname" class="st2 st5 st6">JOHN DOE</text>
                         <text transform="matrix(1 0 0 1 60.106 240)" id="svgnumber" class="st2 st3 st4">0123 4567 8910 1112</text>
+                        <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder name</text>
+                        <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
+                        <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
                         <g>
                             <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" class="st2 st5 st9">01/23</text>
                             <text transform="matrix(1 0 0 1 479.3848 417.0097)" class="st2 st10 st11">VALID</text>
