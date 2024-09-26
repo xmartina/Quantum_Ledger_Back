@@ -14,7 +14,7 @@
 <b>Total: {$currency_sign}{$total}</b><br><br>
 
 {foreach from=$plans item=p}
-    <table>
+    <table class="w-100">
         <tr>
             <th class=item>
                 <table class="table table-dark">
