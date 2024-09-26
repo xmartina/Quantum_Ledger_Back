@@ -222,6 +222,13 @@
                         </a>
                     </li>
 
+                    <!-- Card Menu Item -->
+                    <li class="nav-item" data-page="v_card">
+                        <a href="<?= $base_url ?>v_card" class="nav-link">
+                            <i class="fas fa-id-card-alt text-primary"></i><span>Card</span>
+                        </a>
+                    </li>
+
                     <!-- Your Referrals Menu Item -->
                     <li class="nav-item" data-page="referals">
                         <a href="<?= $base_url ?>?a=referals" class="nav-link">
