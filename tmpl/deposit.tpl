@@ -130,7 +130,7 @@
         {include file="deposit_plans.tpl"}
 
         <table cellspacing=0 cellpadding=2 border=0 class="w-100">
-            <tr>
+            <tr style="max-width: 500px;">
                 <td class="deposit_info">Your account balance ({$currency_sign}):</td>
                 <td align=right class="balance_info">{$currency_sign}{$ab_formated.total}</td>
             </tr>
