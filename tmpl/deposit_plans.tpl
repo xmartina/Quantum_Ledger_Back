@@ -1,27 +1,5 @@
 {section name=plans loop=$plans}
-    <table cellspacing=1 cellpadding=2 border=0 width=100%>
-        <tr>
-            <td colspan=3>
-                {if $qplans > 1}
-                    <input type=radio name=h_id
-                           value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}
-                           onclick="updateCompound()">
-                    <!--	<input type=radio name=h_id value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if} {if $compounding_available > 0}onclick="document.spendform.compound.disabled={if $plans[plans].use_compound == 1}false{else}true{/if};"{/if}> -->
-                {else}
-                    <input type=hidden name=h_id value='{$plans[plans].id}'>
-                {/if}
-
-                <b>{$plans[plans].name}</b>
-            </td>
-        </tr>
-        <tr>
-            <td class=inheader>Plan</td>
-            <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
-            <td class=inheader width=100 nowrap>
-                <nobr>{$plans[plans].period} Profit (%)</nobr>
-            </td>
-        </tr>
-
+    <table cellspacing="1" cellpadding='2' border='0' width='100%'>
         <div class="row mb-3">
             <div class="container-fluid" id="container-wrapper">
                 <div class="row justify-content-md-center">
@@ -45,15 +23,33 @@
             </div>
         </div>
         <tr>
-            <td class="item"></td>
+            <td colspan=3>
+                {if $qplans > 1}
+                    <input type=radio name=h_id
+                           value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}
+                           onclick="updateCompound()">
+                    <!--	<input type=radio name=h_id value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if} {if $compounding_available > 0}onclick="document.spendform.compound.disabled={if $plans[plans].use_compound == 1}false{else}true{/if};"{/if}> -->
+                {else}
+                    <input type=hidden name=h_id value='{$plans[plans].id}'>
+                {/if}
+
+                <b>{$plans[plans].name}</b>
+            </td>
         </tr>
-{*        {section name=options loop=$plans[plans].plans}*}
-{*            <tr>*}
-{*                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>*}
-{*                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>*}
-{*                <td class=item align=right>{$plans[plans].plans[options].percent}</td>*}
-{*            </tr>*}
-{*        {/section}*}
+        <tr>
+            <td class=inheader>Plan</td>
+            <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
+            <td class=inheader width=100 nowrap>
+                <nobr>{$plans[plans].period} Profit (%)</nobr>
+            </td>
+        </tr>
+        {section name=options loop=$plans[plans].plans}
+            <tr>
+                <td class=item>{$plans[plans].plans[options].name|escape:html}</td>
+                <td class=item align=right>{$plans[plans].plans[options].deposit}</td>
+                <td class=item align=right>{$plans[plans].plans[options].percent}</td>
+            </tr>
+        {/section}
         {if $settings.enable_calculator}
             <tr>
                 <td colspan=3 align=right><a href="javascript:openCalculator('{$plans[plans].id}')">Calculate
