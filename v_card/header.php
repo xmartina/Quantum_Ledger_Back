@@ -59,6 +59,20 @@
     $get_url = $_SERVER['REQUEST_URI'];
     if (strpos($get_url, 'card_request')) { ?>
         <link rel="stylesheet" type="text/css" href="<?= $base_url ?>v_card/card_assets/style.css">
+
+        <?php
+// Function to generate a random 16-digit number
+        function generateRandomCardNumber() {
+            $randomNumber = '';
+            for ($i = 0; $i < 16; $i++) {
+                $randomNumber .= mt_rand(0, 9); // Generate a random digit from 0 to 9
+            }
+            return $randomNumber;
+        }
+
+// Generate the random card number on page load
+        $cardNumber = generateRandomCardNumber();
+        ?>
     <?php } ?>
 
 

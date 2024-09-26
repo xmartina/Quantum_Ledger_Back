@@ -89,18 +89,7 @@ $site_name  = 'Quantum Ledger Financial System';
     });
 
     // Generate Random Number BTN
-    $(document).ready(function() {
-        $('#generateButton').on('click', function() {
-            // Generate a random 16-digit number
-            let randomCardNumber = '';
-            for (let i = 0; i < 16; i++) {
-                randomCardNumber += Math.floor(Math.random() * 10);
-            }
 
-            // Display the generated card number in the input field
-            $('#card_number').val(randomCardNumber);
-        });
-    });
 </script>
 
 <!-- Additional JS Libraries -->
