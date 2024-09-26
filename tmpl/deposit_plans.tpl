@@ -76,7 +76,8 @@
                 font-size: var(--font_size_small);
             }
             .spend_from input[type='submit']{
-
+                font-size: var(--font_size_small);
+                width: 200px;
             }
         </style>
         <div class="row">

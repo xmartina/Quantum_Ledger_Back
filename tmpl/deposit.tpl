@@ -160,7 +160,7 @@
 
             <tr>
                 <td colspan=2>
-                    <table cellspacing=0 cellpadding=2 border=0 class="py-2 spend_from">
+                    <table cellspacing=0 cellpadding=2 border=0 class="py-4 spend_from">
                         {section name=p loop=$ps}
                             {if $ps[p].balance > 0 and $ps[p].status == 1}
                                 <tr>
