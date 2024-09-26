@@ -182,7 +182,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan=2><input type=submit value="Spend" class='form-input btn p-2 bg-warning text-white rounded shadow-sm'></td>
+                <td colspan=2><input type=submit value="Spend" class='form-input btn p-2 bg-warning text-white rounded shadow-sm w-50'></td>
             </tr>
         </table>
     </form>
