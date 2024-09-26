@@ -206,4 +206,4 @@ To: <select name=month_to class=inpts>
 </center>
 {/if}
 
-{include file="footer.tpl"}
+{include file="back_footer.tpl"}
