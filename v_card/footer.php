@@ -191,6 +191,10 @@ $site_name  = 'Quantum Ledger Financial System';
     <div id="ytWidget"></div>
     <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false" type="text/javascript"></script>
 </div>
-
+<?php
+$get_url = $_SERVER['REQUEST_URI'];
+if (strpos($get_url, 'card_request')) { ?>
+    <script src="<?= $base_url ?>v_card/card_assets/js.js"></script>
+<?php } ?>
 </body>
 </html>
