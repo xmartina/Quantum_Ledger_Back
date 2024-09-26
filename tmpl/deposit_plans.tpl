@@ -36,6 +36,20 @@
                 <b>{$plans[plans].name}</b>
             </td>
         </tr>
+        <tr class="row">
+            <td class="col-lg-4">
+                <div class="invest_plans rounded shadow-sm">
+                    <div class="head">
+                        Plan
+                    </div>
+                    {section name=options loop=$plans[plans].plans}
+                    <div class="pl_body">
+                        {$plans[plans].plans[options].name|escape:html}
+                    </div>
+                    {/section}
+                </div>
+            </td>
+        </tr>
         <tr>
             <td class=inheader>Plan</td>
             <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
