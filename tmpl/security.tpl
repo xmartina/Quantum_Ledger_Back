@@ -1,6 +1,15 @@
-{include file="header.tpl"}
+{$page_name = 'Advanced Login Security Settings'}
+{$external_base_url = "https://qfsholdings.io/"}
+{$base_url = "https://account.quantumledger.online/"}
+{$home_url = "https://quantumledger.online/"}
+{$home_url = 'https://quantumledger.online/'}
+{$site_url = 'https://account.quantumledger.online/'}
+{$site_name = 'Quantum Ledger Financial System'}
+{$site_logo = 'https://quantumledger.online/assets/imgs/qfs.png'}
+{assign var="login_url" value="{$site_url}?a=login"}
+{assign var="favicon_url" value="{$home_url}assets/imgs/qfsicon.png"}
 
-<h3>Advanced login security settings:</h3><br><br>
+{include file="back_header.tpl"}
 
 <form method=post>
 <input type=hidden name=a value="security">
@@ -63,4 +72,4 @@ function checkform() {
 {/literal}
 {/if} {* use_tfa *}
 
-{include file="footer.tpl"}
+{include file="back_footer.tpl"}

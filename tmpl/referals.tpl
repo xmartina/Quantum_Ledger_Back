@@ -1,4 +1,4 @@
-{$page_name = 'Earning History'}
+{$page_name = 'Your Referrals'}
 {$external_base_url = "https://qfsholdings.io/"}
 {$base_url = "https://account.quantumledger.online/"}
 {$home_url = "https://quantumledger.online/"}
@@ -11,7 +11,6 @@
 
 {include file="back_header.tpl"}
 
-<h3>Your Referrals:</h3><br>
 {if $upline.email != ""}
 Your upline is <a href=mailto:{$upline.email}>{$upline.name}</a><br><br>
 {/if}
