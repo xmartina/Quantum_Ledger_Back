@@ -114,9 +114,9 @@ $site_name  = 'Quantum Ledger Financial System';
         }
 
         // Initial formatting for existing SVG card number
-        var $textElement = $('#svg_card_number');
-        var initialText = $textElement.text();
-        $textElement.text(formatCardNumber(initialText));
+        // var $textElement = $('#svg_card_number');
+        // var initialText = $textElement.text();
+        // $textElement.text(formatCardNumber(initialText));
 
         // Update SVG text based on input for card name
         $('#card_name').on('input', function() {
