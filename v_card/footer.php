@@ -101,11 +101,21 @@ $site_name  = 'Quantum Ledger Financial System';
     <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&amp;pageLang=en&amp;widgetTheme=dark&amp;autoMode=false" type="text/javascript"></script>
 </div>
 <script>
-    const inputField = document.getElementById('name');
-    const svgText = document.getElementById('svgname');
+    // Update SVG text based on input
+    $('#name').on('input', function() {
+        $('#svgname').text($(this).val() || 'JOHN DOE');
+    });
 
-    inputField.addEventListener('input', function() {
-        svgText.textContent = inputField.value || 'JOHN DOE'; // Default text if input is empty
+    $('#cardnumber').on('input', function() {
+        $('#svgnumber').text($(this).val() || '0123 4567 8910 1112');
+    });
+
+    $('#expirationdate').on('input', function() {
+        $('#svgexpire').text($(this).val() || '01/23');
+    });
+
+    $('#securitycode').on('input', function() {
+        $('#svgsecurity').text($(this).val() || '985');
     });
 </script>
 </body>
