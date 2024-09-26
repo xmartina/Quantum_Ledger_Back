@@ -26,7 +26,7 @@ include_once(__DIR__ . '/../header.php');
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="securitycode" class="form-label">Security Code</label>
-                                    <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" class="form-control">
+                                    <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" class="form-control" value="<?php echo $ccv_code; ?>">
                                 </div>
                             </div>
                         </div>

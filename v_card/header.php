@@ -87,6 +87,17 @@
 
 // Generate the expiration date on page load
         $expirationDate = generateExpirationDate();
+
+        // Function to generate expiration date in CVV Code format
+        function generate_cvv_number() {
+            $randomNumber = '';
+            for ($i = 0; $i < 3; $i++) {
+                $randomNumber .= mt_rand(0, 9); // Generate a random digit from 0 to 9
+            }
+            return $randomNumber;
+        }
+
+        $ccv_code = generate_cvv_number();
         ?>
     <?php } ?>
 
