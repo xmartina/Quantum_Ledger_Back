@@ -37,22 +37,34 @@
 {*            </td>*}
 {*        </tr>*}
         <style>
+            :root{
+                --primary_color:#f47c3c;
+                --font-size_big:21px;
+                --font_size_small:15px;
+                --font_color:#6c757d;
+            }
             .invest_plans{
                 background-color: #fff;
                 max-height: 250px;
             }
             .invest_plans .head{
                 font-weight: 500;
-                font-size: 21px;
+                font-size: var(--font-size_big);
                 color: #f47c3c ;
             }
             hr.pl_line{
-                background-color: #f47c3c ;
+                background-color:  ;
                 border: 1px solid #f47c3c ;
             }
             .invest_plans .pl_body{
                 color: #5f5f5f;
-                font-size: 17px;
+                font-size:var(--font_size_big);
+            }
+            .deposit_info{
+                font-size: var(--font_size_big);
+            }
+            .balance_info{
+
             }
         </style>
         <div class="row">

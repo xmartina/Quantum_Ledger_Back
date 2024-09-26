@@ -131,8 +131,8 @@
 
         <table cellspacing=0 cellpadding=2 border=0>
             <tr>
-                <td>Your account balance ({$currency_sign}):</td>
-                <td align=right>{$currency_sign}{$ab_formated.total}</td>
+                <td class="deposit_info">Your account balance ({$currency_sign}):</td>
+                <td align=right class="balance_info">{$currency_sign}{$ab_formated.total}</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
