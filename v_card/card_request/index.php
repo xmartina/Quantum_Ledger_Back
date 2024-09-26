@@ -21,6 +21,7 @@ include_once (__DIR__ . '/../header.php');
 
                 </svg>
             </div>
+            <?php echo $expirationDate; ?>
             <div class="field-container">
                 <label for="expirationdate">Expiration (mm/yy)</label>
                 <input type="text" value="<?php echo $expirationDate; ?>">
