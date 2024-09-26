@@ -38,10 +38,10 @@
 {*        </tr>*}
         <style>
             :root{
-                --primary_color:#f47c3c;
-                --font-size_big:21px;
-                --font_size_small:15px;
-                --font_color:#6c757d;
+                --primary_color:#f47c3c !important;
+                --font-size_big:21px !important;
+                --font_size_small:15px !important;
+                --font_color:#6c757d !important;
             }
             .invest_plans{
                 background-color: #fff;
