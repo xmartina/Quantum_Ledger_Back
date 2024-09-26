@@ -158,7 +158,7 @@
                 </td>
             </tr>
 
-            <tr class="pt-4">
+            <tr class="pt-4 my-4">
                 <td colspan=2>
                     <table cellspacing=0 cellpadding=2 border=0 class="spend_from">
                         {section name=p loop=$ps}
