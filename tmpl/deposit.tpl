@@ -146,9 +146,9 @@
                     </small>
                 </td>
             </tr>
-            <tr>
-                <td>Amount to Spend ({$currency_sign}):</td>
-                <td align=right><input type=text name=amount value='{$min_deposit}' class=inpts size=15
+            <tr class="row invest_plans">
+                <td class="col-lg-4 head">Amount to Spend ({$currency_sign}):</td>
+                <td class="col-lg-6 balance_input p-3 rounded"><input type=text name=amount value='{$min_deposit}' class=inpts size=15
                                        style="text-align:right;"></td>
             </tr>
             <tr id="coumpond_block" style="display:none">

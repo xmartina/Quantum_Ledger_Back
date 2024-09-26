@@ -68,6 +68,9 @@
                 font-size: var(--font_size_small);
                 color: var(--font_color);
             }
+            .balance_input{
+                border:1px solid var(--font-color);
+            }
         </style>
         <div class="row">
             <div class="col-lg-4">
