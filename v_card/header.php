@@ -225,7 +225,7 @@
                     <!-- Card Menu Item -->
                     <li class="nav-item" data-page="v_card">
                         <a href="<?= $base_url ?>v_card" class="nav-link">
-                            <i class="fas fa-id-card-alt text-primary"></i><span>Card</span>
+                            <i class="fas fa-credit-card text-primary"></i><span>Virtual Card</span>
                         </a>
                     </li>
 
