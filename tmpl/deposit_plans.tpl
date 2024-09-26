@@ -57,7 +57,7 @@
                 border: 1px solid #f47c3c ;
             }
             .invest_plans .pl_body{
-                color: #5f5f5f;
+                color: var(--font_color);
                 font-size:var(--font-size_small);
             }
             .deposit_info{
