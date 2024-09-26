@@ -181,44 +181,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                            <div class="row">
-                                                                <div class="col-lg-5">
-                                                                    <div class="title h4">Plan</div>
-                                                                </div>
-                                                                <div class="col-lg-7">
-                                                                    {section name=options loop=$plans[plans].plans}
-                                                                        <div class="title">{$plans[plans].plans[options].name|escape:html}
-                                                                        </div>
-                                                                    {/section}
-                                                                </div>
-                                                            </div>
-                                                            <td class=inheader width=200>Spent Amount ({$currency_sign}
-                                                                )
-                                                            </td>
-                                                            <td class=inheader width=100 nowrap>
-                                                                <nobr>{$plans[plans].period} Profit (%)</nobr>
-                                                            </td>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" id="submit" class="btn btn-primary btn-sm btn-block"
-                                                disabled="">Submit redeem code
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <tr>
+                    <td class="item"></td>
+                </tr>
                 {section name=options loop=$plans[plans].plans}
                     <tr>
                         <td class=item>{$plans[plans].plans[options].name|escape:html}</td>
