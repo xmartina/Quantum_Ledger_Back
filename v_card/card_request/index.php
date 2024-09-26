@@ -16,7 +16,7 @@ include_once (__DIR__ . '/../header.php');
     </div>
     <div class="field-container">
         <label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
-        <input id="card_number" type="text" pattern="[0-9]*" inputmode="numeric">
+        <input id="card_number" maxlength="20" type="text" pattern="[0-9]*" inputmode="numeric">
         <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
 
