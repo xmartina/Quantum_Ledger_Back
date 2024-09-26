@@ -22,22 +22,22 @@
                 </div>
             </div>
         </div>
-        <tr>
-            <td colspan=3>
-                {if $qplans > 1}
-                    <input type=radio name=h_id
-                           value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}
-                           onclick="updateCompound()">
-                    <!--	<input type=radio name=h_id value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if} {if $compounding_available > 0}onclick="document.spendform.compound.disabled={if $plans[plans].use_compound == 1}false{else}true{/if};"{/if}> -->
-                {else}
-                    <input type=hidden name=h_id value='{$plans[plans].id}'>
-                {/if}
+{*        <tr>*}
+{*            <td colspan=3>*}
+{*                {if $qplans > 1}*}
+{*                    <input type=radio name=h_id*}
+{*                           value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if}*}
+{*                           onclick="updateCompound()">*}
+{*                    <!--	<input type=radio name=h_id value='{$plans[plans].id}' {if (($smarty.section.plans.first == 1) && ($frm.h_id eq '')) || ($frm.h_id == $plans[plans].id)} checked {/if} {if $compounding_available > 0}onclick="document.spendform.compound.disabled={if $plans[plans].use_compound == 1}false{else}true{/if};"{/if}> -->*}
+{*                {else}*}
+{*                    <input type=hidden name=h_id value='{$plans[plans].id}'>*}
+{*                {/if}*}
 
-                <b>{$plans[plans].name}</b>
-            </td>
-        </tr>
-        <tr class="row">
-            <td class="col-lg-4">
+{*                <b>{$plans[plans].name}</b>*}
+{*            </td>*}
+{*        </tr>*}
+        <div class="row">
+            <div class="col-lg-4">
                 <div class="invest_plans rounded shadow-sm">
                     <div class="head">
                         Plan
@@ -48,8 +48,8 @@
                     </div>
                     {/section}
                 </div>
-            </td>
-        </tr>
+            </div>
+        </div>
         <tr>
             <td class=inheader>Plan</td>
             <td class=inheader width=200>Spent Amount ({$currency_sign})</td>
