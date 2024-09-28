@@ -42,7 +42,6 @@ function generate_cvv_number()
 
 $ccv_code = generate_cvv_number();
 
-
 session_start();  // Start the session
 
 $page_url = $_SERVER['REQUEST_URI'];
