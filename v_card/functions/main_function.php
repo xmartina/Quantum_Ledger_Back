@@ -51,6 +51,7 @@ if (
     strpos($page_url, 'v_card') &&
     strpos($page_url, 'card_request')
 ) {
+    include_once (__DIR__ . '/auth_function.php');
     if (!isset($_SESSION['username'])) { ?>
         <script type="text/javascript">
             window.location.href = "<?= $base_url ?>?a=login";

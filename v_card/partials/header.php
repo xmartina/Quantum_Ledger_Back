@@ -129,7 +129,7 @@
         <!-- Logout Modal -->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form id="logout-form" action="../../v_card/functions/auth_function.php" method="POST">
+                <form id="logout-form" action="../../v_card/functions/logout_function.php" method="POST">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger pb-2" id="logoutModalLabel">Confirmation!</h5>
