@@ -23,8 +23,8 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
                     <input type="password" name="password" value="" class="form-control form--control" id="password">
                     <label for="password" class="form--label prevent-select">Password</label>
                 </div>
-                <div class="form--group mb-4">
-                    <button type="submit" value="Login" class="cmn--btn w-100 justify-content-center text--white border-0">Authenticate
+                <div class="form--group d-flex justify-content-center mb-4">
+                    <button type="submit" value="Login" class="rounded btn cmn--btn w-75 justify-content-center text--white border-0">Authenticate
                     </button>
                 </div>
             </form>
