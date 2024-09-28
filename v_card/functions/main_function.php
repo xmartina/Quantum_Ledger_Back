@@ -48,9 +48,8 @@ $page_url = $_SERVER['REQUEST_URI'];
 
 // Only redirect to login if the URL is not related to authentication and the user is not logged in
 if (
-    strpos($page_url, 'v_card/auth') === false &&
-    strpos($page_url, 'invalid_username') === false &&
-    strpos($page_url, 'enter_a_username') === false
+    strpos($page_url, 'v_card') &&
+    strpos($page_url, 'card_request')
 ) {
     if (!isset($_SESSION['username'])) {
         // Redirect to login if the user is not logged in
