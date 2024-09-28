@@ -1,6 +1,6 @@
 <?php
 $page_name = 'Card Auth';
-include_once(__DIR__ . '/../functions/auth.php');
+include_once(__DIR__ . '/../functions/auth_function.php');
 include_once(__DIR__ . '/../partials/header.php'); ?>
 
 <div class="row">
