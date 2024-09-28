@@ -50,3 +50,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
         exit();  // Stop script execution after redirect
     }
 }
+
+if (isset($_POST['user_logout'])){
+
+    session_start();  // Start the session
+
+// Unset all session variables
+    $_SESSION = array();
+
+// Destroy the session
+    session_destroy();
+
+// Redirect to the login page (or homepage)
+    header("Location: <?= $base_url ?>?a=logout");
+    exit();
+}

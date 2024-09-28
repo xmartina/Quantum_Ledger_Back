@@ -267,8 +267,11 @@
 
                     <!-- Logout Menu Item -->
                     <li class="nav-item" data-page="logout">
-                        <a href="<?= $base_url ?>?a=logout" class="nav-link">
-                            <i class="fas fa-sign-out-alt text-danger"></i><span>Logout</span>
+                        <a href="javascript:void(0);" class="nav-link">
+                            <form action="<?= $base_url ?>v_card/functions/auth_function.php" method="post">
+                                <button name="user_logout"><i class="fas fa-sign-out-alt text-danger"></i><span>Logout</span>
+                                </button>
+                            </form>
                         </a>
                     </li>
                 </ul>
