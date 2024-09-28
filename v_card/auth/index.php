@@ -11,7 +11,7 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
     </style>
     <div class="offset-3 shadow-sm rounded col-lg-5 px-5 py-5 auth-card-form ">
         <div class="">
-            <form class="account-form" method="post" action="">
+            <form class="account-form" method="post" action="../functions/auth_function.php">
                 <?php if (!empty($errors)): ?>
                     <ul style="color:red">
                         <?php foreach ($errors as $error): ?>
