@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
         // If a row is returned, the username exists
         if ($result->num_rows > 0) {
             // Store the username in the session
-            $_SESSION['username'] = $username; ?>
+            $_SESSION['username'] = $user_name; ?>
 
             <script type="text/javascript">
                 window.location.assign('<?= $base_url ?>v_card');
