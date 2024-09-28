@@ -1,7 +1,7 @@
 <?php
 $page_name = 'My Card';
 include_once(__DIR__ . '/../functions/card_request_function.php');
-include_once(__DIR__ . '/../header.php');
+include_once(__DIR__ . '/../partials/header.php');
 ?>
 <div class="row">
     <div class="col-lg-6">
@@ -43,6 +43,6 @@ include_once(__DIR__ . '/../header.php');
     </div>
 </div>
 
-<?php include_once(__DIR__ . '/../footer.php'); ?>
+<?php include_once(__DIR__ . '/../partials/footer.php'); ?>
 
 
