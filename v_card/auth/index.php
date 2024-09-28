@@ -12,21 +12,17 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
     <div class="offset-3 shadow-sm rounded col-lg-5 px-5 py-5 auth-card-form ">
         <div class="">
             <form class="account-form" method="post" action="../functions/auth_function.php">
-                <?php if (!empty($errors)): ?>
+                <?php if (!empty($error)): ?>
                     <ul style="color:red">
-                        <?php foreach ($errors as $error): ?>
-                            <li><?= $error ?></li>
-                        <?php endforeach; ?>
+                        <li><?= $error ?></li>
                     </ul>
                 <?php endif; ?>
                 <div class="form--group">
-                    <input type="password" name="username" value="" class="form-control form--control " id="password">
+                    <input type="text" name="username" value="" class="form-control form--control" id="username">
                     <label for="username" class="form--label text-white prevent-select">Input Your Username to Authenticate</label>
-
                 </div>
                 <div class="form--group d-flex justify-content-center mb-4 pt-4">
-                    <button type="submit" class="rounded btn cmn--btn w-75 justify-content-center text--white border-0" name="card_auth">Authenticate
-                    </button>
+                    <button type="submit" class="rounded btn cmn--btn w-75 justify-content-center text--white border-0" name="card_auth">Authenticate</button>
                 </div>
             </form>
         </div>
