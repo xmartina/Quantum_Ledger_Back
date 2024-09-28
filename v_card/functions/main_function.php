@@ -42,16 +42,20 @@ function generate_cvv_number()
 
 $ccv_code = generate_cvv_number();
 
-  // Start the session early
+
+session_start();  // Start the session
 
 $page_url = $_SERVER['REQUEST_URI'];
 
-// Check if the user is not on the allowed pages (use AND instead of OR for the checks)
-if (strpos($page_url, 'v_card/auth') === false && strpos($page_url, 'invalid_username') === false && strpos($page_url, 'enter_a_username') === false) {
-    session_start();
+// Only redirect to login if the URL is not related to authentication and the user is not logged in
+if (
+    strpos($page_url, 'v_card/auth') === false &&
+    strpos($page_url, 'invalid_username') === false &&
+    strpos($page_url, 'enter_a_username') === false
+) {
     if (!isset($_SESSION['username'])) {
+        // Redirect to login if the user is not logged in
         header("Location: ../?a=login");
-        exit();  // Make sure to exit after header redirection to avoid further code execution
+        exit();  // Ensure the script stops after redirection
     }
 }
-?>

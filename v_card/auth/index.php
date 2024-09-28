@@ -11,6 +11,17 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
     </style>
     <div class="offset-3 shadow-sm rounded col-lg-5 px-5 py-5 auth-card-form ">
         <div class="">
+            <?php
+            // Check if an error is present in the URL
+            $error = isset($_GET['error']) ? $_GET['error'] : '';
+
+            // Display appropriate error message based on the error type
+            if ($error === 'invalid_username') {
+                echo "<p style='color: red;'>Invalid username, please try again.</p>";
+            } elseif ($error === 'enter_a_username') {
+                echo "<p style='color: red;'>Please enter a username.</p>";
+            }
+            ?>
             <form class="account-form" method="post" action="../functions/auth_function.php">
                 <?php if (!empty($error)): ?>
                     <ul style="color:red">
