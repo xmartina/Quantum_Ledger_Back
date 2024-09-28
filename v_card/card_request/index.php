@@ -1,5 +1,5 @@
 <?php
-$page_name = 'My Card';
+$page_name = 'Card Request';
 include_once(__DIR__ . '/../functions/card_request_function.php');
 include_once(__DIR__ . '/../partials/header.php');
 ?>
