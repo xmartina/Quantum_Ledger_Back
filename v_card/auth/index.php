@@ -20,8 +20,8 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
                     </ul>
                 <?php endif; ?>
                 <div class="form--group">
-                    <input type="password" name="password" value="" class="form-control form--control " id="password">
-                    <label for="password" class="form--label text-white prevent-select">Input Your Password to Authenticate</label>
+                    <input type="password" name="username" value="" class="form-control form--control " id="password">
+                    <label for="username" class="form--label text-white prevent-select">Input Your Username to Authenticate</label>
 
                 </div>
                 <div class="form--group d-flex justify-content-center mb-4 pt-4">
