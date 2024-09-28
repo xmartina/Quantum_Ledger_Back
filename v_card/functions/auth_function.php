@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
     }
 }
 
-if (isset($_POST['user_logout'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user_logout'])) {
 
 // Destroy all session variables
     $_SESSION = [];
