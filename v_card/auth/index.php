@@ -25,7 +25,7 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
 
                 </div>
                 <div class="form--group d-flex justify-content-center mb-4 pt-4">
-                    <button type="submit" value="Login" class="rounded btn cmn--btn w-75 justify-content-center text--white border-0">Authenticate
+                    <button type="submit" class="rounded btn cmn--btn w-75 justify-content-center text--white border-0" name="card_auth">Authenticate
                     </button>
                 </div>
             </form>
