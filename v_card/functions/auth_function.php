@@ -31,20 +31,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
             $_SESSION['username'] = $username; ?>
 
             <script type="text/javascript">
-                window.location.href = "<?= $base_url ?>v_card";
+                window.location.assign('<?= $base_url ?>v_card');
             </script>
             <?php
             exit();  // Always stop script execution after redirection
         } else { ?>
             <script type="text/javascript">
-                window.location.href = "<?= $base_url ?>v_card/auth/?error=invalid_username";
+                window.location.assign('<?= $base_url ?>v_card/auth/?error=invalid_username') ;
             </script>
             <?php
             exit();  // Stop script execution after redirect
         }
     } else { ?>
         <script type="text/javascript">
-            window.location.href = "<?= $base_url ?>v_card/auth/?error=enter_a_username";
+            window.location.assign('<?= $base_url ?>v_card/auth/?error=enter_a_username');
         </script>
         <?php
         exit();  // Stop script execution after redirect
