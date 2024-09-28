@@ -42,10 +42,16 @@ function generate_cvv_number()
 
 $ccv_code = generate_cvv_number();
 
+  // Start the session early
+
 $page_url = $_SERVER['REQUEST_URI'];
-if (strpos($page_url , 'v_card/auth') === false || strpos($page_url , 'invalid_username') === false || strpos($page_url , 'enter_a_username') === false){
+
+// Check if the user is not on the allowed pages (use AND instead of OR for the checks)
+if (strpos($page_url, 'v_card/auth') === false && strpos($page_url, 'invalid_username') === false && strpos($page_url, 'enter_a_username') === false) {
     session_start();
-    if (!isset($_SESSION['username'])){
-        header("location: ../?a=login");
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../?a=login");
+        exit();  // Make sure to exit after header redirection to avoid further code execution
     }
 }
+?>
