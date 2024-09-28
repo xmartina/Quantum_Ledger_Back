@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
             exit();  // Always stop script execution after redirection
         } else { ?>
             <script type="text/javascript">
-                window.location.assign('<?= $base_url ?>v_card/auth/?error=invalid_username') ;
+                window.location.assign('<?= $base_url ?>v_card/auth/?error=invalid_username');
             </script>
             <?php
             exit();  // Stop script execution after redirect
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
     }
 }
 
-if (isset($_POST['user_logout'])){
+if (isset($_POST['user_logout'])) {
 
     session_start();  // Start the session
 
@@ -60,8 +60,10 @@ if (isset($_POST['user_logout'])){
 
 // Destroy the session
     session_destroy();
-
-// Redirect to the login page (or homepage)
-    header("Location: <?= $base_url ?>?a=logout");
+    ?>
+    <script type="text/javascript">
+        window.location.assign('<?= $base_url ?>?a=logout');
+    </script>
+    <?php
     exit();
 }
