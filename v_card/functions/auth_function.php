@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
        <?php }
     } else { ?>
         <script type="text/javascript">
-            window.location.href = "<?= $base_url ?>v_card/enter_a_username";
+            window.location.href = "<?= $base_url ?>v_card/auth?=enter_a_username";
         </script>
    <?php }
 }
