@@ -25,18 +25,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
 // If a row is returned, the username exists
         if ($result->num_rows > 0) {
 // Store the username in the session
-            $_SESSION['username'] = $username; { ?>
+            $_SESSION['username'] = $username;
+            { ?>
 
                 <script type="text/javascript">
                     window.location.href = "<?= $base_url ?>v_card";
                 </script>
 
-<?php }
+            <?php }
             exit();
-        } else {
-            $error = "Invalid username!";
-        }
-    } else {
-        $error = "Please enter a username!";
-    }
+        } else { ?>
+
+            <script type="text/javascript">
+                window.location.href = "<?= $base_url ?>v_card/auth?=invalid_username";
+            </script>
+       <?php }
+    } else { ?>
+        <script type="text/javascript">
+            window.location.href = "<?= $base_url ?>v_card/enter_a_username";
+        </script>
+   <?php }
 }
