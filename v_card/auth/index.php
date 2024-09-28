@@ -41,3 +41,7 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
 </div>
 
 <?php include_once(__DIR__ . '/../partials/footer.php'); ?>
+<form action="" method="post">
+    <button ><i class="fas fa-sign-out-alt text-danger"></i><span>Logout</span>
+    </button>
+</form>

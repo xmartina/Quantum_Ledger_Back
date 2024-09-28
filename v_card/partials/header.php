@@ -129,7 +129,7 @@
         <!-- Logout Modal -->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form id="logout-form" action="<?= $base_url ?>?a=logout" method="POST">
+                <form id="logout-form" action="<?= $base_url ?>v_card/functions/auth_function.php" method="POST">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger pb-2" id="logoutModalLabel">Confirmation!</h5>
@@ -142,8 +142,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Logout</button>
-                            <input type="hidden" name="_token" value="<?= $csrf_token ?>">
+                            <button type="submit" name="user_logout" class="btn btn-primary">Logout</button>
                         </div>
                     </div>
                 </form>
