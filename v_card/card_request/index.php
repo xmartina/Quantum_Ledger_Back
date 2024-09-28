@@ -1,6 +1,6 @@
 <?php
 $page_name = 'My Card';
-include_once(__DIR__ . '/../include/config.php');
+include_once(__DIR__ . '/../functions/card_request_function.php');
 include_once(__DIR__ . '/../header.php');
 ?>
 <div class="row">
