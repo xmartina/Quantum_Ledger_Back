@@ -53,12 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
 
 if (isset($_POST['user_logout'])) {
 
-    session_start();  // Start the session
+// Destroy all session variables
+    $_SESSION = [];
 
-// Unset all session variables
-    $_SESSION = array();
-
-// Destroy the session
+// Destroy the session itself
     session_destroy();
     ?>
     <script type="text/javascript">
