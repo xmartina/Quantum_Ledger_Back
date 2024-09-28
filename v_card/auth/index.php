@@ -1,6 +1,6 @@
 <?php
 $page_name = 'Login';
-include_once (__DIR__ . '/../functions/login_function.php');
+include_once (__DIR__ . '/../functions/auth.php');
 include_once (__DIR__ . '/../partials/header.php'); ?>
 
 <section class="account-section bg--title" style="border-bottom: 1px solid #5f5f5f">
