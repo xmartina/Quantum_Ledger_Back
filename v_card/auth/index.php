@@ -9,8 +9,8 @@ include_once(__DIR__ . '/../partials/header.php'); ?>
             background-color: #493011;
         }
     </style>
-    <div class="offset-4 col-lg-4 px-3 py-3">
-        <div class="auth-card-form shadow-sm rounded">
+    <div class="offset-3 col-lg-5 px-3 py-3 auth-card-form ">
+        <div class="shadow-sm rounded">
             <form class="account-form" method="post" action="">
                 <?php if (!empty($errors)): ?>
                     <ul style="color:red">
