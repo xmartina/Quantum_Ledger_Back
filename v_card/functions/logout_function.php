@@ -9,6 +9,6 @@ session_start();
     session_destroy();
 
     // Redirect to the homepage or login page after logout
-    header("Location: " . $base_url . "?a=logout");
+    header("Location: ../?a=logout");
     exit();
 
