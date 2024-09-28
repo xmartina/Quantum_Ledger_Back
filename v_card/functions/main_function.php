@@ -43,7 +43,7 @@ function generate_cvv_number()
 $ccv_code = generate_cvv_number();
 
 $page_url = $_SERVER['REQUEST_URI'];
-if (strpos($page_url , 'v_card')){
+if (strpos($page_url , 'v_card/auth') === false){
     session_start();
     if (!isset($_SESSION['username'])){
         header("location : ../?a=login");
