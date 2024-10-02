@@ -1,6 +1,15 @@
 <div class="container preload">
     <?php if($card_status == 'inactive'){ ?>
-        Your card is pending approval it will appear her when approved
+        <div class="card mt-5">
+            <div class="card-header text-danger">
+                Your Card is Pending Approval
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    It will appear here when approved.
+                </p>
+            </div>
+        </div>
     <?php } elseif ($card_status == 'active') {?>
     <div class="creditcard">
         <div class="front">
