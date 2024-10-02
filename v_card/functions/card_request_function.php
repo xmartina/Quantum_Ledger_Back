@@ -73,11 +73,13 @@ if (isset($_POST['request_card'])) {
 
             // Execute the query
             if ($conn->query($insert_sql) === TRUE) {
+                header("location:".$base_url."v_card/?success=new_card_inserted_successfully");
                 echo "New card inserted successfully!";
             } else {
                 echo "Error: " . $conn->error;
             }
         } else {
+            header("location:".$base_url."v_card/?success=new_card_inserted_successfully");
             echo "A card already exists for this user.";
         }
     } else {

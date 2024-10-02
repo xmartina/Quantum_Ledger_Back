@@ -4,6 +4,17 @@ $page_name = 'Card Request';
 include_once(__DIR__ . '/../functions/card_request_function.php');
 include_once(__DIR__ . '/../partials/header.php');
 ?>
+<?php
+// Check if 'success' is set in the URL parameters
+if (isset($_GET['success']) && $_GET['success'] == 'new_card_inserted_successfully') {
+    echo '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        New card inserted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
+?>
+
 <div class="row">
     <div class="col-lg-6">
         <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>
