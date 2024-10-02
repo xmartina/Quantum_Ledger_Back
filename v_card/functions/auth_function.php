@@ -58,13 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
             // Store the user_id and username in the session
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
-
+            header("Location: " . $base_url . "v_card");
             // Redirect to the v_card page
-            ?>
-            <script type="text/javascript">
-                window.location.assign('<?= $base_url ?>v_card'); // Redirect to v_card
-            </script>
-            <?php
             exit();  // Always stop script execution after redirection
         } else { ?>
             <script type="text/javascript">
