@@ -47,7 +47,8 @@ function init_v_card($result_cards, $conn) {
             }
         }
     } else {
-        echo "You don't have any virtual cards.";
+        include_once(__DIR__ . '/../../v_card/no_card_template.php');
+        echo "";
     }
 }
 
