@@ -9,6 +9,7 @@ include_once(__DIR__ . '/../partials/header.php');
         <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>
     </div>
     <div class="col-lg-6">
+        <?= $user_id ?>
         <form method="POST" action="">
             <div class="mb-3">
                 <div class="row justify-content-center">
