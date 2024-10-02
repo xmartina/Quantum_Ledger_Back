@@ -104,8 +104,8 @@
                 <!-- User Profile Menu -->
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                        <img alt="<?= $user_name ?>" src="<?= $base_url ?>user-avatar.png" class="rounded-circle mr-1">
-                        <div class="d-sm-none d-lg-inline-block"><?= $user_name ?></div>
+                        <img alt="<?= $username ?>" src="<?= $base_url ?>user-avatar.png" class="rounded-circle mr-1">
+                        <div class="d-sm-none d-lg-inline-block"><?= $username ?></div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow-sm">
                         <a href="<?= $base_url ?>?a=edit_account" class="dropdown-item has-icon">
