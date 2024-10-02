@@ -1,6 +1,6 @@
 <div class="container preload">
     <div class="row" style="height: 200px;">
-        <div class="col-1 d-sm-none pl-0 ml-0 d-flex justify-content-start mr-4 align-items-center" style="flex-wrap: nowrap; overflow: visible; text-overflow: ellipsis;">
+        <div class="col-1 d-none d-sm-none pl-0 ml-0 d-flex justify-content-start mr-4 align-items-center" style="flex-wrap: nowrap; overflow: visible; text-overflow: ellipsis;">
             <div class="centered-text text-danger" style="transform: rotate(270deg); white-space: nowrap; overflow: visible; text-overflow: ellipsis;">
                 pending approval
             </div>
