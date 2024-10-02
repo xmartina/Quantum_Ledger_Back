@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
     // Check if the username is not empty
     if (!empty($username)) {
         // Prepare SQL query to find the username in the hm2_users table
-        $query = "SELECT user_id, username FROM hm2_users WHERE username = ?";
+        $query = "SELECT id, username FROM hm2_users WHERE username = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $username);  // bind the username to the query
         $stmt->execute();
