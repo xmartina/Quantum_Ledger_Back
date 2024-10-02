@@ -1,8 +1,8 @@
 <?php
-$check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
-$check_result = $conn->query($check_query);
-$status_row = $check_result->fetch_assoc();
-$card_status = $status_row['status'];
+//$check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+//$check_result = $conn->query($check_query);
+//$status_row = $check_result->fetch_assoc();
+//$card_status = $status_row['status'];
 ?>
 <div class="row">
     <div class="col-lg-6 offset-lg-3">
