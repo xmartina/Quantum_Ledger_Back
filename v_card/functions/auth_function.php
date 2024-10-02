@@ -65,3 +65,4 @@ if (
         exit();  // Ensure the script stops after redirection
     }
 }
+ob_end_flush();
