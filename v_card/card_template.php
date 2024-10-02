@@ -1,12 +1,4 @@
 <div class="container preload">
-<?php    if ($_GET['success'] == 'new_card_inserted_successfully') {
-    echo '
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        New card inserted successfully!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    }
-    ?>
     <?php if ($card_status == 'not_applied') { ?>
 
                 <div class="wrapper p-4 d-flex justify-content-center flex-row align-items-center bg-white rounded shadow-sm">
