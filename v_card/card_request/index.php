@@ -27,7 +27,7 @@ include_once(__DIR__ . '/../partials/header.php');
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="securitycode" class="form-label">Security Code</label>
-                                    <input id="securitycode" type="text" name="ccv_code" class="form-control" required>
+                                    <input id="securitycode" type="text" name="ccv_code" class="form-control" required maxlength="3">
                                 </div>
                             </div>
                         </div>
