@@ -48,7 +48,7 @@ function generate_cvv_number()
 $ccv_code = generate_cvv_number();
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['request_card'])) {
+if (isset($_POST['request_card'])) {
     // Retrieve form data
     $cardholder_name = $name; // Assuming the name field is sent in the POST request
     $currentMonth = date('m'); // Get current month
