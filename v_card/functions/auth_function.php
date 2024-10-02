@@ -3,8 +3,8 @@ include_once(__DIR__ . '/main_function.php');
 
 $page_url = $_SERVER['REQUEST_URI'];
 if (
-    strpos($page_url, 'v_card') &&
-    strpos($page_url, 'card_request')
+    strpos($page_url, 'v_card') !== false || // Check if 'v_card' is found
+    strpos($page_url, 'card_request') !== false // Check if 'card_request' is found
 ) {
     if (!isset($_SESSION['username'])) { ?>
         <script type="text/javascript">
