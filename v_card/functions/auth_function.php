@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
             $row = $result->fetch_assoc(); // Fetch the row
 
             // Store the user_id and username in the session
-            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
 
             // Redirect to the v_card page
