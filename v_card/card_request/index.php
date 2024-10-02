@@ -1,4 +1,5 @@
 <?php
+session_start();  // Start the session
 $page_name = 'Card Request';
 include_once(__DIR__ . '/../functions/card_request_function.php');
 include_once(__DIR__ . '/../partials/header.php');
@@ -8,10 +9,14 @@ include_once(__DIR__ . '/../partials/header.php');
         <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>
     </div>
     <div class="col-lg-6">
-        <form>
+        <form method="POST" action="">
             <div class="mb-3">
                 <div class="row justify-content-center">
                     <div class="col-sm-10">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input id="username" name="username" type="text" class="form-control" required>
+                        </div>
                         <div class="mb-3">
                             <label for="card_name" class="form-label">Name</label>
                             <input id="card_name" maxlength="20" name="card_user_name" type="text" class="form-control">
@@ -31,18 +36,17 @@ include_once(__DIR__ . '/../partials/header.php');
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-primary" name="request_card">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="card_auth">Submit</button>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="card_name" class="form-label">Card Pin</label>
-                            <input id="card_name" minlength="4" maxlength="5" name="card_pin" type="text" class="form-control">
+                            <label for="card_pin" class="form-label">Card Pin</label>
+                            <input id="card_pin" minlength="4" maxlength="5" name="card_pin" type="text" class="form-control" required>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 

@@ -32,6 +32,7 @@ if (isset($_SESSION['username'])) { ?>
     exit();  // Make sure to stop executing PHP after redirect
 }
 
+// Check if the request method is POST and the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
     // Get the username from the form
     $username = trim($_POST['username']);
@@ -39,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
     // Check if the username is not empty
     if (!empty($username)) {
         // Prepare SQL query to find the username in the hm2_users table
-        $query = "SELECT username FROM hm2_users WHERE username = ?";
+        $query = "SELECT user_id, username FROM hm2_users WHERE username = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $username);  // bind the username to the query
         $stmt->execute();
@@ -47,10 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
 
         // If a row is returned, the username exists
         if ($result->num_rows > 0) {
-            // Store the username in the session
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['username'] = $user_name; ?>
+            $row = $result->fetch_assoc(); // Fetch the row
 
+            // Store the user_id and username in the session
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['username'] = $row['username'];
+
+            // Redirect to the v_card page
+            ?>
             <script type="text/javascript">
                 window.location.assign('<?= $base_url ?>v_card');
             </script>
