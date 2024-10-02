@@ -1,5 +1,5 @@
 <div class="container preload">
-    <div class="row">
+    <div class="row" style="height: 200px;">
         <div class="col-4 d-flex justify-content-start align-items-start">
             <div class="centered-text text-danger" style="transform: rotate(90deg);">pending approval
             </div>
