@@ -1,6 +1,8 @@
 <?php
 include_once (__DIR__ . '/main_function.php');
-include_once (__DIR__ . '/auth_function.php');
+if (!isset($_POST['request_card'])) {
+    include_once(__DIR__ . '/auth_function.php');
+}
 include_once (__DIR__ . '/user_data_function.php');
 
 // Function to generate a random 16-digit number
