@@ -2,7 +2,7 @@
     <div class="col-lg-6 offset-lg-3">
         <div class="wrapper p-4 d-flex justify-content-center flex-row align-items-center bg-white rounded shadow-sm">
             <div class="h4 text-dark mb-4">
-                You don't have any virtual cards.
+                You don't have any virtual card.
             </div>
             <div class="d-flex w-50 justify-content-center">
                 <div class="btn btn-warning px-3-py-3 text-center">
