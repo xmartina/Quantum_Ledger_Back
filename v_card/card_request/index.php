@@ -10,23 +10,20 @@ if (isset($_GET['success']) && $_GET['success'] == 'new_card_inserted_successful
     echo '
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         New card request submitted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-}
-?>
-
-<?php if($card_status == 'inactive') { ?>
-    <div class="card text-center mt-5">
-        <div class="card-header h4 font-weight-bold text-danger">
-            Your Card is Pending Approval
-        </div>
-        <div class="card-body">
-            <p class="card-text">
-                Your card will appear here when approved.
-            </p>
-        </div>
-    </div>
-
-<?php } ?>
+} elseif (isset($_GET['error']) && $_GET['error'] == 'card_exists') {
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        A card already exists for this user.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+} elseif (isset($_GET['error']) && $_GET['error'] == 'missing_user_id') {
+    echo '
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        User ID is missing.
+    </div>';
+} ?>
 <div class="row remove_block">
 
     <div class="col-lg-6">
