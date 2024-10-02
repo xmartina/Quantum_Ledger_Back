@@ -33,6 +33,7 @@ $site_name  = 'Quantum Ledger Financial System';
 <script src="<?= $external_base_url ?>assets/dashboard/js/scripts.js"></script>
 <!-- JavaScript to set the active class on the current menu item -->
 <script>
+
     (function() {
         // Get the 'a' parameter from the URL
         var urlParams = new URLSearchParams(window.location.search);
@@ -88,6 +89,10 @@ $site_name  = 'Quantum Ledger Financial System';
         });
     });
 
+    $(document).ready(function () {
+        $('.remove_block').remove();  // Removes the block and all child elements
+    });
+    }
     // Generate Random Number BTN
 
 </script>

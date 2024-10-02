@@ -13,20 +13,22 @@ if (isset($_GET['success']) && $_GET['success'] == 'new_card_inserted_successful
     </div>';
 }
 ?>
-<div class="row">
-    <?php if($card_status == 'inactive') { ?>
-        <div class="card text-center mt-5">
-            <div class="card-header h4 font-weight-bold text-danger">
-                Your Card is Pending Approval
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Your card will appear here when approved.
-                </p>
-            </div>
-        </div>
 
-    <?php } die();?>
+<?php if($card_status == 'inactive') { ?>
+    <div class="card text-center mt-5">
+        <div class="card-header h4 font-weight-bold text-danger">
+            Your Card is Pending Approval
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Your card will appear here when approved.
+            </p>
+        </div>
+    </div>
+
+<?php } ?>
+<div class="row <?php if($card_status == 'inactive') { ?> remove_block <?php } ?>">
+
     <div class="col-lg-6">
         <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>
     </div>

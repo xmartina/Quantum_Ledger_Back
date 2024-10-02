@@ -49,6 +49,11 @@ function generate_cvv_number()
 
 $ccv_code = generate_cvv_number();
 
+$check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+$check_result = $conn->query($check_query);
+$row = $check_result->fetch_assoc();
+$card_status = $row['status'];
+
 
 if (isset($_POST['request_card'])) {
     // Make sure the user_id is set and valid
