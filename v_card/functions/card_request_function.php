@@ -83,11 +83,11 @@ if (isset($_POST['request_card'])) {
                 echo "Error: " . $conn->error;
             }
         } else {
-            header("location:".$base_url."card_exists");
+            header("location:".$base_url."v_card/card_request/?error=card_exists");
             echo "A card already exists for this user.";
         }
     } else {
-        header("location:".$base_url."v_card/?success=missing_user_id");
+        header("location:".$base_url."v_card/card_request/?error=missing_user_id");
     }
 }
 
