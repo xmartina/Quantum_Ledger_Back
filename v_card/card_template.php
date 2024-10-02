@@ -1,28 +1,31 @@
 <div class="container preload">
     <style>
-        @media screen(max-width : 400px) {
-            .d-sm-only{
-                display: none;
-            }
-        }
-        @media screen(min-width : 401px) {
-            .d-lg-only{
-                display: none;
+        @media screen and (max-width: 400px) {
+            .d-sm-only {
+                display: none; /* Hide on small screens */
             }
         }
 
+        @media screen and (min-width: 401px) {
+            .d-lg-only {
+                display: none; /* Hide on large screens */
+            }
+        }
     </style>
+
     <div class="row" style="height: 200px;">
-        <div class="col-1 d-lg-only pl-0 ml-0 d-flex justify-content-start mr-4 align-items-center" style="flex-wrap: nowrap; overflow: visible; text-overflow: ellipsis;">
+        <div class="col-1 d-lg-only pl-0 ml-0 d-flex justify-content-start mr-4 align-items-center" style="flex-wrap: nowrap; overflow: visible;">
             <div class="centered-text text-danger" style="transform: rotate(270deg); white-space: nowrap; overflow: visible; text-overflow: ellipsis;">
                 pending approval
             </div>
         </div>
-        <div class="col-1 d-sm-only pl-0 ml-0 d-flex justify-content-start mr-4 align-items-center" style="flex-wrap: nowrap; line-height: .7">
+
+        <div class="col-1 d-sm-only pl-0 ml-0 d-flex justify-content-start mr-4 align-items-center" style="flex-wrap: nowrap; line-height: .7;">
             <div class="centered-text text-danger" style="transform: rotate(270deg); white-space: nowrap; overflow: visible; text-overflow: ellipsis;">
                 pending approval
             </div>
         </div>
+
         <div class="col-9 d-flex justify-content-start align-items-start">
             <div class="creditcard">
                 <div class="front">
