@@ -19,7 +19,8 @@ function init_v_card($result_cards, $conn) {
             $balance = $row["balance"];
             $card_status = $row["status"];
             $created_at = $row["created_at"];
-            $expiry_date = $row["expiry_month"].'/'.$row["expiry_year"];
+            $expiry_year = substr($row["expiry_date"], 2, 2);
+            $expiry_date = $row["expiry_month"].'/'.$expiry_year;
 
 
             // Now, fetch user details from hm2_users where id matches $row["user_id"]
