@@ -1,7 +1,6 @@
 <div class="container preload">
     <?php if ($card_status == 'not_applied') { ?>
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3">
+
                 <div class="wrapper p-4 d-flex justify-content-center flex-row align-items-center bg-white rounded shadow-sm">
                     <div class="h4 text-dark mb-4">
                         You don't have any virtual card.
@@ -12,8 +11,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     <?php } elseif($card_status == 'inactive') { ?>
         <div class="card text-center mt-5">
             <div class="card-header h4 font-weight-bold text-danger">
