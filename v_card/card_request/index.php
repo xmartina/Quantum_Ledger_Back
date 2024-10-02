@@ -6,7 +6,7 @@ include_once(__DIR__ . '/../partials/header.php');
 ?>
 <?php
 // Check if 'success' is set in the URL parameters
-if (isset($_GET['success']) && $_GET['success'] == 'new_card_inserted_successfully') {
+if ($_GET['success'] == 'new_card_inserted_successfully') {
     echo '
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         New card inserted successfully!
