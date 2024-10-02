@@ -4,7 +4,7 @@ include_once (__DIR__ . '/main_function.php');
 $user_id = 2;
 
 // Fetch virtual cards for the given user_id
-$sql_cards = "SELECT * FROM virtual_cards WHERE user_id = 2";
+$sql_cards = "SELECT * FROM virtual_cards WHERE user_id = 3";
 $result_cards = $conn->query($sql_cards);
 
 function init_v_card()
