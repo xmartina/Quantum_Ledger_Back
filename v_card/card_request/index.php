@@ -9,11 +9,24 @@ include_once(__DIR__ . '/../partials/header.php');
 if (isset($_GET['success']) && $_GET['success'] == 'new_card_inserted_successfully') {
     echo '
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        New card inserted successfully!
+        New card request submitted successfully!
     </div>';
 }
 ?>
 <div class="row">
+    <?php if($card_status == 'inactive') { ?>
+        <div class="card text-center mt-5">
+            <div class="card-header h4 font-weight-bold text-danger">
+                Your Card is Pending Approval
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Your card will appear here when approved.
+                </p>
+            </div>
+        </div>
+
+    <?php } die();?>
     <div class="col-lg-6">
         <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>
     </div>
