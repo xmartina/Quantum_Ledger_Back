@@ -1,24 +1,40 @@
 <?php
-include_once (__DIR__ . '/../functions/main_function.php');
-$user_id = 1;
+$user_id = 2;
 
-$sql = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
-// Execute the query
-$result = $conn->query($sql);
+// Fetch virtual cards for the given user_id
+$sql_cards = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+$result_cards = $conn->query($sql_cards);
 
-// Check if any records found
-if ($result->num_rows > 0) {
-    // Output data for each card
-    while($row = $result->fetch_assoc()) {
-        echo "Card ID: " . $row["card_id"] . "<br>";
-        echo "User ID: " . $row["user_id"] . "<br>";
-        echo "Card Number: " . $row["card_number"] . "<br>";
-        echo "Cardholder Name: " . $row["cardholder_name"] . "<br>";
-        echo "Expiry Date: " . $row["expiry_date"] . "<br>";
-        echo "CVV: " . $row["cvv"] . "<br>";
-        echo "Balance: " . $row["balance"] . "<br>";
-        echo "Status: " . $row["status"] . "<br>";
-        echo "Created At: " . $row["created_at"] . "<br><br>";
+if ($result_cards->num_rows > 0) {
+
+    $card_id = $row["card_id"];
+    $user_id = $row["user_id"];
+    $card_number = $row["card_number"];
+    $cardholder_name = $row["cardholder_name"];
+    $expiry_date = $row["expiry_date"];
+    $cvv = $row["cvv"];
+    $balance = $row["balance"];
+    $status = $row["status"];
+    $created_at = $row["created_at"];
+
+
+    // Now, fetch user details from hm2_users where id matches $row["user_id"]
+    $sql_user = "SELECT * FROM hm2_users WHERE id = " . $row["user_id"];
+    $result_user = $conn->query($sql_user);
+
+    if ($result_user->num_rows > 0) {
+
+//        $user_id = $user_row["id"];
+        $name = $user_row["name"];
+        $username = $user_row["username"];
+        $email = $user_row["email"];
+        $status = $user_row["status"];
+        $date_register = $user_row["date_register"];
+        $last_access_time = $user_row["last_access_time"];
+
+
+    } else {
+        echo "User not found.";
     }
 } else {
     echo "You don't have any virtual cards.";
