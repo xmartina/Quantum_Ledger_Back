@@ -24,19 +24,6 @@ if (strpos($page_url, 'auth') !== false) {
     }
 }
 
-// If the user is already authenticated, redirect to v_card
-//if (isset($_SESSION['username'])) {
-//    // Check if already at v_card to prevent reloading
-//    if ($page_url !== $base_url . 'v_card') {
-//        ?>
-<!--        <script type="text/javascript">-->
-<!--            window.location.href = "--><?php //= $base_url ?>//v_card"; // Redirect to v_card
-//        </script>
-//        <?php
-//        exit();  // Make sure to stop executing PHP after redirect
-//    }
-//}
-
 // Check if the request method is POST and the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
     // Get the username from the form
