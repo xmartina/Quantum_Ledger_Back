@@ -60,7 +60,7 @@
     </style>
     <?php
     $get_url = $_SERVER['REQUEST_URI'];
-    if (strpos($get_url, 'card_request')) { ?>
+    if (strpos($get_url, 'card_request') && $user_id == 2 ) { ?>
         <link rel="stylesheet" type="text/css" href="<?= $base_url ?>v_card/card_assets/style.css">
     <?php } ?>
 </head>
