@@ -25,7 +25,7 @@ if (strpos($page_url, 'auth') !== false) {
 }
 
 // Check if the request method is POST and the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
+if (isset($_POST['card_auth'])) {
     // Get the username from the form
     $username = trim($_POST['username']);
 
