@@ -7,6 +7,11 @@ include_once(__DIR__ . '/auth_function.php');
 $sql_cards = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
 $result_cards = $conn->query($sql_cards);
 
+$check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+$check_result = $conn->query($check_query);
+$row = $check_result->fetch_assoc();
+$card_status = $row['status'];
+
 function init_v_card($result_cards, $conn) {
     if ($result_cards->num_rows > 0) {
         while ($row = $result_cards->fetch_assoc()) {
