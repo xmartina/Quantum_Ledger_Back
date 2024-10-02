@@ -10,7 +10,6 @@ if ($_GET['success'] == 'new_card_inserted_successfully') {
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
-?>
 init_v_card($result_cards, $conn);
 include_once (__DIR__ . '/partials/footer.php');
 
