@@ -8,12 +8,35 @@ include_once(__DIR__ . '/../partials/header.php');
 // Check if 'success' is set in the URL parameters
 if ($_GET['success'] == 'new_card_inserted_successfully') {
     echo '
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        New card inserted successfully!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
+    <div class="media align-items-center d-flex justify-content-between alert alert-success mb-4">
+    <div class="text-white">
+    <i class="fas fa-exclamation-triangle h3"></i>New card Created Successfully!!
+    </div>
+    </div>
+    ';
 }
 ?>
+
+
+
+<div class="card mb-4">
+    <div class="d-flex align-items-end row">
+        <div class="col-sm-7">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Welcome Stellar Bressett! 🎉</h5>
+                <p class="mb-">
+                    We are delighted to have you, and we hope you will have a great stay with us!
+                </p>
+                <a href="https://account.quantumledger.online/?a=deposit" class="btn btn-outline-primary">Add Fund</a>
+            </div>
+        </div>
+        <div class="col-sm-5 text-center text-sm-left">
+            <div class="card-body pb-0 px-0 px-md-4 text-right">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-6">
