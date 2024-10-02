@@ -1,6 +1,6 @@
 <div class="container preload">
     <?php if ($card_status == 'inactive') { ?>
-        <div class="card text-centered mt-5">
+        <div class="card text-center mt-5">
             <div class="card-header h3 text-danger">
                 Your Card is Pending Approval
             </div>
