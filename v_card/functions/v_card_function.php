@@ -15,11 +15,12 @@ function init_v_card($result_cards, $conn) {
             $user_id = $row["user_id"];
             $card_number = $row["card_number"];
             $cardholder_name = $row["cardholder_name"];
-            $expiry_date = $row["expiry_date"];
             $cvv = $row["cvv"];
             $balance = $row["balance"];
             $card_status = $row["status"];
             $created_at = $row["created_at"];
+            $expiry_date = $row["expiry_month"].'/'.$row["expiry_year"];
+
 
             // Now, fetch user details from hm2_users where id matches $row["user_id"]
             $sql_user = "SELECT * FROM hm2_users WHERE id = " . $row["user_id"];
