@@ -1,6 +1,6 @@
 <?php
 session_start();  // Start the session
-$page_name = 'Card Request';
+$page_name = 'Card Request' .$user_id;
 include_once(__DIR__ . '/../functions/card_request_function.php');
 include_once(__DIR__ . '/../partials/header.php');
 ?>
