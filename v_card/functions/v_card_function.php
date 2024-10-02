@@ -48,7 +48,6 @@ function init_v_card($result_cards, $conn) {
         }
     } else {
         include_once(__DIR__ . '/../../v_card/no_card_template.php');
-        echo "";
     }
 }
 
