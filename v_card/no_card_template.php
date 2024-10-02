@@ -5,7 +5,7 @@
                 You don't have any virtual card.
             </div>
             <div class="d-flex w-50 justify-content-center">
-                <div class="btn btn-warning px-3-py-3 text-center">
+                <div onclick="location.href='<?= $base_url ?>card_request'" class="btn btn-warning px-3-py-3 text-center">
                     Apply for Card
                 </div>
             </div>
