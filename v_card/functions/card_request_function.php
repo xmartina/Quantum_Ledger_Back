@@ -51,34 +51,40 @@ $ccv_code = generate_cvv_number();
 
 
 if (isset($_POST['request_card'])) {
-    // Retrieve form data
-    $cardholder_name = $_POST['card_user_name']; // Assuming 'card_user_name' field is sent in the POST request
-    $currentMonth = date('m'); // Get current month
-    $currentYear = date('Y'); // Get current year
-    $expiry_month = $currentMonth; // Set expiry month to the current month
-    $expiry_year = $currentYear + 4; // Set expiry year to current year + 4
-    $cvv = $_POST['ccv_code']; // Get the CVV code from the form
-    $card_pin = $_POST['card_pin']; // Get the card pin from the form
+    // Make sure the user_id is set and valid
+    if (isset($user_id) && !empty($user_id)) {
+        // Retrieve form data
+        $cardholder_name = $_POST['card_user_name'];
+        $currentMonth = date('m'); // Get current month
+        $currentYear = date('Y'); // Get current year
+        $expiry_month = $currentMonth;
+        $expiry_year = $currentYear + 4;
+        $cvv = $_POST['ccv_code'];
+        $card_pin = $_POST['card_pin'];
 
-    // Check if a card already exists for the user
-    $check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
-    $check_result = $conn->query($check_query);
+        // Check if a card already exists for the user
+        $check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+        $check_result = $conn->query($check_query);
 
-    if ($check_result->num_rows == 0) {
-        // No card exists, so we can insert a new one
-        $insert_sql = "INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv) 
-            VALUES ($user_id, '$cardholder_name', '$card_pin', '$expiry_month', '$expiry_year', '$cvv')";
+        if ($check_result->num_rows == 0) {
+            // No card exists, insert a new one
+            $insert_sql = "INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv, status) 
+                VALUES ($user_id, '$cardholder_name', '$card_pin', '$expiry_month', '$expiry_year', '$cvv', 'inactive')";
 
-        // Execute the query
-        if ($conn->query($insert_sql) === TRUE) {
-            echo "New card inserted successfully!";
+            // Execute the query
+            if ($conn->query($insert_sql) === TRUE) {
+                echo "New card inserted successfully!";
+            } else {
+                echo "Error: " . $conn->error;
+            }
         } else {
-            echo "Error: " . $conn->error;
+            echo "A card already exists for this user.";
         }
     } else {
-        echo "A card already exists for this user.";
+        echo "User ID is missing.";
     }
 }
+
 
 
 // Close database connection
