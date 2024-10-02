@@ -35,7 +35,7 @@ include_once(__DIR__ . '/../partials/header.php');
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="card_pin" class="form-label">Card Pin</label>
+                            <label for="card_pin" class="form-label">Enter Your Card Pin</label>
                             <input id="card_pin" minlength="4" maxlength="5" name="card_pin" type="text" class="form-control" required>
                         </div>
                         <div class="col-sm-5">
