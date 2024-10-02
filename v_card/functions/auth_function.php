@@ -1,7 +1,7 @@
 <?php
 ob_start();
+session_start(); // Ensure the session is started
 include_once(__DIR__ . '/main_function.php');
-
 
 $page_url = $_SERVER['REQUEST_URI'];
 
@@ -13,9 +13,10 @@ if (strpos($page_url, 'auth') !== false) {
         strpos($page_url, 'v_card') !== false || // Check if 'v_card' is found
         strpos($page_url, 'card_request') !== false // Check if 'card_request' is found
     ) {
-        if (!isset($_SESSION['username'])) { ?>
+        if (!isset($_SESSION['username'])) { // If not authenticated
+            ?>
             <script type="text/javascript">
-                window.location.href = "<?= $base_url ?>?a=login";
+                window.location.href = "<?= $base_url ?>?a=login"; // Redirect to login
             </script>
             <?php
             exit();  // Ensure the script stops after redirection
@@ -24,12 +25,16 @@ if (strpos($page_url, 'auth') !== false) {
 }
 
 // If the user is already authenticated, redirect to v_card
-if (isset($_SESSION['username'])) { ?>
-    <script type="text/javascript">
-        window.location.href = "<?= $base_url ?>v_card";
-    </script>
-    <?php
-    exit();  // Make sure to stop executing PHP after redirect
+if (isset($_SESSION['username'])) {
+    // Check if already at v_card to prevent reloading
+    if ($page_url !== $base_url . 'v_card') {
+        ?>
+        <script type="text/javascript">
+            window.location.href = "<?= $base_url ?>v_card"; // Redirect to v_card
+        </script>
+        <?php
+        exit();  // Make sure to stop executing PHP after redirect
+    }
 }
 
 // Check if the request method is POST and the form is submitted
@@ -53,25 +58,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
             // Store the user_id and username in the session
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
-            $user_id = $_SESSION['username'];
 
             // Redirect to the v_card page
             ?>
             <script type="text/javascript">
-                window.location.assign('<?= $base_url ?>v_card');
+                window.location.assign('<?= $base_url ?>v_card'); // Redirect to v_card
             </script>
             <?php
             exit();  // Always stop script execution after redirection
         } else { ?>
             <script type="text/javascript">
-                window.location.assign('<?= $base_url ?>v_card/auth/?error=invalid_username');
+                window.location.assign('<?= $base_url ?>v_card/auth/?error=invalid_username'); // Redirect with error
             </script>
             <?php
             exit();  // Stop script execution after redirect
         }
     } else { ?>
         <script type="text/javascript">
-            window.location.assign('<?= $base_url ?>v_card/auth/?error=enter_a_username');
+            window.location.assign('<?= $base_url ?>v_card/auth/?error=enter_a_username'); // Redirect with error
         </script>
         <?php
         exit();  // Stop script execution after redirect
