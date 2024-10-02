@@ -55,21 +55,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['request_card'])) {
     $cvv = $_POST['ccv_code']; // Get the CVV code from the form
     $card_pin = $_POST['card_pin'];
 
-    // Prepare an SQL statement to insert the data
-    $stmt = $conn->prepare("INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv, status) VALUES (?, ?, ?, ?, ?, ?, 'inactive')");
+    // Check if a card already exists for the user
+    $check_query = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+    $check_result = $conn->query($check_query);
 
-    // Bind parameters
-    $stmt->bind_param("issssi", $user_id, $cardholder_name, $card_pin,  $expiry_month, $expiry_year, $cvv);
+    if ($check_result->num_rows == 0) {
+        // No card exists, so we can insert a new one
+        $sql = "INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv, status) 
+            VALUES ($user_id, '$cardholder_name', '$card_pin', '$expiry_month', $expiry_year, $cvv, 'inactive')";
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "New card inserted successfully!";
+        // Execute the query
+        if ($conn->query($sql) === TRUE) {
+            echo "New card inserted successfully!";
+        } else {
+            echo "Error: " . $conn->error;
+        }
     } else {
-        echo "Error: " . $stmt->error;
+        echo "A card already exists for this user.";
     }
 
-    // Close statement
-    $stmt->close();
 }
 
 // Close database connection
