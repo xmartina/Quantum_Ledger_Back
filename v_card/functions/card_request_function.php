@@ -73,7 +73,7 @@ if (isset($_POST['request_card'])) {
 
             // Execute the query
             if ($conn->query($insert_sql) === TRUE) {
-                header("location:".$base_url."v_card/?success=new_card_inserted_successfully");
+                header("location:".$base_url."v_card/card_request/?success=new_card_inserted_successfully");
                 echo "New card inserted successfully!";
             } else {
                 echo "Error: " . $conn->error;
