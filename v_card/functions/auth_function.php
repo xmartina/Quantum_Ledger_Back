@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
             // Store the user_id and username in the session
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
+            $user_id = $_SESSION['username'];
 
             // Redirect to the v_card page
             ?>
