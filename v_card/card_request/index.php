@@ -27,7 +27,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'new_card_inserted_successful
     </div>
 
 <?php } ?>
-<div class="row <?php if($card_status == 'inactive') { ?> remove_block <?php } ?>">
+<div class="row remove_block ?>">
 
     <div class="col-lg-6">
         <?php include_once(__DIR__ . '/../card_request/card_template.php'); ?>

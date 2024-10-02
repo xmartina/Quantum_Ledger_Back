@@ -89,9 +89,11 @@ $site_name  = 'Quantum Ledger Financial System';
         });
     });
 
+    <?php if($card_status == 'inactive') { ?>
     $(document).ready(function () {
         $('.remove_block').remove();  // Removes the block and all child elements
     });
+    <?php } ?>
     }
     // Generate Random Number BTN
 
