@@ -39,7 +39,7 @@ include_once(__DIR__ . '/../partials/header.php');
                             <input id="card_pin" minlength="4" maxlength="5" name="card_pin" type="text" class="form-control" required>
                         </div>
                         <div class="col-sm-5">
-                            <button type="submit" class="btn btn-primary" name="card_auth">Submit</button>
+                            <button type="submit" class="w-100 btn btn-primary" name="card_auth">Submit</button>
                         </div>
                     </div>
                 </div>
