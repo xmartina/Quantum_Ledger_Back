@@ -1,6 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])){
+    header("location:". $base_url . "?a=login");
+}
 include_once (__DIR__ . '/main_function.php');
-include_once(__DIR__ . '/auth_function.php');
 include_once (__DIR__ . '/user_data_function.php');
 
 // Function to generate a random 16-digit number
