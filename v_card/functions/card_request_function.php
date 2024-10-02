@@ -66,8 +66,8 @@ if (isset($_POST['request_card'])) {
 
     if ($check_result->num_rows == 0) {
         // No card exists, so we can insert a new one
-        $insert_sql = "INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv, status) 
-            VALUES ($user_id, '$cardholder_name', '$card_pin', '$expiry_month', '$expiry_year', '$cvv', 'inactive')";
+        $insert_sql = "INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv) 
+            VALUES ($user_id, '$cardholder_name', '$card_pin', '$expiry_month', '$expiry_year', '$cvv')";
 
         // Execute the query
         if ($conn->query($insert_sql) === TRUE) {
