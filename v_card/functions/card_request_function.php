@@ -1,5 +1,6 @@
 <?php
 include_once (__DIR__ . '/main_function.php');
+include_once (__DIR__ . '/user_data_function.php');
 
 // Function to generate a random 16-digit number
 function generateRandomCardNumber()
@@ -41,3 +42,4 @@ function generate_cvv_number()
 }
 
 $ccv_code = generate_cvv_number();
+
