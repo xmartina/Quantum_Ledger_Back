@@ -14,10 +14,6 @@ include_once(__DIR__ . '/../partials/header.php');
                 <div class="row justify-content-center">
                     <div class="col-sm-10">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input id="username" name="username" type="text" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
                             <label for="card_name" class="form-label">Name</label>
                             <input id="card_name" maxlength="20" name="card_user_name" type="text" class="form-control">
                         </div>
