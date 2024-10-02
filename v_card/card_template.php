@@ -1,4 +1,7 @@
 <div class="container preload">
+    <?php if($card_status == 'inactive'){ ?>
+        Your card is pending approval it will appear her when approved
+    <?php } elseif ($card_status == 'active') {?>
     <div class="creditcard">
         <div class="front">
             <div id="ccsingle">
@@ -119,5 +122,6 @@
                 </svg>
         </div>
     </div>
+    <?php } ?>
 </div>
 </div>
