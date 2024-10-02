@@ -1,19 +1,7 @@
 <?php
+ob_start();
 include_once(__DIR__ . '/main_function.php');
 
-$page_url = $_SERVER['REQUEST_URI'];
-if (
-    strpos($page_url, 'v_card') !== false || // Check if 'v_card' is found
-    strpos($page_url, 'card_request') !== false // Check if 'card_request' is found
-) {
-    if (!isset($_SESSION['username'])) { ?>
-        <script type="text/javascript">
-            window.location.href = "<?= $base_url ?>?a=login";
-        </script>
-        <?php
-        exit();  // Ensure the script stops after redirection
-    }
-}
 
 // If the user is already authenticated, redirect to v_card
 if (isset($_SESSION['username'])) { ?>
@@ -61,5 +49,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['card_auth'])) {
         </script>
         <?php
         exit();  // Stop script execution after redirect
+    }
+}
+
+$page_url = $_SERVER['REQUEST_URI'];
+if (
+    strpos($page_url, 'v_card') !== false || // Check if 'v_card' is found
+    strpos($page_url, 'card_request') !== false // Check if 'card_request' is found
+) {
+    if (!isset($_SESSION['username'])) { ?>
+        <script type="text/javascript">
+            window.location.href = "<?= $base_url ?>?a=login";
+        </script>
+        <?php
+        exit();  // Ensure the script stops after redirection
     }
 }
