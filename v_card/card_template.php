@@ -1,10 +1,10 @@
 <div class="container preload">
     <div class="row" style="height: 200px;">
-        <div class="col-1 d-flex justify-content-end align-items-center">
+        <div class="col-1 d-flex justify-content-end align-items-center" style="flex-wrap: nowrap">
             <div class="centered-text text-danger" style="transform: rotate(90deg);">pending approval
             </div>
         </div>
-        <div class="col-9 d-flex justify-content-start align-items-center">
+        <div class="col-9 d-flex justify-content-start align-items-start">
             <div class="creditcard">
                 <div class="front">
                     <div id="ccsingle">
