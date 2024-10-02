@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text">
-                    It will appear here when approved.
+                    Your card will appear here when approved.
                 </p>
             </div>
         </div>
