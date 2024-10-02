@@ -1,8 +1,7 @@
 <?php
 include_once (__DIR__ . '/../functions/main_function.php');
-$user_id = 1;
-
 $sql = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
+$user_id = 1;
 // Execute the query
 $result = $conn->query($sql);
 
