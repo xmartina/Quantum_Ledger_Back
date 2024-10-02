@@ -18,7 +18,7 @@
                             <path class="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
                         </g>
                         <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svg_card_number" class="st2 st3 st4"><?=$card_number?></text>
-                        <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svg_card_name" class="st2 st5 st6"><?= $cardholder_name ?></text>
+                        <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svg_card_name" class="st2 st5 st6"><?= $name ?></text>
                         <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder name</text>
                         <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
                         <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
