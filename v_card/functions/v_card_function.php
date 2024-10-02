@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL); // Report all PHP errors
-ini_set('display_errors', 1); // Display errors on the page
-ini_set('display_startup_errors', 1); // Display errors during PHP startup
-
 include_once(__DIR__ . '/main_function.php');
 include_once(__DIR__ . '/auth_function.php');
+
 
 // Fetch virtual cards for the given user_id
 $sql_cards = "SELECT * FROM virtual_cards WHERE user_id = $user_id";
