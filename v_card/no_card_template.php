@@ -18,7 +18,7 @@ $card_status = $status_row['status'];
                 </p>
             </div>
         </div>
-        <?php } elseif($card_status == 'not_applied') { ?>
+        <?php } elseif($card_status == 'not_applied' || $result_cards->num_rows < 0) { ?>
             <div class="h4 text-dark mb-4">
                 You don't have any virtual card.
             </div>
