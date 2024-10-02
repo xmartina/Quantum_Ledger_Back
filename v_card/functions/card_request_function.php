@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['request_card'])) {
     $card_pin = $_POST['card_pin'];
 
     // Prepare an SQL statement to insert the data
-    $stmt = $conn->prepare("INSERT INTO virtual_cards (user_id, cardholder_name, expiry_month, expiry_year, cvv, status) VALUES (?, ?, ?, ?, ?, 'inactive')");
+    $stmt = $conn->prepare("INSERT INTO virtual_cards (user_id, cardholder_name, card_pin, expiry_month, expiry_year, cvv, status) VALUES (?, ?, ?, ?, ?, ?, 'inactive')");
 
     // Bind parameters
-    $stmt->bind_param("isssi", $user_id, $cardholder_name, $expiry_month, $expiry_year, $cvv);
+    $stmt->bind_param("issssi", $user_id, $cardholder_name, $card_pin,  $expiry_month, $expiry_year, $cvv);
 
     // Execute the statement
     if ($stmt->execute()) {
