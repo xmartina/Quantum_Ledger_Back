@@ -1,3 +1,8 @@
+</div>
+<!-- container-fluid -->
+
+</div> <!-- content -->
+
 <footer class="footer">
     <div class="container-fluid">
         <div class="row">
