@@ -51,7 +51,11 @@
                                         <i class="mdi mdi-dots-horizontal text-muted fs-20"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Today</a>
+                                        <a class="dropdown-item" href="#">
+                                            <form action="" method="post">
+                                                <button class="btn card_action_btn" type="submit" name="Fund Card" value="Fund Card"></button>
+                                            </form>
+                                        </a>
                                         <a class="dropdown-item" href="#">Last Weekly</a>
                                         <a class="dropdown-item" href="#">Last Month</a>
                                     </div>

@@ -18,6 +18,12 @@
     <!-- Icons -->
     <link href="<?= $asset_link ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        .card_action_btn{
+            background:transparent ;
+            border: none;
+        }
+    </style>
 </head>
 
 <!-- body start -->
