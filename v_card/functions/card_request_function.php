@@ -2,6 +2,7 @@
 error_reporting(E_ALL); // Report all PHP errors
 ini_set('display_errors', 1); // Display errors on the page
 ini_set('display_startup_errors', 1);
+$base_url = 'https://account.quantumledger.online/';
 if (!isset($_SESSION['username'])){
     header("location:". $base_url . "?a=login");
 }
