@@ -28,13 +28,13 @@
                 $card_status = $row["status"];
 
                 if ($card_status == 'inactive') {
-                    echo '<div class="text-warning">Pending Approval</div>';
+                    $card_status = '<div class="text-warning">Pending Approval</div>';
                 } elseif ($card_status == 'active') {
-                    echo '<div class="text-success">Active</div>';
+                    $card_status = '<div class="text-success">Active</div>';
                 } elseif ($card_status == 'blocked') {
-                    echo '<div class="text-danger">Blocked</div>';
+                    $card_status = '<div class="text-danger">Blocked</div>';
                 } elseif ($card_status == 'not_applied') {
-                    echo '<div class="text-muted">Not Applied</div>';
+                    $card_status = '<div class="text-muted">Not Applied</div>';
                 }
 
 
