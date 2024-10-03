@@ -91,7 +91,7 @@
 
                             <div class="text-center d-flex justify-content-between mt-3 align-items-center">
                                 <p class="text-muted mb-0">' . $card_status . '</p>
-                                <h6 class="mb-1 fs-22" style="font-size: 14px;">$' . $balance . '</h6>
+                                <h6 class="mb-1 fs-22" style="font-size: 14px !important;">$' . $balance . '</h6>
                             </div>
                         </div> <!-- end card body -->
                     </div> <!-- end card -->
