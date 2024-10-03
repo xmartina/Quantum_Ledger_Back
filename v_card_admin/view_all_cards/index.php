@@ -25,6 +25,16 @@
                 $expiry_year = $row["expiry_year"];
                 $cvv = $row["cvv"];
                 $balance = $row["balance"];
+                $card_status = $row["status"];
+                if ($card_status == 'inactive'){ ?>
+                    <div class="text-warning">Pending Approval</div>
+                <?php } elseif($card_status == 'active'){ ?>
+                    <div class="text-success">Active</div>
+                <?php } elseif($card_status == 'blocked'){ ?>
+                    <div class="text-danger">Blocked</div>
+                <?php } elseif($card_status == 'not_applied'){ ?>
+                    <div class="text-muted">Not Applied</div>
+                <?php }
 
                 // Output the HTML template with dynamic data
                 echo '
@@ -32,7 +42,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="card-title mb-0">My Card</h5>
+                                <h5 class="card-title mb-0">User Card</h5>
                                 <div class="dropdown mx-0">
                                     <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="mdi mdi-dots-horizontal text-muted fs-20"></i>
@@ -77,7 +87,7 @@
                             </div>
 
                             <div class="text-center d-flex justify-content-between mt-3 align-items-center">
-                                <p class="text-muted mb-0">Total Balance</p>
+                                <p class="text-muted mb-0">' . $card_status . '</p>
                                 <h3 class="mb-1 fs-22">$'.$balance.'</h3>
                             </div>
                         </div> <!-- end card body -->
