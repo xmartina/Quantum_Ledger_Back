@@ -263,7 +263,7 @@
                         <div class="collapse" id="sidebarAuth">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="$admin_url<?= $admin_url ?>view_all_cards">View All Card</a>
+                                    <a href="<?= $admin_url ?>view_all_cards">View All Card</a>
                                 </li>
                                 <li>
                                     <a href="auth-register.html">Pending Approval</a>
