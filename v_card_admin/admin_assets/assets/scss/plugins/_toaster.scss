@@ -1,0 +1,37 @@
+//
+// toastr.scss
+//
+//
+// toastr.scss
+//
+
+#toast-container {
+    >div {
+        opacity: 1;
+        box-shadow: $box-shadow-lg;
+    
+        &:hover {
+            box-shadow: $box-shadow-lg;
+        }
+    }
+}
+
+.toast-progress {
+    background-color: $white;
+}
+
+.toast-success {
+    background-color: $success;
+}
+
+.toast-info {
+    background-color: $info;
+}
+
+.toast-warning {
+    background-color: $warning;
+}
+
+.toast-error {
+    background-color: $danger;
+}

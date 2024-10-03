@@ -1,0 +1,78 @@
+// 
+// authentication.scss
+//
+
+// authentication pages background
+body {
+    &.authentication-bg {
+        background-image: url("../images/login-bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 !important; 
+        padding: 0.75rem;
+
+        &::after {
+            display: none;
+        }
+
+        .auth-brand {
+            .logo-light {
+                display: block;
+            }
+
+            .logo-dark {
+                display: none;
+            }
+        }
+
+        .login-img {
+            .img-light {
+                display: block;
+            }
+
+            .img-dark {
+                display: none;
+            }
+        }
+    }
+
+}
+
+@include media-breakpoint-up(lg) {
+    body {
+        &.authentication-bg {
+            height: 100vh;
+        }
+    }
+}
+
+// Dark mode
+html[data-bs-theme="dark"] {
+
+    body.authentication-bg {
+        background-image: url("../images/login-bg-dark.jpg");
+    }
+
+    .auth-brand {
+        .logo-light {
+            display: none;
+        }
+
+        .logo-dark {
+            display: block;
+        }
+    }
+
+    .login-img {
+        .img-light {
+            display: none;
+        }
+
+        .img-dark {
+            display: block;
+        }
+    }
+}

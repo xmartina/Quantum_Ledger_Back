@@ -1,0 +1,34 @@
+//
+// custom-variables.scss
+//
+
+$logo-lg-height:             var(--#{$prefix}logo-lg-height);
+$logo-sm-height:             var(--#{$prefix}logo-sm-height);
+$sidenav-width:              var(--#{$prefix}sidenav-width);
+$sidenav-width-md:           var(--#{$prefix}sidenav-width-md);
+$sidenav-width-sm:           var(--#{$prefix}sidenav-width-sm);
+
+$sidenav-link-item-gap:      var(--#{$prefix}sidenav-link-item-gap);
+$sidenav-item-padding-x:     var(--#{$prefix}sidenav-item-padding-x);
+$sidenav-item-gap:           var(--#{$prefix}sidenav-item-gap);
+$sidenav-link-padding-y:     var(--#{$prefix}sidenav-link-padding-y);
+$sidenav-link-padding-x:     var(--#{$prefix}sidenav-link-padding-x);
+$sidenav-item-icon-size:     var(--#{$prefix}sidenav-item-icon-size);
+$sidenav-item-font-size:     var(--#{$prefix}sidenav-item-font-size);
+
+// Menu background and text color
+$sidenav-bg:                 var(--#{$prefix}sidenav-bg);
+$sidenav-item-color:         var(--#{$prefix}sidenav-item-color);
+$sidenav-item-hover-color:   var(--#{$prefix}sidenav-item-hover-color);
+$sidenav-item-active-color:  var(--#{$prefix}sidenav-item-active-color);
+$sidenav-item-active-bg:     var(--#{$prefix}sidenav-item-active-bg);
+
+// Topbar
+$topbar-height:              var(--#{$prefix}topbar-height);
+$topbar-bg:                  var(--#{$prefix}topbar-bg);
+$topbar-item-color:          var(--#{$prefix}topbar-item-color);
+$topbar-item-hover-color:    var(--#{$prefix}topbar-item-hover-color);
+$topbar-search-bg:           var(--#{$prefix}topbar-search-bg);
+
+// Footer
+$footer-height:              var(--#{$prefix}footer-height);

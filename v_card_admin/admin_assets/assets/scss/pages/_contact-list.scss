@@ -1,0 +1,13 @@
+// 
+// contact-list.scss
+//
+
+.social-list-item {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    line-height: calc(2rem - 4px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

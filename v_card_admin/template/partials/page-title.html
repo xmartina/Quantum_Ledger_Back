@@ -1,0 +1,23 @@
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center py-2">
+            {{#if title}}
+            <h4>{{title}}</h4>
+            {{/if}}
+
+
+            <ol class="breadcrumb d-lg-flex d-none mb-0">
+                <li class="breadcrumb-item"><a href="javascript: void(0);">TechUI</a></li>
+                {{#if subtitle}}
+                <li class="breadcrumb-item"><a href="javascript: void(0);">{{subtitle}}</a></li>
+                {{/if}}
+
+                {{#if title}}
+                <li class="breadcrumb-item"><a href="javascript: void(0);">{{title}}</a></li>
+                {{/if}}
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- end page title -->

@@ -1,0 +1,37 @@
+// 
+// profile.scss
+//
+
+
+// Timeline-2 
+.timeline-2 {
+    position: relative;
+    border-left: 2px solid $primary;
+
+    .time-item {
+        position: relative;
+        padding-bottom: 1px;
+        border-color: $light;
+
+        :before,
+        :after {
+            display: table;
+            content: " ";
+        }
+
+        :after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            margin-left: -8px;
+            background-color: $card-bg;
+            border-color: $primary;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 50%;
+        }
+    }
+}

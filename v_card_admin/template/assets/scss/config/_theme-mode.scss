@@ -1,0 +1,99 @@
+//
+// light-mode.scss
+//
+
+
+// ======== Custom Variable ======= //
+
+:root {
+    --#{$prefix}logo-lg-height:           34px;
+    --#{$prefix}logo-sm-height:           34px;
+
+    --#{$prefix}sidenav-width:            240px;
+    --#{$prefix}sidenav-width-md:         175px;
+    --#{$prefix}sidenav-width-sm:         80px;
+
+    --#{$prefix}topbar-height:             70px;
+
+    --#{$prefix}sidenav-item-padding-x:        10px;
+    --#{$prefix}sidenav-item-gap:              5px;
+
+    --#{$prefix}sidenav-link-padding-x:       15px;
+    --#{$prefix}sidenav-link-padding-y:       10px;
+
+    --#{$prefix}sidenav-link-item-gap:        10px;
+
+    --#{$prefix}sidenav-item-icon-size:       16px;
+    --#{$prefix}sidenav-item-font-size:       15.2px;
+
+    --#{$prefix}footer-height:                60px;
+}
+
+// Light Mode Shadow
+:root {
+        --#{$prefix}box-shadow-sm:                                 0 12px 12px rgba(207, 212, 218, 0.1);
+    --#{$prefix}box-shadow:                                    0px 0px 35px 0px rgba(154, 161, 171, 0.25);
+    --#{$prefix}box-shadow-lg:                                 0 0 45px 0 rgba(0, 0, 0, 0.30);
+    --#{$prefix}box-shadow-inset:                              inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+// Dark Mode Shadow
+html[data-bs-theme="dark"] {
+    --#{$prefix}box-shadow:                                    0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --#{$prefix}box-shadow-sm:                                 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --#{$prefix}box-shadow-lg:                                 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --#{$prefix}box-shadow-inset:                              inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+// ========== Main Menu =========== //
+
+// Background Light left-sidebar
+html[data-sidenav-color="light"] {
+    --#{$prefix}sidenav-bg:                             #ffffff;
+    --#{$prefix}sidenav-item-color:                       #{$gray-700};
+    --#{$prefix}sidenav-item-hover-color:                 #{$primary};
+    --#{$prefix}sidenav-item-active-color:                #{$primary};
+}
+
+
+// Dark Left Sidebar
+html[data-sidenav-color="dark"],
+html[data-bs-theme="dark"][data-sidenav-color="light"] {
+    --#{$prefix}sidenav-bg:                               #09090b;
+    --#{$prefix}sidenav-item-color:                       #9097a7;
+    --#{$prefix}sidenav-item-hover-color:                 #c8cddc;
+    --#{$prefix}sidenav-item-active-color:                #{$white};
+}
+
+// Brand Menu
+html[data-sidenav-color="brand"] {
+    --#{$prefix}sidenav-bg:                             #{$primary};
+    --#{$prefix}sidenav-item-color:                     #f5f5f5;
+    --#{$prefix}sidenav-item-hover-color:               #ffffff;
+    --#{$prefix}sidenav-item-active-color:              #ffffff;
+}
+
+// Light Topbar
+html[data-topbar-color="light"] {
+    --#{$prefix}topbar-bg:                         #ffffff;
+    --#{$prefix}topbar-item-color:                 #{$gray-700};
+    --#{$prefix}topbar-item-hover-color:           #{$primary};
+    --#{$prefix}topbar-search-bg:                  #{tint-color($gray-200,20%)};
+}
+
+// Dark Topbar
+html[data-topbar-color="dark"],
+html[data-bs-theme="dark"][data-topbar-color="light"] {
+    --#{$prefix}topbar-bg:                  #09090b;
+    --#{$prefix}topbar-item-color:          #8391a2;
+    --#{$prefix}topbar-item-hover-color:    #bccee4;
+    --#{$prefix}topbar-search-bg:           rgba(255,255,255,.05);
+}
+
+// Brand Topbar
+html[data-topbar-color="brand"] {
+    --#{$prefix}topbar-bg:                         #{$primary};
+    --#{$prefix}topbar-item-color:                 rgba(255, 255, 255, 0.7);
+    --#{$prefix}topbar-item-hover-color:           #ffffff;
+    --#{$prefix}topbar-search-bg:                  rgba(255, 255, 255, 0.1);
+}
