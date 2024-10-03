@@ -20,7 +20,7 @@
                 // Loop through the results and populate the HTML template
                 while($row = $result->fetch_assoc()) {
                 $cardholder_name = $row["cardholder_name"];
-                $card_number = "**** **** **** " . substr($row["card_number"], -4); // Hide all but last 4 digits
+                $card_number = $row["card_number"];
                 $expiry_month = $row["expiry_month"];
                 $expiry_year = $row["expiry_year"];
                 $cvv = $row["cvv"];
