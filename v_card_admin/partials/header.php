@@ -250,7 +250,7 @@
                     </a>
                 </div>
 
-                <ul id="side-menu">
+                <ul id="side-menu" class="">
 
                     <li class="menu-title">Menu</li>
 
