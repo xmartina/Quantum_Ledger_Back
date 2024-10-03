@@ -5,7 +5,7 @@
     <title><?= $page_name ?>  | <?= $site_name ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="<?= $site_name ?>" name="description" />
+    <meta content="<?= 'Admin |' . $site_name ?>" name="description" />
     <meta content="GetAppui" name="author" />
 
     <!-- App favicon -->
