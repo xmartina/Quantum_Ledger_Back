@@ -26,17 +26,19 @@
                 $cvv = $row["cvv"];
                 $balance = $row["balance"];
                 $card_status = $row["status"];
-                if ($card_status == 'inactive'){ ?>
-                    <div class="text-warning">Pending Approval</div>
-                <?php } elseif($card_status == 'active'){ ?>
-                    <div class="text-success">Active</div>
-                <?php } elseif($card_status == 'blocked'){ ?>
-                    <div class="text-danger">Blocked</div>
-                <?php } elseif($card_status == 'not_applied'){ ?>
-                    <div class="text-muted">Not Applied</div>
-                <?php }
 
-                // Output the HTML template with dynamic data
+                if ($card_status == 'inactive') {
+                    echo '<div class="text-warning">Pending Approval</div>';
+                } elseif ($card_status == 'active') {
+                    echo '<div class="text-success">Active</div>';
+                } elseif ($card_status == 'blocked') {
+                    echo '<div class="text-danger">Blocked</div>';
+                } elseif ($card_status == 'not_applied') {
+                    echo '<div class="text-muted">Not Applied</div>';
+                }
+
+
+                    // Output the HTML template with dynamic data
                 echo '
                 <div class="col-md-6 col-xl-4">
                     <div class="card">
