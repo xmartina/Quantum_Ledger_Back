@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= $asset_link ?>assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<?= $favicon_url ?>">
 
     <!-- App css -->
     <link href="<?= $asset_link ?>assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
@@ -232,20 +232,20 @@
             <div id="sidebar-menu">
 
                 <div class="logo-box">
-                    <a href="index.html" class="logo logo-light">
+                    <a href="<?= $base_url ?>" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?= $asset_link ?>assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="<?= $site_logo ?>" alt="" height="22">
                                 </span>
                         <span class="logo-lg">
-                                    <img src="<?= $asset_link ?>assets/images/logo-light.png" alt="" height="24">
+                                    <img src="<?= $site_logo ?>" alt="" height="24">
                                 </span>
                     </a>
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="<?= $base_url ?>" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?= $asset_link ?>assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="<?= $site_logo ?>" alt="" height="22">
                                 </span>
                         <span class="logo-lg">
-                                    <img src="<?= $asset_link ?>assets/images/logo-dark.png" alt="" height="24">
+                                    <img src="<?= $site_logo ?>" alt="" height="24">
                                 </span>
                     </a>
                 </div>
