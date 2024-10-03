@@ -263,16 +263,16 @@
                         <div class="collapse" id="sidebarAuth">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="<?= $admin_url ?>view_all_cards">View All Card</a>
+                                    <a href="<?= $admin_url ?>">View All Card</a>
                                 </li>
                                 <li>
-                                    <a href="auth-register.html">Pending Approval</a>
+                                    <a href="<?= $admin_url ?>pending_approval">Pending Approval</a>
                                 </li>
                                 <li>
-                                    <a href="auth-recoverpw.html">Approved Cards</a>
+                                    <a href="<?= $admin_url ?>approved_cards">Approved Cards</a>
                                 </li>
                                 <li>
-                                    <a href="auth-lock-screen.html">Disabled Cards</a>
+                                    <a href="<?= $admin_url ?>disabled_cards">Disabled Cards</a>
                                 </li>
                             </ul>
                         </div>
