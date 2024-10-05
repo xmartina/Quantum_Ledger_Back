@@ -38,6 +38,10 @@
                             $card_status = '<div class="text-muted">Not Applied</div>';
                         }
 
+                        // Start output buffering to include the file
+                        ob_start();
+                        include_once(__DIR__ . "/../partials/card_button_options.php");
+                        $card_button_options = ob_get_clean(); // Get the output and clear the buffer
 
                         // Output the HTML template with dynamic data
                         echo '
@@ -50,7 +54,7 @@
                                     <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="mdi mdi-dots-horizontal text-muted fs-20"></i>
                                     </a>
-                                    '. include_once (__DIR__ . "/../partials/card_button_options.php").'
+                                    '. $card_button_options .'
                                 </div>
                             </div>
                         </div>
