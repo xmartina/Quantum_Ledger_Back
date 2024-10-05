@@ -20,6 +20,7 @@
                     // Loop through the results and populate the HTML template
                     while ($row = $result->fetch_assoc()) {
                         $cardholder_name = $row["cardholder_name"];
+                        $card_user_id = $row["user_id"];
                         $card_number = $row["card_number"];
                         $formatted_card_number = chunk_split($card_number, 4, ' ');
                         $expiry_month = $row["expiry_month"];
@@ -50,12 +51,7 @@
                                     <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="mdi mdi-dots-horizontal text-muted fs-20"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="'. $admin_url .'fund_card">Fund Card
-                                        </a>
-                                        <a class="dropdown-item" href="#">Last Weekly</a>
-                                        <a class="dropdown-item" href="#">Last Month</a>
-                                    </div>
+                                    '. include_once (__DIR__ . '/../partials/card_button_options.php') . '
                                 </div>
                             </div>
                         </div>
