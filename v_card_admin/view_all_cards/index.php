@@ -20,6 +20,7 @@
                     // Loop through the results and populate the HTML template
                     while ($row = $result->fetch_assoc()) {
                         $cardholder_name = $row["cardholder_name"];
+                        $card_user_id = $row["user_id"];
                         $card_number = $row["card_number"];
                         $formatted_card_number = chunk_split($card_number, 4, ' ');
                         $expiry_month = $row["expiry_month"];
